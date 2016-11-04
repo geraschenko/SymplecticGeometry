@@ -1,0 +1,172 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{9}
+ \sektion{Lecture 9 - Compatibility of Symplectic \\ and Almost Complex Structures}
+
+ Correction from last time:  We said $\W^K = \bigoplus_{p+q=k}
+ \W^{p,q}$, then $d\W^{p,q} \subseteq \W^{p+1,q}+\W^{p,q+1}$.
+ This used the fact that $d\w = \partial \w + \bar\partial \w$.
+ It is only true when the complex structure is integrable.  In
+ local coordinates $\w = \sum a_{IJ} \theta^I\wedge \theta^J$.
+ When we took $d$ of this thing, we forgot to take $d$ of the
+ $\theta^i$'s.
+
+ Let $\theta\in \W^{1,0}$, then to prove that $d\theta\in
+ \W^{2,0}+\W^{1,1}$, it suffices to show that $(d\theta)(x,y)=0$
+ if $x$ and $y$ have type $0,1$.  We can calculate this using
+ \begin{align*}
+   d\theta(x,y) &= \underbrace{x\theta(y)}_0 - \underbrace{y\theta(x)}_0 - \theta([x,y])
+ \end{align*}
+ and the last term is zero if $T^{0,1}$ is involutive.
+
+ Once you have that, you can deduce that
+ $\partial^2=\bar\partial^2=0$.
+
+ There is a real analog of this.  Suppose that $TM=E_1\oplus E_2$,
+ then we get that $T^*M\simeq E^*_1\oplus E^*_2$.  Then we have
+ \[
+    \W^kM = \bigoplus_{p+q=k} \Gamma(\wedge^p
+    E^*_1)\otimes_{C^\infty M}
+    \Gamma(\wedge^q E^*_2)
+ \]
+ you get this structure on a ``bifoliated'' manifold (if both
+ $E_1$ and $E_2$ are involutive).
+
+ \vspace{5mm}
+
+ \[\xymatrix{
+  V \ar[r]^J \ar[rd]_{\tilde \w} & V \ar[d]^{\tilde g}\\
+  & V
+ }\]
+
+ One way to state compatibility is to say that
+ \begin{equation*}
+ \w(Jx,Jy)=\w(x,y) \tag{$\ast$}
+ \end{equation*}
+ We define $g(x,y)=\tilde g(x)(y) = \tilde \w(J^{-1}x,y) =
+ -\w(Jx,y)$.  $(\ast)$ implies that $g$ is symmetric such that
+ $g(Jx,Jy)=g(x,y)$.  Any two of these define the third.  This
+ triple is called a \emph{pseudohermitian structure}.  It is
+ called \emph{hermitian} if $g$ is positive definite.
+
+ Consider $\RR^2$, with coordinates $(p,q)$, and
+ $J(\pder{}{q})=\pder{}{p}$.  Let $z=q+ip$, and $\w=dq\wedge dp$.
+ Then we have that
+ \[
+   g\left(\pder{}{q},\pder{}{q}\right) = -\w\left(J\pder{}{q},\pder{}{q}\right) = 1
+ \]
+ Good, so we have the correct sign.
+
+ If we are on a symplectic [almost complex] manifold, can we find
+ compatible almost complex [almost symplectic\footnote{Not
+ necessarily closed.}] structure.  The answers are yes.
+
+ Consider the anulus in $\CC$, with the inner and outer circles
+ glued radially.  This is a complex manifold, topologically $S^1\times
+ S^1$, which has a symplectic structure.
+
+ Figure 1
+
+ Now if we do the same thing in $\CC^n$, we get a $S^{2n-1}\times
+ S^1$, which cannot have a symplectic structure.
+
+ If $J$ is integrable, we get a K\"ahler structure.
+
+ Locally, every complex structure looks like $\CC^n$, and every
+ symplectic structure looks like $\RR^{2n}$.  But when we put the
+ two together, the $g$ has weird twists and doesn't have to be
+ equivalent to the usual metric.
+
+ What can we say anything about the geodesic flows of such things.
+ I dunno.  It can be tied to the behavior of the laplacian (on
+ functions), but I've never seen anything about this.
+
+ If we think of almost complex structure as
+
+ Figure 2
+
+ then for $\w \in \wedge^2 V^*$, we can complexify it to
+ $\w_\CC\in \wedge^2 V^*_\CC$ by requiring it to be complex
+ bilinear.
+
+ If we apply $\w_\CC$ to $V^{0,1}$, since $V^{0,1}$ is the graph
+ of $J$, we have
+ \begin{align*}
+    \w_\CC(x+iJx,v+iJv) &= \underbrace{\w(x,v)-\w(Jx,Jv)} +
+    i(\underbrace{\w(x,Jv)+\w(Jx,v)})\\
+    &=0 \quad \text{if{f} $J,\w$ compatible}
+ \end{align*}
+
+ So another way to say $J,\w$ compatible is to say that $V^{0,1}$
+ is lagrangian in $V_\CC$.  So looking for compatible almost
+ complex structure on a symplectic manifold is the same as looking
+ for lagrangian somethings, and on a K\"ahler manifold, it is the
+ same as looking for lagrangian bi-foliations of the complexification.
+
+ What about the metric?  We do a little computation.  Remember
+ that under the projection from $V^{1,0}$ to $V$, $V$ gets the
+ structure of a complex vector space.
+ \begin{align*}
+   \w_\CC(\underbrace{v-iJv}_{1,0},\underbrace{{w+iJw}}_{0,1}) &=
+   \w(v,w)+\w(Jv,Jw) + i(\w(v,Jw) - \w(Jv,w))\\
+   &= 2\w(v,w) + 2i g(v,w)
+ \end{align*}
+ So by taking the complexified form and restricting it to
+ $V^{1,0}$, we get a hermitian form $\frac{1}{2i}\w_\CC = g -
+ i\w$.  If we set $v=w$, we just get the $g$ part.
+
+ \vspace{2mm}
+
+ On $V\oplus V^*$, we have two natural bilinear forms:
+ $\w_{\pm}((x,\alpha),(y,\beta)) = \alpha(y)\pm \beta(x)$.  If we
+ have a form $\w\in \wedge^2 V$, then the graph of $\tilde \w$ is
+ Dirac (is killed by $\w_+$).  On a manifold, we have $TM\oplus T^*M$.  Suppose we
+ are given $\w\in \W^2M$, then the graph of $\tilde \w$ is a
+ Dirac structure on the bundle $TM$ (i.e., is lagrangian
+ sub-bundle of $TM\oplus T^*M$).
+
+ T.~Courant: Bracket on section of $TM\oplus T^*M$ defined by
+ \[
+    [[(X,\alpha),(Y,\beta)]] = ([X,Y],\L_X\beta-\L_Y\alpha)
+ \]
+ If we stop here, this is a semi-direct product of lie algebras
+ (because $[\L_X,\L_Y] = \L_{[X,Y]}$).  But it doesn't have the
+ property that something is closed under it if and only if it is
+ the graph of a closed form.  So we change it to
+ \[
+    [[(X,\alpha),(Y,\beta)]] = ([X,Y],\L_X\beta-\L_Y\alpha+\frac{1}{2}d(i_Y\alpha-i_X\beta))
+ \]
+ This is no longer a lie algebra (doesn't satisfy Jacobi) and is not a semi-direct
+ product. It has the property that the graph of $\tilde \w$ is
+ closed under this bracket if and only if $d\w=0$.  A lagrangian
+ sub-bundle of $(TM\oplus T^*M,\w_+)$ is called an \emph{almost
+ dirac} structure, and an almost dirac structure whose sections
+ are closed under bracket is called a \emph{dirac structure}.
+ \begin{theorem}
+   If $E$ is a Dirac structure, then the restriction to $E$ of the
+   bracket satisfies the Jacobi identity.  That is, $E$ is a lie
+   algebra under $[[\ ,\, ]]$.
+ \end{theorem}
+
+ \[\xymatrix{
+  E \ar@{^(->}[r] \ar[dr] & TM\oplus T^*M \ar[d]^\rho\\ & TM
+ }\]
+ sends $[[\ ,\, ]]$ to $[\ ,\,]$.
+
+ Suppose you have $\tilde \pi:T^*M\to TM$, which corresponds to
+ $\pi\in \wedge^2 T^{**}M = \wedge^2 TM$.  Given $\pi$, we get an
+ almost Dirac structure, which is the graph of $\tilde \pi$.  What
+ is the condition on $\pi$ that is equivalent to this being a
+ Dirac structure?  That is, when are things like $(\tilde \pi
+ \alpha,\alpha)$ closed under the bracket?
+
+ \begin{theorem}
+   Given $\pi\in \wedge^2 TM$, define $\{f,g\} = \pi(df,dg)$ on
+   $C^\infty M$.  Then the graph of $\tilde \pi$ is a Dirac
+   structure if and only if $\{\ ,\, \}$ satisfies the Jacobi
+   identity.  In this case, we call $\pi$ a \emph{Poisson
+   Structure}.
+ \end{theorem}
+
+ If you have a symplectic structure $\tilde\w:TM\to T^*M$, it is
+ invertible, so we get a $\tilde \pi$.  Define $\{f,g\} =
+ \w(\tilde\w^{-1} df,\tilde\w^{-1}dg)$

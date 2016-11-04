@@ -1,0 +1,140 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{25}
+ \sektion{Lecture 25 -  Geometric Quantization to Deformation Quantization}
+
+ Geometric quantization: $(M,\w)\rightsquigarrow \H$ so that
+ $C^\infty(M)\rightsquigarrow $ operators on $\H$.  Then $\{,\}\rightsquigarrow [,]$,
+ and hamilton's equations $\der{f}{t} = \{f,H\}$ become $\der{A}{t}=i\hslash [A,\hat
+ H]$ for some operator $A$.  If you can get at this algebra, then you're good ... the
+ $\H$ is a representation of the algebra.
+
+ Deformation quantization: forget about $\H$ and just try to get the algebra.  Start
+ with $C^\infty(M[,\CC])=A_0$, and embed it into a family of algebras $A_\hslash$.
+ Let's assume that the $A_\hslash$ are all the same (as vector spaces).  So on some
+ vector space, we have a family $\ast_\hslash$ of associative products.  We will
+ assume that $\ast_0$ is commutative.  Then
+ \[
+    0=\der{}{\hslash}{\Big |}_0 \left[ (f\ast_\hslash g)\ast_\hslash h - f\ast_\hslash (g\ast_\hslash h) \right]
+ \]
+ which gives you a condition on $\left. \der{}{\hslash}\right|_0 (f\ast_\hslash g) =
+ B_1(f,g)$.
+ \[
+    f \ast_\hslash g = f\ast_0 g + \hslash B_1(f,g) + O(\hslash^2)
+ \]
+ we will write $fg$ for $B_0(f,g)$, and assume it is commutative. We have
+ \[
+    \delta B_1 (f,g,h) = B_1(f,g)h + B_1(fg,h) - B_1(f,gh) - fB_1(g,h)=0
+ \]
+ which is part of the Hochschild complex.  Look at $B_1(f,g)-B_1(g,f)$ ... it turns
+ out to be a bi-derivation, which we will call $\{,\}$. If
+ \[
+   f \ast_\hslash g = f\ast_0 g + \hslash B_1(f,g) + \hslash^2 B_2(f,g)+ O(\hslash^3)
+ \]
+ for some $B_2$, then $\{,\}$ satisfies Jacobi identity.  $\{f,g\}$ is the first order
+ part of the commutator of $f$ and $g$, and gives a Poisson structure.
+
+ If you start with a Poisson manifold, does there exist a deformation such that the
+ above construction gives the given poisson bracket?  It is hard to define these
+ $\ast_\hslash$ for a given $\hslash$.  Given $B_0,B_1,\dots :A\times A \to A$, where
+ $B_0$ is multiplication, they define a bilinear product on $A[[\hslash]]$ given by
+ \[
+    a\ast_\hslash b = \sum_{j=0}^\infty B_j(a,b)
+ \]
+ where the $B_j$ are extended to $A[[\hslash]]$ by $\CC[[\hslash]]$-linearity.
+
+ Today we'll talk about how on a K\"ahler manifold, you can go from a geometric
+ quantization to a deformation quantization; this is sometimes called Berezin-Toeplitz
+ quantization, but the people who did the first work were Boutet de Monvel and
+ Guillemin.
+
+ $(M,\w,Q,\phi,F)$ with $M$ compact, from which we get a vector bundle $E$, with
+ $\Gamma(E)\simeq\H_{-1}$, and $\Gamma_{hol}(E)\simeq \H_{-1,F} \subseteq \H_{-1}$, and
+ $\E^n=\Gamma_{hol}(E^{\otimes n})\simeq \H_{-n,F}\subseteq \H_{-n}$.  The Riemann-Roch theorem tells us
+ about what happens as $n$ gets big.  Let $\H_{-n}\xrightarrow{\pi_n} \H_{-n,F}$ be
+ the projection.  For $f\in C^\infty(M)$, define the $n$th Toeplitz operator $T_f^{(n)} = \pi_n M_f
+ \pi_n: \E^n\to \E^n$.
+ \begin{theorem}[Boutet de Monvel-Guillemin, Bordemann-Meinrenken-Schlichenmaier,...]
+   There are (unique!) bidifferential operators $B_j:C^\infty{M}\times C^\infty{M} \to
+   C^\infty{M}$ such that, if we set $f\ast_{[I]}g = \sum_{i=0}^I \frac{1}{n^i}
+   B_i(f,g)$, then $||T^{(n)}_{f\ast_{[I]} g}-T^{(n)}_fT^{(n)}_g||\le
+   C_{I}\frac{1}{n^{I+1}}$.  So as $I\to \infty$, $T^{(n)}$ gets closer and closer to
+   a homomorphism.  In particular, $B_0(f,g)=fg$, $B_1(f,g) -B_1(g,f) = i\{f,g\}$.
+ \end{theorem}
+ $\{f,g\} = \pder{f}{q_i} \pder{g}{p_i} - \pder{f}{p_i} \pder{g}{q_i}$, we may write
+ $P = \pder{}{q^i}\pder{}{p_i} - \pder{}{p_i}\pder{}{q^i}$, with the operators acting
+ in the right direction, then we have $fPg$.
+
+ It follows from the theorem that the $B_i$ form a deformation quantization.  The
+ theorem tells you about the existence of a deformation quantization, but it also gives
+ you information about the holomorphic sections.  All the proofs use the picture of a
+ tower of line bundles.  The $T^{(n)}_f$ act on different spaces, so that's annoying,
+ but all the $\H_{-n}\subseteq L^2(Q)$, so you can look at the direct sum of all the
+ spaces in $L^2(Q)$.
+
+ In the simplest example, $M=\PP^1=S^2$, then $Q=S^3$.  Then the $\H_{-n}$ are degree
+ $n$ homogeneous polynomials, so when you take the direct sum and take the appropriate
+ closure, you get holomorphic functions on the 4-disk.  You can look at those
+ functions which are in $L^2$[?] on $S^3$.
+
+ What do the operators $B_i$ look like?  In local coordinates, it's too complicated to
+ write the formula.  Let's assume that there is a piece of the manifold which is flat.
+ Then in local coordinates in a flat place,
+ \[
+    B_1(f,g) = \frac{1}{i}(\underbrace{\pder{}{z^j}_{\leftarrow}\pder{}{\bar z^j}_\to }_\Phi) g
+ \]
+ \begin{align*}
+    \pder{f}{z}\pder{g}{\bar z} &= \frac{1}{2}(f_q-if_p)(g_q+ig_p)\\
+        &= \frac{1}{2}(f_qg_q+f_pg_p+i(\underbrace{f_qg_p+f_pg_q}_{\{f,g\}}))
+ \end{align*}
+ We have that
+ \[
+    f\ast_\hslash g = f(e^{\hslash \Phi})g.
+ \]
+ where $\Phi^n = \partial_z^n \partial_{\bar z}^n$, or whatever.
+ This is also called the [Anti-?]Wick product.  If $g$ is holomorphic or $f$ is
+ anti-holomorphic, then $f\ast_\hslash g=fg$.
+
+ This is a local model for compact manifolds, but the product also works globally on
+ $\CC^n\simeq \RR^{2n}$.  Since tangent spaces of K\"ahler manifolds look like
+ $\CC^n$, this is the local picture in general.  There is a real theory too, which was
+ used in the more algebraic proofs of deformation quantization.  In that case, the
+ local model is the Moyal Product on $\RR^{2n}$ (Von Neumann, Weyl):
+ \begin{align*}
+    f\ast_\hslash g  &= f(e^{\frac{i\hslash}{2}P})g\\
+     &= fg + \frac{i\hslash}{2} \{f,g\} + (\frac{i\hslash}{2})^2\frac{1}{2!} f(P)^2g +
+     \cdots
+ \end{align*}
+ this is a standard star product, and it is unique if you assume that it is invariant
+ under the action of the symplectic group $Sp(2n;\RR)$, which acts on functions by
+ pulling back.  On quadratic functions, $\mathfrak{sp}(2n;\RR)$, $f\ast_\hslash g -
+ g\ast_\hslash f = i\hslash\{f,g\}$ (it is clear that the third and higher order terms
+ vanish, but so do the second order terms!).  In fact, you only need one of $f,g$ to
+ be quadratic.  This thing lives naturally on any symplectic vector space, so you have
+ one on each tangent space of a symplectic manifold.
+
+ Another possible product:
+ \begin{align*}
+   f\ast'_\hslash g &= f(e^{i\hslash \pder{}{q}_{\leftarrow} \pder{}{p}_\to})g
+ \end{align*}
+ which is much simpler.
+
+ You want to get from Polynomials on $\RR^{2n}$ to operators on $L^2(\RR^n)$.  We take
+ $q\mapsto M_z$, $p\mapsto i\hslash \pder{}{x}$.  Then where does $qp$ go?  It could
+ be $i\hslash x \pder{}{x}$ or $i\hslash \pder{}{x} x$, or if you can't decide, you
+ can take $\frac{i\hslash}{2}(x\pder{}{x}+\pder{}{x}x)$.  The first rule corresponds
+ to the star product $\ast'_\hslash$ (that's where composition goes), whereas the last
+ one leads to the Weyl product.
+
+ In general, the Weyl product doesn't converge ... it is just formal.  But there is an
+ integral formula.  Let $x,y,z$ be general points in $\RR^{2n}$.
+ \[
+    (f\ast_\hslash g)(z) = (something) \int K(x,y,z) f(x)g(y)\, dx\, dy
+ \]
+ To get the Weyl product, take $K = e^{\frac{i}{\hslash} 4Area(\Delta_{xyz})}$ where
+ $\Delta_{xyz}$ is the triangle with vertices $x,y,z$.  This is how Von Neumann comes into
+ the story.
+
+ What does this have to do with the Weyl product formula we had?  Principal of
+ Stationary Phase: if $S$ a morse function,  $\int e^{\frac{i}{\hslash} S(x)}a(x)\, dx
+ \sim_{\hslash\to 0} \sum_{p\in crit\, S} \hslash a(p)\frac{1}{\sqrt{\det
+ \frac{\partial^2 S}{\partial x^i \partial x^j}}}+\cdots$

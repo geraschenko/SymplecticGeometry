@@ -1,0 +1,136 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{18}
+ \sektion{Lecture 18}
+
+ \begin{theorem}[Schur-Horn]
+   If you look at the action of $U(n)$ on $n\times n$ hermitian matrices, and let
+   $\O_{(\lambda_1,\dots, \lambda_n)}$.
+
+  $conv\{(/lambda_{\sigma(1)},\dots)\}\{diag(ADA^*)\}\in \RR^n$, where
+  $D=diag(\lambda_1,\dots, \lambda_n)$ and $\sigma$ a permutation.
+ \end{theorem}
+
+ Then Kostant generalized, Heckman reinterpreted in terms of coadjoint orbits,
+ Guilleman-Sternberg reinterpreted as tori acting on symplectic manifolds, Atiyah some
+ other stuff.  Then Kirwan generalized for non-tori ... N.T.Zung ``the ultimate
+ convexity theorem''.
+
+ Ingredients of proof
+ \begin{itemize}
+ \item[(1)] Local normal form $\Rightarrow$ local convexity
+ \item[(2)] ``Morse theory'' $\rightarrow$ global result
+ \item[(3)] Covering argument (C-D-M) (connected fiber
+ \end{itemize}
+
+ $x$ fixed point for the torus action, action on $T_xM$ linear, $G$-equivariant as in
+ last lecture.
+
+ Then we find a $G$-invariant hermitian structure on $T_xM$.
+
+ $G$ compact compact acting on vector space $V$.  Then there is a $G$-invariant inner
+ product on $V$.  To see this, take any inner product $B$ and define
+ \[
+    \bar B(v,w) = \int_G B(gv,gw)\, dg
+ \]
+ where $dg$ is the haar measure.
+
+ This gives us a compatible complex structure.  Now we are going to use that $G$ is a
+ torus $\mathbb{T}^m$, so we can diagonalize the action by choosing coordinates
+ $q_j,p_j$.  We get a map $\t^m\to \RR^n\simeq \t^n$.  Think of $G=\RR^m/2\pi \ZZ^m$,
+ then this map is an integer matrix.
+
+ $\langle J(z^1,\dots, z^n),(t_1,\dots, t_n)\rangle = \frac{1}{2}t_jr^j_k|z^k|^2 =
+ \frac{1}{2}t_jr^j_k((q^k)^2+(p^k)^2)$, where $r^j_k$ is an integer matrix.
+ Hamilton's equations:
+ \begin{align*}
+   \dot{q}^k &= \pder{\J}{p^k} = t_jr^j_kp^k & (\text{not sum over $k$})\\
+   \dot{p}^k &= -\pder{\J}{q^k} = -t_jr^j_kq^k &(\text{not sum over $k$})
+ \end{align*}
+ .  So $J(z^1,\dots, z^n)=\{r^j_k\cdot
+ \frac{1}{2}|z^k|^2\}=r^j_k\frac{1}{2}|z^k|^2\tau_j =
+ \underbrace{(r^j_k\tau_j)}_{e_k}\frac{1}{2}|z^k|^2$, where $\tau_j$ is the $j$-th
+ basis vector of $\t^*$, $e_k$ a vector in $\t^*$ with integer components.  Thus,
+ locally, the image of the momentum map are all the non-negative linear combinations
+ of the $e_k$'s.  This gives us a polyhedral cone (if the $e_k$ are pointing in
+ sufficiently different directions that our cone is everything).
+
+ How do you know there are any fixed points?
+ \begin{lemma}
+   For any torus action (in fact, any compact lie group), the fixed point set is a
+   symplectic submanifold.
+ \end{lemma}
+ This follows from our normal form near a fixed point (the fixed set must be a complex
+ subspace, hence a symplectic submanifold).  Then $\mathbb{T}^m=\mathbb{T}^1\times
+ \cdots$. The first has a fixed point because the action is hamiltonian, and the
+ hamiltonian function must have a max and min ... then use induction.
+
+ We have that the image of $J$ is locally in a bunch of these polyhedral cones.  Now
+ we use morse theory to show that the image is globally in the intersection of these
+ cones.
+
+ Figure 1
+
+ look at the flow of $\exp(tv)$ on $M$.  What is its hamiltonian?  It is given by
+ composing $v$ with the momentum map.  The hamiltonian has local maximum at $x$, and
+ it must have some global maximum, but our local max isn't the global max because
+ $J(y)$ is on the other side of the plane, contradicting
+ \begin{lemma}
+   For any 1-parameter subgroup of the torus, its hamiltonian has a unique local
+   maximum value.
+ \end{lemma}
+ \begin{proof}
+   At each critical point, the function is quadratic with an even number of positive
+   coefficients.  The maxima are the points where that even number is zero.  Connect
+   two local maxima with a path.  Along the path, there is a minimum value ... choose
+   the path with the largest minimum.  This must be a critical point, otherwise, you
+   could find a better path.  There cannot be two directions in which you increase,
+   otherwise you could slide around the bowl and get a better path.  Thus, there must
+   be a point where there is only one positive direction (or none).  This proves that
+   the set of local maxima is connected.
+ \end{proof}
+
+ This tells us that the image is in the intersection of all the polyhedral cones.
+ Suppose there were some inside point not in the image, then we may take the largest
+ ball which is in the complement of the image.  This touches the
+ image somewhere.  Look at the tangent hyperplane at the point of contact.  We will
+ show that the whole image is on the other side of the plane, which contradicts the
+ assumption that we took the largest ball.
+
+ $x\in M$.  $\mathbb{T}_x=$ stabilizer of $x$ ... this is a closed subgroup of the
+ torus. $M^{\TT_x}\subseteq M$ the set of all points fixed by $\TT_x$.
+
+ figure 2
+
+ The composite map is the momentum map for the action of $\TT_x$.  The image in
+ $\t_x^*$ is in a cone, so the image of $J$ is in the ``wedge'' in $\t^*$.  Now we
+ need to show that $J$ fills up the wedge around $J(x)$.  $M^{\TT_x}\subseteq M$
+ symplectic submanifold.  Lets look at $J(M^{\TT_x})$ ... it must lie in the pre-image
+ of the image of $J(x)$.  It fills up that pre-image because we can find a
+ complementary torus to $\TT_x$, which must be free around $x$, so blah.  Now the same
+ morse theory argument shows that the image is globally in the wedge.
+
+ End of proof of convexity of image of $J$.
+
+ Now we need to show connectivity of the fibers. Define an equivalence relation on
+ $M$.  Equivalence classes are connected components of fibers of $J$. Let $\tilde
+ M=M/\sim$.
+ \[\xymatrix{
+ \tilde M  \ar[dr]^{\tilde J}\\
+ M\ar[u]\ar[r]^J & J(M) \ar@{}[r]|{\subseteq} & \g^*
+ }\]
+ and we want to show that $\tilde J$ is bijective.  Notice that $\tilde M$ is
+ connected because it is a quotient of a connected set.  $J(M)$ is simply connected
+ because it is convex. so it is enough show that $\tilde J$ is a covering map.
+
+ 1)$\tilde J$ is a local homeomorphism (from normal form).\\
+ 2) if $f:X\to Y$ is local homeomorphism and $f$ proper, then $g$ is a covering map.
+To see this,
+
+ figure 3
+
+ since the map is proper, the inverse image of a point is finite.  each point in the
+ inverse image has a nbd which maps homeomorphically to a nbd of $y$ ... intersect
+ those.  We just need that we have the complete inverse image of our nbd of $y$.
+ Suppose not.  Then there is a sequence $y_i\to y$ and $x_i\in f^{-1}(y_i)$ such that
+ $x_i\not\in $any $U_j$.  $\{y_i,y\}$ compact, so by properness, the $x_i$ have a
+ convergent subseq, which must be in the inverse image of $y$.  We win!

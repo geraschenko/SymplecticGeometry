@@ -1,0 +1,121 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{20}
+ \sektion{Lecture 20}
+
+ Our basic symplectic manifold is $\CC^d$.  The idea of the Delzant construction is
+ that we start with a delzant polytope $\Delta$ in ${\t^n}^*$, given by $\langle
+ x,v_i\rangle \le \lambda_i$ for some numbers $\lambda_i, v_i$.  We use these $v_i$s
+ to construct $a:\t^* \to \RR^d$, letting the $i$-th component be $\langle
+ x,v_i\rangle$.  Then $\Delta = a^{-1}(\lambda+\O_-)$, where $\O_-$ is the negative
+ orthant.
+
+ Figure 1
+
+ \def\n{\mathfrak{n}}
+
+ $\t^d$ acts naturally on $\CC^d$, and the momentum map is $J(z_1,\dots,
+ z_n)=-\pi(|z_1|^2,\cdots ,|z_n|^n)+\lambda$.  Then the negative orthant is the image
+ of the momentum map.  Let $\n\subseteq \t^d$ be the elements of $\t^d$ which
+ annihilate $\n^\perp$. Then $\n^*\simeq \t^{d*}/\n^\perp$.  This corresponds to some
+ $N\subseteq \TT^d$ (this follows from the Delzant condition on the polytope).  Now we
+ restrict from the $\TT^d$ action on $\CC^d$ to an $N$ action.  The momentum map
+ $J_N\CC^d\to \n^*=\t^{d*}/\n^\perp$ is composition of $J$ with the projection onto
+ $\n^*$.  Next we form the reduced manifold $\CC^d_0$, reduced by the $N$ action.
+ That is, we just take the part of $\CC^d$ which maps to $\n^\perp$ (this is compact
+ because $J$ is proper).  This is $J_N^{-1}(0)$.  The reduced manifold is
+ $J_N^{-1}(0)/N$.  It turns out that $J_N^{-1}(0)$ is a manifold, and that $N$ acts
+ freely on it, so our reduction is a smooth manifold.  The entire torus still acts on
+ this manifold (because the torus action commutes with the $N$ action).  Choose a
+ complement $\m^\perp\subseteq \t^{d*}$ to $\n^\perp$, to which there corresponds some
+ $M\subseteq \TT^d$.  Thus, $\TT^d=M^n\times N^{d-n}$.  Now we look at the action of
+ $M$ on the reduced manifold.  Notice that $M$ is an $n$-dimensional torus, so we can
+ identify $\m^*\simeq \t^{d*}/\m^\perp$, which we may identify with $\n^\perp$, which
+ is identified with $\t^{n*}$.  Thus, we identify $M$ with our original $\TT^n$.  What
+ is $J_M$?  There is a quotient map from $J_N^{-1}(0)$ to $J_N^{-1}(0)/N$.  The image
+ of the momentum map is our original polytope $\Delta$.
+
+ You can often answer questions about polyhedra by realizing them as the images of
+ momentum mappings.
+
+ \subsection*{Geometric Quantization}
+ Souriau introduced this term.  The idea was developed over some time by VanHove (who
+ directly influenced Souriau), Segal, Kirillov, Kostant.  There is a dictionary
+ between classical and quantum mechanics
+
+ \hspace{-2cm}\begin{tabular}{c|c|c} \hline
+   Classical & Quantum & What it is \\ \hline
+   symplectic manifold & hilbert space & ``phase space''\\ \hline
+   symplectic mappings & unitary tranformations & time evolution\\ \hline
+   locally hamiltonian vector fields & $i\cdot$hermitian operators & infinitesimal time evolution\\
+   (functions modulo constants) & ($i\cdot$hermitian modulo scalar)\\ \hline phase
+   space $T^*X$ & hilbert space $L^2(X)$\footnote{You don't actually need a measure
+   ... these things are called half-measures, or half-densities.} \\ \hline
+   $M$ & $Quan(M)$ & say you have such a procedure\\ \hline
+   $M\times N$ & $Quan(M)\otimes Quan(N)$ & \\ \hline
+   $T^*X\times T^*Y$ & $L^2(X)\widehat{\otimes} L^2(Y)$ \\
+   $=T^*(X\times Y)$ & $=L^2(X\times Y)$ \\ \hline
+   $C^\infty(T^*X)$ & Operators on $L^2(X)$ \\ \hline
+ \end{tabular}
+ Logically, you should be able to go from quantum to classical, and illogically, you
+ should be able to go the other way.  There are several ways to do this.
+
+ If $X=\RR$, and $T^*X$ has coordinates $q,p$, then $q\mapsto m_x$, multiplication by
+ $x$ (we will say $m_x=Quan(q)$), and $p\mapsto i\hslash \pder{}{x}$.  What should $qp$ go to?  It should go to
+ $i\hslash m_x D_x$, but $pq$ ``should'' go to $i\hslash D_x m_x$.  These are
+ classically equal, but quantumly not (unless $\hslash\to 0$).  But since we were
+ thinking of these operators as the lie algebra of unitary operations, so
+ multiplication is not the big operation ... the lie bracket is!  So let's look at
+ $m_x D_x - D_x m_x = -m_1$.  Thus, we have
+ \[
+    [Quan(q), Quan(p)] = -i\hslash m_1 = -i\hslash Quan(1) = -i\hslash Quan(\{q,p\})
+ \]
+ which is great.  It turns out that this is not exact either (this $=$ poisson bracket
+ yields lie bracket), but you can get it to come out right modulo higher order terms.
+
+ This is an infinitesimal version of saying that we'd like the group of symplectic
+ mappings to go to the group of unitary transformations (as groups).  But this doesn't
+ work in general.  You can make it work modulo higher order terms, or you can ask it
+ to work for some subset of symplectic mappings.
+
+ There are some nice papers written in the last few years by N.~Landsman (what should
+ go on the RHS if you put the category where the morphisms are lagrangian submanifolds
+ of products on the LHS?).
+
+ If $M$ is symplectic.  How do we assign a vector space to $M$ in such a way that
+ symplectic transformations correspond to unitary operators?  Try $C^\infty(M)$, or
+ $L^2(M)$ with respect to the symplectic measure $\frac{\w^n}{n!}$, where $\dim M=2n$.
+ These don't give you the right answer for $M=T^*\RR^n$ ... it's too big!  Another
+ problem is when you try to assign operators to functions.  Say $f\in C^\infty(M)$
+ gives you $i\cdot X_f$.  Then if you take $f=1$, you get the operator 0, not
+ multiplication by 1, so this is no good.  You might think you should just take
+ $iX_f+m_f$, but this doesn't work either.
+
+ \underline{Polarization}: takes care of the ``too big'' problem.  Choose a Lagrangian
+ foliation of $M$ ... this is called a real polarization.  Now instead of looking at
+ all the functions on $M$, look only at functions constant on the leaves of the
+ polarization.  If you take $T^*X$ with the polarization by fibers, then the space of
+ leaves is $X$, so we are looking at functions on $X$.  How should symplectic
+ transformations act on this space?  Symplectic transformation do not preserve the
+ polarization in general.  So lets only look at functions preserving the fibration.
+ There are two sources of such things: diffeomorphisms of $X$, and 1-forms.
+ $p\rightsquigarrow i\hslash X_p = i\hslash \pder{}{q}$, $q\rightsquigarrow i\hslash
+ X_q = -i\hslash \pder{}{p} = 0$ since we are acting on things independent of $p$.
+ phooey.  We will use something like $i\hslash X_f + m_{g}$, but $g$ cannot just be
+ $f$, it has to depend on $f$ in some more complicated way.
+
+ \underline{Prequantization}: takes care of the problem with the constants.  Think of
+ $q,p$ space.  The problem with using just the hamiltonian vector fields was that the
+ vector fields commute, and $\{q,p\}\neq 0$.  So we add another dimension, which we
+ call $\theta$.
+
+ FIgure 2
+
+ We need a distribution in $q,p,\theta$ space.  Consider the 1-form $i\hslash d\theta-pdq$.
+ Now consider the horizontal lifts with respect to this form.  $q\rightsquigarrow
+ -\pder{}{p} \rightsquigarrow  -\pder{}{p}$, but $p\rightsquigarrow \pder{}{q}
+ \rightsquigarrow \pder{}{q} + \frac{}{i\hslash} p \pder{}{\theta}$.  Now if we take
+ the bracket of these two vector fields, we don't get zero any more.  Let's look at
+ functions of the form $f(q,p)\theta$.  And let's introduce a polarization by
+ requiring that $f$ depends only on $p$, then $q$ goes to $\pder{}{p}$, and $p$ goes
+ to something which gets rid of $\theta$.  So let's use $e^{i\theta}$ instead of
+ $\theta$.  Now $p$ gives us something closer to $m_p$.

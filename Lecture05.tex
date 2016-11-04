@@ -1,0 +1,210 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{5}
+ \sektion{Lecture 5}
+
+ \texttt{www.math.ist.utl.pt/\~{}acannas/Books/symplectic.pdf}
+ [or ps] has corrected references.  Also, there is a nice article
+ on the arXiv at \texttt{---.math.SG/0505366}.
+
+ \[\frac{d}{dt}(f^*_t \w_t) = f_t^* \frac{d\w_t}{dt}+
+ \left(\frac{d}{dt}(f_t^*)\right)\w_t\]  You can think of $f_t^*$ as a matrix
+ and $\w_t$ as a vector.  And $\frac{df_t}{dt} = v_t\circ f_t$
+ (these are vectors along the paths $f_t(p)$). If you have a family
+ of maps $f_t:M\to N$.  It turns out that you can write
+\begin{align*}
+    \left(\frac{d}{dt}(f_t^*)\right)\w_t &= f_t^*\L_{v_t} \w_t
+\end{align*}
+ so
+ \begin{equation*}
+    \frac{d}{dt}(f^*_t \w_t) = f^*_t\left(\frac{d\w_t}{dt} + i_{v_t}
+    d\w_t + d(i_{v_t}\w_t)\right) \tag{$\ast$}
+ \end{equation*}
+ by the Cartan magic formula.
+
+  \[\begin{pspicture}(-.5,-.5)(7.8,2.5)
+  \psccurve(0,0)(0,2)(1.9,1.9)(2,0) \rput(2.2,2.2){$M$}
+  \psdots(.9,.8) \rput(.65,.7){$p$}
+  \psccurve(5,0)(5.1,1.9)(7.5,2.1)(7.1,0) \rput(4.8,2.2){$N$}
+  \pscurve{->}(2.5,1.3)(3.5,1.5)(4.5,1.3) \rput(3.5,1.8){$f_t$}
+  \pscurve(5.4,.1)(5.7,1)(6.5,1.2)(7.2,1.8)
+  \psdots(5.7,1) \rput(6.2,.7){$f_t(p)$}
+  \psline{->}(5.7,1)(6.3,1.5)
+  \end{pspicture}
+  \]
+
+ If $\xi$ is a vector field along $f:M\to N$, then we have an
+ interior product/pullback operator $i_\xi:\W^\cdot (N)\to
+ \W^{\cdot-1}(M)$ given by $i_\xi\w(p)(v_1,\dots, v_{k-1}) =
+ (\xi(p),(Tf)(v_1),\dots)$.
+
+ If $f_t:M\to N$ a family of maps, then [[box this]]
+ \[
+    \frac{d}{dt}f_t^*\w_t = f^*_t\frac{d\w_t}{dt} +
+    d(i_{\frac{df_t}{dt}}\w_t) + i_{\frac{df_t}{dt}}d\w_t
+ \]
+ Meditate on this for a while.
+
+ This idea was used by Moser, and then used all over the place.
+ Moser used this in the case where $M$ is compact, and $\w_t$ is a
+ family of symplectic forms such that $[\w_t]\in H^2(M,\RR)$ is
+ constant.  Then $(M,\w_t)$ are all symplectomorphic.  Trying to
+ solve the equation $g_t^*\w_0=\w_t$, it's a mess, but $f^*_t\w_t
+ = \w_0$ is nice.  To solve, let $f_0=\id$ and $0=(\ast)$, so
+ \[
+    \frac{d\w_t}{dt} + d(i_{v_t}\w_t) = 0
+ \]
+ is what you want (Moser's equation).  Solve for $\w_t$'s and then
+ find the $f_t$'s.  The compactness of $M$ is essential for the
+ second step (you have to integrate a time-dependent vector
+ field).  To solve Moser's equation
+ \[
+    d(\tilde\w_t (v_t)) = -\frac{d\w_t}{dt}
+ \]
+ ($\tilde\w_t$ isomorphism), you only have to solve an equation of
+ the form
+ \[
+    d\alpha_t = -\frac{d\w_t}{dt}
+ \]
+ where $\alpha_t$ are 1-forms.  Then we have
+\[
+    d\left(\frac{d\w_t}{dt}\right) = \underbrace{\frac{d}{dt}(d\w_t)}_0
+\]
+
+ Consider the 2-sphere, and let $\w_t=e^t\w_0$.  Then the total
+ area of the sphere is changing, so you cannot get them to pull
+ back to each other.  The condition that the cohomology class is
+ constant forces the volume to remain the same.  $\w_{t+h}-\w_t =
+ d\theta_h$, so when you divide by $h$ and let $h\to 0$, then we
+ should get $\frac{d\w_t}{dt} = d(\lim \theta_h/h)$, but it is not
+ clear that $\lim \theta_h/h$ behaves.  We can take care of this
+ another way:
+ \[
+    \int_C\frac{d\w_t}{dt} = \frac{d}{dt} \int_C \w_t = 0
+ \]
+
+
+ Let $Z^k(M)$ be the collection of closed $k$-forms on $M$.  You
+ have to show that the exact forms are a closed sub-blah.
+
+  \[\begin{pspicture}(0,0)(5.9,6.1)
+  \psdots(1,1)(1,4.4)(5,4.4)
+  \pspolygon[linearc=.1](0,3.4)(0,5.4)(2,5.4)(2,3.4) \rput(1,5.8){$Z^k(M)$}
+  \psline(0,4.4)(2,4.4) \rput(1.6,4.25){\tiny exact}
+  \psline{->}(.3,5)(1.2,5) \rput(.7,5.15){\tiny path}
+  \psline{->}(2.5,4.4)(4.5,4.4)
+  \psline(5,3.4)(5,5.4) \rput(5,5.7){$H^k(M;\RR)$} \rput(5.25,4.4){$0$}
+  \pspolygon[linearc=.1](0,0)(0,2)(2,2)(2,0) \rput(3,.8){$\W^{k-1}(M)$}
+  \psline{->}(1,2.2)(1,3.2) \rput(.8,2.7){$d$}
+  \psline(1,0)(1,2) \rput(.6,1.7){\tiny closed}
+  \rput(4.1,2.3){$\stack{\text{\small complement to}}{\text{\small closed forms}}$}
+  \psline(0,1)(2,1) \psline{->}(2.9,2)(1.7,1.1)
+  \end{pspicture}
+  \]
+
+ We've solved for a particular $\alpha_t$, now we have to make it
+ smooth with respect to $t$.
+
+ Suppose we know that $\w_t=\w_0+t(\w_1-\w_0)$ are symplectic.
+ Then $\frac{d\w_t}{dt}=\w_1-\w_0$, so we only have to solve once.
+ But in going on this straight line, we might stop being
+ symplectic (the condition of being non-degenerate may fail).
+ Since the collection of non-degenerate 2-forms is a dense open subset
+ of all forms, so you can take a tubular neighborhood of some
+ path, then take a bunch of straight steps staying inside of the
+ space of symplectic forms, always staying within the
+ neighborhood.  This shows that if there is some path that works,
+ it can be replaced by a piece-wise linear path.
+
+ Thus, you cannot deform symplectic structure within the same
+ cohomology class and get something new.  If we are trying to
+ classify symplectic structures, then we have a continuous
+ invariant: cohomology class.  If you only move a little in
+ cohomology, then you stay symplectic [[why?]], so symplectic
+ structure is not too rigid.
+
+ \underline{non-compact case}:  Take the plane with a disk.  Take
+ a cylinder, and a half cylinder, which have the same area, but
+ are not symplectomorphic. \emph{Greene-Wu}: given two symplectic
+ structures with the same orientation and the same total volume,
+ they are equivalent (by an end-preserving diffeomorphism) if and
+ only if either
+ \begin{itemize}
+ \item[-] both have the same finite area, or
+ \item[-] both have infinite area, and both are finite on the same
+ set of ends.
+ \end{itemize}
+
+ The proof is a version of Moser's method.  The cohomology part is
+ trivial (a non-compact 2-d manifold has $H^2=0$), but you have to
+ worry about running off your manifold when you solve for $v_t$.
+
+ In 4 dimensions or higher, consider $(q_1,q_2,p_1,p_2)$
+
+ \vspace{27mm}
+ \[\hspace{-45mm}
+   \psellipse(2,1.5)(1.7,1.2)
+   \psline[linecolor=gray]{->}(2,0)(2,3.5) \rput(2.8,3.3){(q_2,p_2)}
+   \psline[linecolor=gray]{->}(0,1.5)(4.5,1.5) \rput(5.2,1.5){(q_1,p_1)}
+   \psline[linecolor=darkgray,linewidth=1.5pt]{->}(2,1.5)(2,2.7)
+   \rput(1.75,2.1){a_2}
+   \psline[linecolor=darkgray,linewidth=1.5pt]{->}(2,1.5)(3.7,1.5)
+   \rput(2.7,1.25){a_1}
+ \]
+
+ The volume of the ellipse is proportional to $a_1^2a_2^2$.  If
+ you change the volume, you change the symplectic structure.  If
+ you change the $a_i$'s around so as to preserve volume, can you
+ retain the symplectic structure?  Or if you take a rectangle of
+ the same volume?  \emph{Gromov}: $\max(a_1,a_2)$ is a symplectic
+ invariant, and therefore, so is the minimum.  The argument is
+ based on the following.  Take a much larger symplectic manifold
+ (cylinder)
+
+ Then if $\max(b_1,b_2)> a_1$ (from some other ellipsoid), there
+ is no symplectic embedding of $E(b_1,b_2)$ into $E(a_1,\infty)$
+ (the cylinder).  This is Gromov's \emph{non-squeezing theorem},
+ proven with psuedo-holomorphic curves stuff. This stuff goes
+ under the general notion of ``symplectic capacity''.
+
+ Question: are the $a_i$s invariants of $E(a_1,\dots, a_n)$ (in
+ dimension 2$n$)?
+
+ It turns out that the same method Moser used can be used to prove
+ local things (in particular, the Darboux theorem).  For the
+ moment, consider two symplectic manifolds, $(M_1,\w_1)$ and
+ $(M_2,\w_2)$ with submanifolds $N_1,N_2$, respectively.
+
+ If $f:N_1\to N_2$, then are there neighborhoods so that $f$
+ extends to a symplectomorphism.  In the case where $N_2=pt$, we
+ have the Darboux theorem, and in the case $N_2=M_2$, we have
+ Moser's theorem.
+
+ If $i_j:N_j\to M_j$ are the inclusions, then a necessary
+ condition is that (1)$f^*(i_2^*\w_2)=i^*_1\w_1$.  $g^*\w_2=\w_1$.
+ If $g$ extends, then $g\circ i_1=i_2\circ f$.  And another
+ necessary condition if that (2)$\dim M_1=\dim M_2$.
+
+ \begin{theorem}[Givental]
+   This is sufficient locally in $N$.
+ \end{theorem}
+
+ That is, the pullback form is the only local invariant.  This is
+ not the case in Riemannian geometry ... you have have isometric
+ morphisms of submanifolds which do not extend to isometric
+ maps on neighborhoods.
+
+ Sufficient condition to get it for all of $N_1,N_2$:
+ \[\xymatrix{
+ TN_1 \ar[r]^{Tf} \ar@{^(->}[d] & TN_2 \ar@{^(->}[d]\\
+ T_{N_1}M_1 \ar@{^(->}[d] & T_{N_2}M_2 \ar@{^(->}[d]\\
+ TM_1 & TM_2
+ }\]
+ The condition is that $Tf$ extends to $T_{N_1}M_1$ as a morphism
+ of symplectic vector bundles.  In the case where the $N$s are
+ points, it says that you have to find symplectic isomorphism
+ between the tangent spaces at the points, which you can always
+ do.  In fact, if $N_1$ and $N_2$ are lagrangian, then you can
+ always do this.  But in any symplectic manifold $M$, if you have
+ a lagrangian $N$, you can look at the cotangent bundle of $N$
+ with the zero section.  Since $M$ locally looks like $\bar
+ N\times N$, we win.

@@ -1,0 +1,199 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{2}
+ \sektion{Lecture 2}
+
+\noindent Office hours:
+
+Alan W.: 825 Evans, Tu 12:40 - 2, Th 9:40 - 11
+
+Chistian B.: 898 Evans, Tu 9:40 - 11
+
+Questions from last time or from the reading:
+
+ \begin{itemize}
+ \item[(a)] If we have $V_1,V_2$, then isomorphisms between $V_1$
+ and $V_2$ correspond to lagrangians in $\bar V_1\oplus V_2$.
+ Lagrangians in $E\oplus E^*$ (with $\W_{+[-]}$) correspond to
+ skew-symmetric forms [symmetric forms] on $E$.
+
+ How do we put these together?  If $W = \bar V_1\oplus V_2\cong
+ E\oplus E^*$.  Then there are two big subsets of $\lag(W)$, one
+ corresponding to isomorphisms $V_1\to V_2$, and the other
+ corresponding to forms on $E$.
+
+ \[
+  \begin{pspicture}(0,-1)(9,1.8)
+  \psccurve(0,0)(4.5,-1)(9,0)(9,1)(4.5,2)(0,1)
+  \psccurve(.5,.5)(3,-.5)(5.5,.5)(3,1.5)
+  \psccurve(3.5,.5)(6,-.5)(8.5,.5)(6,1.5)
+  \rput(9,1.8){$\lag(W)$}
+  \rput(1.8,.5){iso$(V_1,V_2)$}
+  \rput(7,.5){${{}_{\substack{\text{[skew-]symm} \\ \text{forms on $E$}}}}$}
+  \end{pspicture}
+ \]
+
+ If $V$ has a (non-degenerate) ``pure''\footnote{Either
+ skew-symmetric or symmetric.} bilinear form $B$, then we can talk
+ about $\lag(V)\subseteq Gr_{1/2}(V) = $ half-dimensional
+ subspaces, and it is always a submanifold.  To see that
+ $Gr_{1/2}(V)$ is a manifold, note that it is homogeneous under
+ the action of $GL(V)$.  That is, we have a map
+ $GL(V)\twoheadrightarrow Gr_{1/2}(V)$, where the kernel is stuff
+ like $\matrix{*}{*}{0}{*}$.
+
+ \begin{theorem}[Witt's Theorem]
+  $\aut(V,B)$ acts transitively on $\lag(V)$.
+ \end{theorem}
+
+ So we can show that $\lag(V)$ is a manifold.  If we take the case
+ $V=E\oplus E^*$, the elements of $\lag(V)$ not intersecting $E^*$
+ are bilinear forms (skew or symmetric, depending on $\W_{\pm}$).
+ Thus, we have a bijection between such forms and an open subset
+ of $\lag(V)$.
+
+ Thus, in the skew case, $\lag(V)$ has dimension
+ $\frac{n(n+1)}{2}$, and in the symmetric case, it is
+ $\frac{n(n-1)}{2}$.
+
+ \item[(b)]  Suppose we have $V,W,X$ all pure of the same type.
+ And say $L_1\subseteq \bar V\times W$ and $L_2\subseteq \bar
+ W\times X$ lagrangians.  Then we can form $L_2\circ L_1\subseteq
+ \bar V\times X$.  It is the set of all $(v,x)\in \bar V\times X$
+ such that there is a $w\in W$ such that $(v,w)\in L_1$ and
+ $(w,x)\in L_2$.  This kind of composition is defined for
+ arbitrary relations.  It is not hard to see that if $L_1$ and
+ $L_2$ are linear, then so is $L_2\circ L_1$.  What is amazing is
+ that if if $L_1$ and $L_2$ are lagrangian, then so is $L_2\circ
+ L_1$.$^*$\marginpar{$^*$Optional Problem: prove this}
+
+ Furthermore, in $\bar V\times V$, the diagonal, $\Delta_V$, is
+ lagrangian (clear), and it is the identity under composition
+ (when defined\footnote{That is, when the domains and ranges match
+ up.}).
+
+ Thus, we have a category.  The objects are all pure,
+ non-degenerate vector spaces, and $\hom(V,W) = \lag(\bar V\times
+ W)$ (and it is the empty set if $V$ and $W$ have different
+ types).  Two things are isomorphic in this category if and only
+ if they are isomorphic in the usual sense.  We have added some
+ homomorphisms.
+
+ Example: What are the homomorphisms between $0$ and $V$?  They
+ are just lagrangians in $\bar 0 \times V = V$, and
+ $\hom(V,0)=\lag(\bar V)$.
+
+ When is $\hom(V,W)$ non-empty?  Well, $V$ and $W$ have to have
+ the same type.  Then the question is, ``when does $\bar V\times
+ W$ have lagrangians?''
+ \begin{lemma}
+   In the skew case, $\lag(\text{anything})\not= \varnothing$.\\
+   In the symmetric case, if over $\mathbb{C}$, same as skew
+   symmetric.  If we are over $\mathbb{R}$, we have lagrangians
+   only if the signiture\footnote{Number of positive eigenvalues
+   minus the number of negative ones.} is zero.
+ \end{lemma}
+ You can take a lagrangian in $\bar V$ and a lagrangian in $W$,
+ you can cross them.  When you take direct products, signatures
+ add, so in the real symmetric case, you need to have
+ $sign(V)=sign(W)$.
+ \end{itemize}
+
+ \section*{Differentiable Manifolds}
+
+ All this linear algebra should be thought of as taking place in
+ the tangent spaces of manifolds.  All our manifolds are
+ $C^{\infty}$.
+
+ \underline{2-forms:}  $\w\in \W^2(M) = \Gamma(\wedge^2T^*M)$
+ is the set of 2-forms on $M$.  We can make $\tilde \w:TM\to
+ T^*M$, given by $\tilde \w(v)(w) = \w(v,w)$, which will be a
+ smooth map of bundles.  This is also sometimes written $\tilde
+ \w(v) = i_v\w = v \lrcorner \w$.  In fact,
+ $i_v:\wedge^pT^*_xM\to \wedge^{p-1}T^*_xM$ for $v\in T_xM$
+ by putting $v$ in for the first entry.
+
+ In local coordinates $(x^1,\dots, x^m)$, we can write
+ \[
+    \w = \frac{1}{2}\w_{ij}(x)dx^i\wedge dx^j
+ \]
+ where $\w_{ij}=-\w_{ji} = \w\left(\frac{\partial}{\partial
+x^i},\frac{\partial}{\partial x^j}\right)$.
+
+ $\w\in \W^2(M)$ is \emph{non-degenerate} if $\tilde \w$ is
+ invertible, and we say it is \emph{presymplectic} if $d\w=0$
+ (i.e. $\w$ closed).  We say it is \emph{symplectic} if it is
+ both.
+
+ \underline{Example:} On $\mathbb{R}^{2n}$, with coordinates
+ $(q^1,\dots, q^n,p_1,\dots, p_n)$, take $\w_n = dq^i\wedge dp_i := \sum_i dq^i\wedge dp_i$.
+ It is clear that $\w$ is presymplectic.  In matrix form, it is
+ $\matrix{0}{I}{-I}{0}$.
+
+ \begin{lemma}
+   $\w$ is non-degenerate if and only if $\w^{\dim M/2} = \w\wedge\cdots\wedge \w$ is
+   nowhere zero in $\W^{\text{top}}(M)$.
+ \end{lemma}
+ In our case, we have $(\w_n)^n = n!\, dq^1\wedge dp_1\wedge\cdots\wedge dq^n\wedge
+ dp_n$, which is almost the canonical volume form (which is
+ $dq^1\wedge\cdots \wedge dq^n\wedge dp_1\wedge\cdots \wedge
+ dp_n$).
+
+ The \emph{symplectic volume} is either $\frac{1}{n!}\w^n$ or
+ $(-1)^{\text{something}} \frac{1}{n!}\w^n$, according to
+ convention ... generally the first one ($2n=\dim M$).  Not every
+ manifold can support a symplectic structure ... it has to be even
+ dimensional, and orientable!  Look at $[\w]\in
+ H^2_{DR}(M,\mathbb{R})$.  We have that $[\w]^n=[\w^n]$.  If $M$
+ is compact, then
+ \[
+    \int_M\w^n > 0
+ \]
+ so then $\w$ is not exact.  Thus, $M$ must have some cohomology
+ in degree 2 too.  You also have to have a non-degenerate
+ 2-form, which is equivalent to an \emph{almost complex}
+ structure (i.e., a map $J:TM\to TM$ such that $J^2=-I$).
+
+ It took a while to find an example satisfying these conditions,
+ but not having a symplectic structure.  Take the connected sum
+ $\CC P^2 \#\CC P^2\#\CC P^2$.  This manifold has lots of cohomology
+ in degree 2 with the right squares, and it has an almost complex
+ structure, but it doesn't have a symplectic structure (some
+ invariant is non-zero ... Sieberg-Witten stuff).  There is a
+ theorem that any symplectic manifold locally looks like the
+ example we gave above (with $\w_n$ on $\mathbb{R}^{2n}$).  Note
+ that
+ \[
+    d\w = \frac{1}{2}\frac{\partial \w_{ij}}{\partial x^k}
+    dx^k\wedge dx^i\wedge dx^j.
+ \]
+ The vanishing of this expression doesn't ensure the vanishing of
+ $\frac{\partial \w_{ij}}{\partial x^k}$.  It turns out that it is zero if and
+ only if
+ \[
+ \frac{\partial \w_{ij}}{\partial x^k} +
+ \frac{\partial \w_{jk}}{\partial x^i} +
+ \frac{\partial \w_{ki}}{\partial x^j} = 0
+ \]
+
+ There is a slightly more general version which says that $d\w =0$
+ and $\tilde \w$ has constant rank (i.e. if the matrix
+ $\w_{ij}(x)$ has constant rank), then in suitable coordinates
+ $(q^1,\dots, q^r,p_1,\dots, p_r,\lambda^1,\dots, \lambda^s)$, we
+ have
+ \[
+    \w = dq^i\wedge dp_i.
+ \]
+ In these coordinates, the kernel of $\tilde \w$ is the span of
+ the $\frac{\partial} {\partial \lambda^i}$.  In general, we have
+ $\ker \tilde \w \subseteq TM$.  If $\w$ has constant rank, these
+ spaces all have the same dimension, and they define a smooth
+ sub-bundle of $TM$.  In this case, one can prove that
+ \[
+    d\w=0 \Rightarrow \ker \tilde \w \text{ is involutive}
+ \]
+ which implies (by the Frobenius theorem) that $\ker\tilde \w$ is
+ tangent to a ``characteristic'' foliation of $M$.  In this
+ picture, the $\lambda^i$s are the coordinates (locally) along the
+ foliation, and the $p_i$s and $q^i$s are transverse to the
+ foliation.  We can get back to the symplectic case by throwing
+ away the $\lambda^i$s.

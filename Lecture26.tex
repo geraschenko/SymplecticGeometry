@@ -1,0 +1,117 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{26}
+ \sektion{Lecture 26 - Poisson Geometry}
+
+ A poisson structure is$\pi \in \wedge^2 TM$, we we get $\tilde \pi: T^*M\to TM$, then
+ define $\{f,g\}:=\pi(df,dg)$.  $X_f=\{\cdot, f\}= \tilde \pi(df)$.  To figure out the
+ right signs, we want
+ \begin{align*}
+   \w=dq\wedge dp & \tilde \w(\pder{}{q}=dp\\
+   \pi=\pder{}{q}\wedge\pder{}{p} & \tilde \pi^{-1}=\tilde \w & \tilde
+   \pi(dp)=\pder{}{q}
+ \end{align*}
+ so $\alpha(\tilde \pi(\beta))=\pi(\alpha,\beta)$, $\tilde\w(x)(y)=\w(x,y)$.  Then we
+ also have that $[X_f,X_g]=X_{\{f,g\}}$, so hamiltonian vector fields are closed under
+ $[,]$.
+
+ In the symplectic case, if $X,Y$ are symplectic vector fields (i.e.
+ $\L_X\w=\L_Y\w=0$), then the bracket, $[X,Y]$, is hamiltonian.  However, this is not
+ true in the Poisson case.  Note, by the way, that the zero poisson structure is a
+ poisson structure.
+
+ \underline{Examples}
+ \begin{itemize}
+ \item[(a)] $\pi=0$.
+ \item[(b)] $\pi=\phi(x,y)\pder{}{x}\wedge \pder{}{y}$ for any $\phi$ in $\RR^2$.
+ \item[(c)] $\pi = \frac{1}{2}c_k^{ij} x^k\pder{}{x^i}\wedge \pder{}{x^j}$ on $\g^*$.
+ \end{itemize}
+
+ What do poisson structures look like?  Locally, symplectic structures all look the
+ same (Darboux).  $\tilde\pi (T^*M)\subseteq TM$ is not a sub-bundle in general, it is
+ a distribution.  In case b, the dimension goes to zero when $\phi$ vanishes.  The
+ natural sections of $\tilde\pi(T^*M)$ are $\tilde \pi($a 1-form$)$.
+ \begin{theorem}
+   $\tilde\pi (T^*M)$ is integrable in the sense that $M$ is a disjoint union of
+   connected integral manifolds.
+ \end{theorem}
+ a: integral manifolds are points\\
+ b: integral manifolds are components of the open set where $\phi\neq 0$.\\
+
+ A point $m\in M$ is \emph{regular} if rank$(\tilde \pi)$ is constant on a
+ neighborhood of $m$.  $\pi$ induces on each leaf of $\tilde \pi(T^*M)$ a symplectic
+ structure because $T_m^*M/\ker \tilde \pi\simeq \tilde \pi (T_mX)$.  The leaves are
+ the \emph{symplectic leaves} of $(M,\pi)$.
+
+ [e.g. let $\pi=0$ for $y\le 0$ and non-zero elsewhere]
+
+ On a surface, the generic situation is this: you have curves where $\pi=0$, and a
+ bunch of open symplectic leaves.  The thesis of O.~Radko classifies all of these
+ structures.
+
+ The $f$ such that $X_f=0$ are \emph{Casimir functions}.  These are exactly the
+ functions constant along leaves.
+
+ \underline{Local Structure}:
+ \begin{theorem}[Splitting theorem]
+   There are local coordinates $q^i,p_i,y^j$ $1\le i\le k$, $1\le j\le r$ such that
+   \[
+    \pi = \pder{}{q^i}\wedge \pder{}{p_i} - \pi^{rs}(y)\pder{}{y^r}\pder{}{y^s}
+   \]
+   where $\pi^{rs}(0)=0$.
+ \end{theorem}
+ So you have a symplectic manifold, and a bunch of transverse guys with poisson
+ structures.  You can flow along a hamiltonian vector filed, preserving poisson
+ structure, to get between transverse sections.  So near a leaf, there is a product
+ structure, but these things can glue together funny.  See Vorobev, Davis-Wade, and
+ somebody in Belgium.
+
+ Going back to the local question.  It is enough to classify the $\pi^{rs}$.  Consider
+ a tweak of example c:
+ \[
+ \pi = \frac{1}{2}c_k^{ij} y^k\pder{}{y^i}\wedge \pder{}{y^j} + O(y^2) \tag{$\ast$}
+ \]
+ is the most general version.
+
+ If you just write $\pi=\pi^{ij}\pder{}{y^i}\wedge\pder{}{y^j}$, you don''t get a
+ poisson structure in general, you need $[\pi,pi]=0$ for the Schouten-Nijenhuis
+ bracket. The $c$ term something lie algebra.
+
+ Something ... the transverse leaves are lie algebras.  At a regular point, the rank
+ can't change when you move around, so the transverse structure (the $\pi^{rs}$s) is
+ zero, and the $y$'s are local Casimirs. This was done by Lie.
+
+ How general are the linear structures?  Given a $\pi$ like $\ast$, do there esist new
+ coordinates $z^i=y^i+O(y^2)$ such that $\pi = \frac{1}{2}
+ c_k^ij\pder{}{z^i}\wedge\pder{}{z^j}$.  Sometimes you do.  But there are some
+ theorems that say that if the lie algebra is complicated enough, you can linearize
+ like this.
+
+ Linearization theorems: We say a lie algebra $\g$ is [formally, smoothly,
+ analytically] non-degenerate if any [formal,$C^\infty$,$C^\w$] poisson structure
+ whose linearization is isomorphic to $\g^*$ is locally isomorphic to $\g^*$.
+ \begin{theorem}[Arnol'd]
+   If $\g=\{[x,y=y]\}$, i.e.~$\{x,y\}=y+O(x,y)^2$, then you can linearize in ``any
+   category''.
+ \end{theorem}
+ \begin{theorem}[Weinstein]
+ If $\g$ is semi-simple, you can formally linearize. $\g=\mathfrak{sl}_2(\RR)$, then
+ not $C^\infty$.
+ \end{theorem}
+ \begin{theorem}[Conn]
+   $\g$ semi-simple, analytic works, and $C^\infty$ only if $\g$ is also of compact
+   type (Killing form definite, note just non-degenerate).
+ \end{theorem}
+ \dots, most due to Dufour or students of his, or people who work with him, like Wade,
+ Nguyen Tien Zung, Monnier, Stolovich (holomorphic poisson), etc.  There are some
+ other lie algebras (non-semi-simple) which still have this stability.
+
+ Consider the structure
+ \begin{align*}
+   \{x,y\} &=0\\
+   \{x,z\} &=ax+by\\
+   \{y,z\} &=cx+dy\\
+ \end{align*}
+ the hamiltonian flow of $z$ is given by $\dot{x}=ax+by, \dot{y}=cx+dy$, which is an
+ arbitrary linear differential equation. The flow of $y$ is $\dot x=\dot y=0,\dot
+ z=-cx+dy$, so you can move up and down (almost always).  So the leaves will be
+ cylinders on the trajectory on the plane.

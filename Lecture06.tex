@@ -1,0 +1,136 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{6}
+ \sektion{Lecture 6}
+
+ Let $H\subseteq TM$ is a codimension 1 sub-bundle.  In dimension
+ 2, this is a direction field, so you can integrate it, but in
+ higher dimensions, you need the Frobenius condition.  Locally,
+ $H=\ker \phi$ for some 1-form $\phi$.  $H^\perp \subseteq T^*M$
+ is a 1-dimensional sub-bundle (called the conormal bundle to
+ $H$).  Such a thing is usually trivial (except when you have
+ m\"obius stuff going on).  When it is trivial, $H$ is called
+ co-orientable (note that everything is locally co-orientable).
+ The condition is that
+ \[
+    d\phi\wedge \phi \equiv 0
+ \]
+ the opposite condition is that
+ \[
+    d\phi\wedge \phi \not= 0
+ \]
+ everywhere.  This is equivalent (in 3 dimensions) to saying that
+ $d\phi|_{\ker \phi}$ is non-degenerate.  In higher dimensions,
+ you want $(d\phi)^{(\dim M -1)/2}\wedge \phi$ to be a volume
+ form.  This is \emph{the contact condition}.
+
+ Note that $\phi$ is not determined by $H$.  Suppose we replace
+ $\phi$ by something with the same kernel, then it is of the form
+ $f\phi$, where $f$ is a no-where vanishing $C^\infty$ function.
+ Then consider $\phi\wedge (d(f\phi))^n$, where $\dim M=2n+1$.  We
+ get $\phi\wedge (fd\phi + df\wedge \phi)^n = f^n\phi\wedge
+ (d\phi)^n$, so this thing remains a volume element.
+ Equivalently, look at $d\phi(v,w)$ where $v,w\in H$:
+ \begin{align*}
+   d\phi(v,w) &= v\cdot \phi(w) - w\cdot \phi(v) - \phi[v,w]\\
+   d(f\phi)(v,w) & = v\cdot (f\phi)(w) - w\cdot (f\phi)(v) -
+   f\phi[v,w]
+ \end{align*}
+ but $H = \ker \phi$, so we just have $d\phi(v,w) = -\phi[v,w],
+ d(f\phi)(v,w) = -f\phi[v,w]$, so if we have non-degeneracy in one
+ case, we have if for the other case too.  By the way, the vector
+ field version of the Frobenius condition is that $[v,w]\in H$.
+
+ How do we get between contact and symplectic?  Locally, one can
+ prove that $\phi = dz + \sum p_idq^i$ in some coordinates
+ $z,q^1,\dots, q^n,p_1,\dots, p_n$.  Notice that $d\phi =
+ dp_i\wedge dq^i$.  If you look at $H^\perp\subseteq T^*M$, we can
+ restrict the symplectic form from $T^*M$ to $H^\perp$.  $\dim
+ M=2n+1$, $\dim T^*M=4n+2$, so $\dim H^\perp = 2n+2$.  On the
+ cotangent bundle, we have the additional coordinates
+ $z^*,p_i^*,q_i^*$.  Then the symplectic form on the cotangent
+ bundle is $dz\wedge dz^* + dq_i\wedge dq_i^* + dp_i\wedge
+ dp_i^*$.  Now we have to describe $H^\perp$.  We can put
+ coordinates $(z,q_i,p_i, t)$ on $H^\perp$, where we map this
+ point to $(z,q_1,\dots, q_n,p_1,\dots, p_n|t, p_1 t,\dots,
+ p_nt,0,\dots, 0)$ (what we've done is take all the same
+ $z,q_i,p_i$, and $t$ times the form $\phi$).  Then the pullback
+ form on $H^\perp$ is
+ \begin{align*}
+  dz\wedge dt + dq^i\wedge(p_idt+dp_i\, t) &= dz\wedge dt +
+  (dq_i\wedge dp_i) + p_i dq^i\wedge dt \\
+  &= (dz\wedge p_idq^i)\wedge dt - t(dq_i\wedge dp_i)
+ \end{align*}
+ When is this symplectic?  Well, let's look at the highest wedge
+ power, we get
+ \[
+    (dz+p_idq^i)\wedge dt \wedge (-t)^n (dq_i \wedge dp_i)^n =
+    \phi\wedge dt\wedge (t^n) (d\phi)^n
+ \]
+ So we have that $\dot{H}^\perp = H^\perp \smallsetminus
+ \{\text{zero section}\}$ is a symplectic submanifold of $T^*M$ if
+ and only if $H$ is contact.  The pullback of the symplectic form
+ to $\dot{H}^\perp$ is $\underbrace{\phi\wedge dt + t
+ d\phi}_{should\ be\ d(t\phi)}$.  This is called the
+ \emph{symplectification} or the \emph{symplectization} of the
+ contact manifold $M$.  Consider
+ \begin{align*}
+   \L_{\frac{\partial}{\partial t}} \w &=
+   d(\frac{\partial}{\partial t} \lrcorner \w)\\
+   \L_{t \frac{\partial}{\partial t}\lrcorner \w} &=
+   d(t\frac{\partial}{\partial t}\lrcorner \w)\\
+ \end{align*}
+ so
+ \[
+    \L_{t \frac{\partial}{\partial t}} \w = \w
+ \]
+ $t\frac{\partial}{\partial t}$ is called the Euler vector field.
+ The flow along it is multiplication:
+ \[
+    \L_{t\frac{\partial}{\partial t}} f = t\frac{\partial f}{\partial
+    t} = nf
+ \]
+ says exactly that $f$ is homogenous of degree $n$ is some sense.
+
+ Thus, we have that $\w$ is homogeneous of degree 1.
+
+ If we have a vector field $\xi$ such that $\L_\xi \w = \w$ (i.e.,
+ $d(\xi\lrcorner \w)=\w$), then we call $\xi$ a Liouville vector
+ field.  So you start with a contact manifold, you symplectify it
+ to get a symplectic manifold together with a Liouville vector
+ field.  The converse is also true.  Say $(M,\w)$ is symplectic
+ and $\xi$ is no-where vanishing Liouville vector field, then
+ consider $M/(\text{flow of }\xi)$.  For example, take $M=T^*X$,
+ with coordinates $q^i,p_i$, and $\xi = p_i\frac{\partial}{\partial
+ p_i}$.  The flow of $\xi$ leaves $q^i$ fixed, and multiplies the
+ $p_i$s by a constant.  It is easy to see that $\L_\xi \w = \w$.
+ Then we have that $T^{\cdot *}X/(\text{flow of }\xi)$ is the
+ cotangent ray bundle.  This is the same thing as the space of
+ co-oriented hyperplanes in $TM$.  $TM$ is a contact manifold in a
+ natural way.
+
+ Note that $\L_\xi \w^n = n\w^n$, so volume is expanding.  Thus,
+ you cannot have something like this on a compact manifold.
+ Another way to see this is that $\w = d(\xi\lrcorner\w)$, so $\w$
+ is exact, and we saw that this is impossible on a compact
+ manifold.  Another way to write this is $d(\tilde\w(\xi))=\w$, so
+ this is equivalent to solving $d\psi = \w$ and then set $\xi =
+ \tilde\w^{-1}(\psi)$.
+
+ Suppose we have a symplectic manifold $M$ with a Liouville vector
+ field, then the claim is that this descends to a contact
+ structure on $X = M/(\text{flow of }\xi)$.  To see this, take a point
+ $\hat x\in M$, which maps to $x\in X$.  Look at $\langle
+ \xi\rangle^\perp\supseteq \langle \xi\rangle$ in $T_{\hat x}$.  So there is some
+ hyperplane field containing $\xi$, so we can get something on
+ $X$.  What if we take some other lift $\hat{\hat x}$ of $x$.  Is
+ $\langle \xi\rangle^\perp$ invariant under the flow of $\xi$?
+ Yes!  Well, $\langle \xi \rangle$ is invariant; $\w$ is invariant
+ up to scalar multiple; hence $\langle \xi\rangle^\perp$ is
+ invariant.  Ok, now how do we show that we actually have a
+ contact structure on $X$?  Choose a cross section in $N\subseteq
+ M$.  On $N$, let $\phi= \xi\lrcorner \w$, which is a 1-form, then
+ $\ker \phi = \langle \xi\rangle^\perp \cap TN$ and $\xi$ is a
+ contact form.  So we can take a cross section as a model for the
+ quotient space.  This procedure more or less tells you that $M$
+ is the symplectification of $N$.  We call $M$ the contactization
+ of $N$.

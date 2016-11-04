@@ -1,0 +1,109 @@
+ \def\BS{\mathcal{BS}}
+
+ \stepcounter{lecture}
+ \setcounter{lecture}{23}
+ \sektion{Lecture 23 - Compact Polarizations}
+
+ $(M,\w,Q,\phi)$ as usual ... $Q$ with connection $\phi$ is a prequantization.
+ $\H_{-1}=$ ``antiequivariant functions from $Q$ to $\CC$'' are the
+ $(-1)$-eigenvalues.  Think of $Q$ as a bundle of frames for a complex line bundle
+ $E\to M$.  $Q\times \CC\ni (q,z)\mapsto qz\in E$.  Note that
+ $(qe^{i\theta},e^{-i\theta}z)$ goes to the same element, so we can identify $E$ with
+ $Q\times \CC/U(1)$, where $U(1)$ acts on $Q$ by the opposite of the given action and
+ on $\CC$ by the standard representation.  So given $Q$, we can recover $E$. The fibre
+ of $E$ over $x$ is the set of anti-equivariant functions of $Q$ over $x$ to $\CC$.
+ So sections of $E$ are just elements of $\H_{-1}$.
+
+ A connection $\phi$ gives a ``horizontal distribution'' $H=\ker\phi$ on $Q$.  A
+ polarization is an integrable lagrangian distribution $F$ on $M$.  Its horizontal
+ lift $F\subseteq TQ$ is integrable because $F$ is lagrangian (the curvature is the
+ symplectic structure, which is zero on a lagrangian ... vertical component of bracket
+ is curvature).  We cut down $\H_{-1}$ by considering function constant on leaves,
+ supported on the $\BS$ set.
+
+ \underline{Complex Polarizations}: $F\subseteq TM \rightsquigarrow F_\CC\subseteq
+ T_\CC M$.  A complex polarization on $(M,\w)$ is an integrable lagrangian sub-bundle
+ $G$ of $T_\CC M$ of constant dimension such that $G\oplus \bar G$ is also integrable.
+
+ There are two extreme cases.  First is where $G=\bar G$, in which case $G=F_\CC$ for
+ some real polarization $F$ (we call $G$ a real polarization).  The other is where $G+
+ \bar G=T_\CC M$, in which case $G$ is a complex structure.  We call this a totally
+ complex polarization.  Together with $\w$, this gives a pseudo-K\"ahler structure
+ (the inner product may not be positive definite). In the general case, we have that
+ $G\cap \bar G$ has constant dimension and is equal to its own conjugate, so
+ $G\cap\bar G=\F^\CC_0$ isotropic.  So you get an isotropic foliation and a complex
+ structure on the normal spaces to the foliation. So there is an induced complex
+ structure on a submanifold transverse to the foliation in such a way that sliding
+ along the leaves is a complex map. We call this a ``transversely complex isotropic
+ foliation''.
+
+ We can cut down $\H_{-1}$ using a complex polarization. Given a complex polarization
+ $G$.  We have $Q\to M$ which induces $H\subseteq TQ\to TM$, so $H_\CC\subseteq T_\CC
+ Q\to T_\CC M\supseteq G$. $G$ lifts to $\tilde G\subseteq H_\CC$, which is integrable
+ by the lagrangian condition.  If $G$ is real, then $\tilde G$ is the complexification
+ of $\tilde F$.  In the case where $G$ is a totally complex polarization ... .  Reduce
+ $\H_{n}$ to $\H_{n, G} = \{ \text{function in $\H_n$ annihilated by sections of }
+ \tilde G\}$. We have that $\H_{n,G}\times \H_{m,G}\to \H_{n+m,G}$.  $\H_{0,G} =$
+ functions on $M$ annihilated by $G$.  In the totally complex case, $\H_{0,G}=$
+ holomorphic functions on $M$.  $\H_{n,G}$ is a module over $\H_{0,G}$, the
+ holomorphic functions on $M$. If $M$ is compact, there are no non-constant
+ holomorphic functions, so instead of looking at global sections, we look at the sheaf
+ of local section.  So think of all of these $\H_{n,G}$s as sheaves. These are locally free
+ modules.
+ In particular, $\H_{-1,G}$ is a module over $\H_{0,G}$.
+
+ We don't know that the $\H_{n,G}$ are non-empty, so you prove
+ \begin{lemma}
+   $\H_{n,G}$ has local sections.
+ \end{lemma}
+ The proof involves solving a non-homogeneous $\bar \partial$ problem: $\bar\partial
+ f=\alpha$, where $\alpha$ is a 1-form with $\bar\partial \alpha=0$.  You can solve
+ this by the Dolbeault lemma.
+
+ So the $\H_{n,G}$ define holomorphic vector bundles.  So attached to any complex
+ polarization, we get a complex structure on the line bundle $E$ and all its tensor
+ powers.
+
+ The idea of sheaves is useful in the real case when then leaves might be dense or
+ because the $\BS$ set is discrete.  The idea here is ``cohomological quantization'':
+ $\tilde \H_{n,G}$ be the sheaf (over $M$) of local elements of $\H_{n,G}$.  Then
+ $\H_{n,G}= H^0(\tilde \H_{n,G})$.  There is also higher cohomology ...
+ $H^k(\tilde\H_{n,G})$, which is also invariant under the action of the group.  In the
+ pseudo-K\"ahler case, $H^0$ may be zero, but higher cohomology is interesting.  If
+ you take the 2-sphere with the poles removed.  The global sections are only supported
+ on the $\BS$ set, but there are local sections elsewhere because the leaves are
+ locally simply connected.
+
+ Let's look at the 2-sphere again, with area $2\pi$.  The circle bundle is
+ $S^3\subseteq C^2$.  The circle action is the opposite of the usual action
+ (i.e.~$\theta\cdot (z_1,z_2)=(e^{-i\theta}z_1,e^{-i\theta}z_2)$).  The corresponding
+ line bundle $E$ is the dual of the $\H_{-1}$ tautological bundle (over a point in
+ $S^2=\CC\PP^1$, you put the line associated to that point).  A section of $E$
+ corresponds to a function on $S^3$ which is anti-equivariant with respect to the
+ reversed circle action, so it is $U(1)$-equivariant.  This correspond to functions
+ $\CC^2\to \CC$ which are linear.  In general, sections of $E^{\otimes k}$, $\H_{-k}$ are
+ functions $\CC^2\to \CC$, homogeneous of degree $k$.
+
+ We haven't used the polarization yet.  The polarized sections correspond to
+ holomorphic functions, which must then be polynomials, homogeneous of degree $k$ on
+ $\CC^2$ (note that $k$ must be positive).  On $S^2$, $\H_{-n,G}$ is spanned by
+ $z_1^n,z_1^{n-1}z_2,\dots, z_2^n$, of which there are $n+1$.  This is the
+ representation spin($\frac{1}{2}n$).  For $n=0$, you get constants; for $n=1$, you
+ get a 2-dimensional space of linear functions, which is the usual representation of
+ $SU(2)$ on $\CC^2$.
+
+ Suppose we look at rotations around an axis.  Do we get the correct eigenvalues?
+ Take the maximal torus in $SU(2)$, given by things like
+ $\matrix{e^{i\psi}}{0}{0}{e^{-i\psi}}$, which acts on $z_1^kz_2^{n-k}$ by sending it
+ to $e^{ik\psi}e^{-i(n-k)\psi}z_1^kz_2^{n-k}=e^{i(2k-n)\psi}z_1^kz_2^{n-k}$.  The
+ eigenvalue is $e^{i(2k-n)\psi}$, so $2k-n$ goes from $-n$ to $n$ in steps of 2, just
+ as they should.
+
+ Where is the square norm of the section $z_1^kz_2^{n-k}$ going to be largest on the
+ 2-sphere?  Use lagrange multipliers: $I_1=|z_1|^2$, $I_2=|z_2|^2$, $I_1+I_2=1$, and
+ we want to maximize $I_1^kI_2^{n-k}$.  You get $kI_2=(n-k)I_1$, so
+ $I_1=\frac{n-k}{n}, I_2=\frac{k}{n}$.  So the maxima are equally spaced along the $I$
+ axis (which is the vertical axis).  This is the set of integer points on the moment
+ polytope of the action of $SU(2)$. They correspond exactly to representations.
+
+ Guillemin-Sternberg: something with ``geometric quantization'' in the title.

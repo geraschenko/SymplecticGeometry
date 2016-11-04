@@ -1,0 +1,240 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{13}
+ \sektion{Lecture 13 - Momentum maps and Symplectic reduction}
+
+ Next meeting is in 450C Moffit Library.
+
+ There are some nice ways to simplify your life.  One way is to
+ find symmetries, and the other is to find invariants of motion.
+ If you can do one, you can do the other.  This follows from
+ \[
+    X_H F=\{F,H\} = -\{H,F\} = -X_F H
+ \]
+ If one is zero, so is the other.  In general, when you take a
+ quotient or look at a subspace (on which something is constant),
+ you lose the symplectic structure.
+
+ Lets take $\RR^4$ with $(q^1,q^2,p_1,p_2)$ and the standard form
+ $dq^i\wedge dp_i$.  We can take, for example
+ \[
+    H(q^2,p_1,p_2)=\frac{1}{2}g^{ij}(q^2)p_ip_j+V(q^2)
+ \]
+ We have that $\{H,p_1\}=0$.  Let's impose the condition
+ $p_1=c=$const.  Now we are down to three dimensions.  On
+ $\{p_1=c\}$, we have the coordinates $(q^1,q^2,p_2)$, and the
+ induced form, $dq^1\wedge dq^2$, is degenerate.
+
+ On the other hand, $\pder{H}{q^1}=0$, and $\L_{\pder{}{q^1}}\w=0$, so we can pass to
+ the quotient by the flow of $\pder{}{q^1}$.  Now we have
+ coordinates $(q^2,p_1,p_2)$.  But we don't have a way of pushing
+ forward the form (you cannot have a non-degenerate form be the
+ pullback of a lower-dimensional form).  But you can push the
+ poisson structure down.  $\pi=\pder{}{q^i}\wedge \pder{}{p_i}$
+ pushes down to $\pder{}{q^2}\wedge\pder{}{p_1}$.  And
+ $\{q^2,p_2\}=0$, and $\{f,p_1\}=0$ for all $f$ ($p_1$ is called a
+ Casimir function).  This is a degenerate poisson structure.
+
+ In both cases, we get some degeneracy.  How can we get back to
+ symplectic geometry?
+
+ \underline{Presymplectic}: (the first case)  you can still find a
+ hamiltonian vector field.  So $X_H\lrcorner \w=dH$, or $\tilde
+ \w(X_H)=dH$.  We have that $\tilde\w(\pder{}{q^1})=dp^1=0$,
+ $\tilde\w(\pder{}{q^2})=dp^2$, and
+ $\tilde\w(\pder{}{p_2})=-dq^2$.  $H=H(q^2,c,p_2)$, so it doesn't
+ have any $dq^1$ in it, so $dH=\pder{H}{q^2}dq^2 +
+ \pder{H}{p_2}dp_2$, so we get
+ \[
+    X_H = -\pder{H}{q^2}\pder{}{p_2} + \pder{H}{p_2}\pder{}{q^2} +
+    (anything)\pder{}{q^1}
+ \]
+ We have an $H$ which happens to be in the image of $\tilde \w$,
+ but the hamiltonian vector field is not well defined because of
+ that $anything$.  We can resolve this problem by passing to the
+ quotient:
+ \[
+    \{p_1=c\}/\underbrace{(\text{flow of }X_{p_1}=\pder{}{q^1}
+    )}_{\text{ker of }\tilde \w}
+ \]
+ Now we have coordinates $(q^2,p_2)$, with form $dq^2\wedge dp_2$,
+ and a ``reduced hamiltonian'', $H(q^2,c,p_2)$.  We get dynamics
+ on this $\RR^2$, which is the projection of what we had before.
+
+ \[\begin{pspicture}(0,-.8)(7,3)
+   \psline[linecolor=lightgray](2,0)(2,2)(0,2)(0,0)(2,0)(3,1)(3,3)(2,2)
+   \psline[linecolor=lightgray](0,2)(1,3)(3,3) \rput(3.5,3){$\RR^4$}
+   \pspolygon[fillstyle=hlines,hatchangle=0,hatchcolor=gray](.5,.5)(.5,2.5)(2.5,2.5)(2.5,.5)
+        \rput(1.5,2.7){$p_1=c$}
+   \psline{->}(0.3,-.2)(1.3,-.2) \rput(.8,-.6){${}_{\pder{}{q^1}}$}
+   \multirput(.5,1)(.4,0){5}{\psline{->}(0,0)(.3,.2)}
+   \multirput(.5,1.5)(.4,0){5}{\psline{->}(0,0)(.3,.35)}
+   \psline{->}(3.5,1.5)(5.3,1.5)
+   \psline(6,.5)(6,2.5) \rput(6.5,2.5){$\RR^2$}
+   \psline{->}(5.9,1)(5.9,1.2)
+   \psline{->}(5.9,1.5)(5.9,1.8)
+   \end{pspicture}
+ \]
+
+ $X_H$ tangent to the slice $p_1=c$ and invariant along
+ $\pder{}{q^1}$, then we look at the quotient.
+
+ For our hamiltonian, we end up with
+ \[
+    H = \underline{\frac{1}{2}g^{22} (q^2) p_2p_2} + \overbrace{g^{12}(q^2)cp_2}^{\text{vector potential}} +
+    \underbrace{\frac{1}{2} g^{11}(q^2)c^2 + V(q^2)}_{\text{new potential}}
+ \]
+ This is pretty interesting, we again get something quadratic in
+ the momentum plus an extra term (the \emph{vector potential}), plus a new
+ potential.  So our reduces system behaves as though there was a
+ magnetic field or something.  For example, when you have a
+ rotating system, you get a force perpendicular to the direction
+ of motion (coriolis force).
+
+ On the other side, we have $\pi=\pder{}{q^2}\wedge \pder{}{p_2}$,
+ so we get $\tilde\pi (dH)=X_H$, a well defined vector field.  We
+ have that $X_HF = \{F,H\}$.  In particular, if $F$ is Casimir
+ function, it is a constant of motion for any hamiltonian flow.
+ This picture is dual to the previous picture.  Before, we could
+ only solve for the hamiltonian if it was invariant along ***, and
+ it wouldn't be well defined.  Here, we also started with a four
+ dimensional space, then we pass to the quotient.  There is then a
+ special direction (the $p_1$ direction).  Each of the planes
+ $p_1=c$ are invariant under any hamiltonian flow, so these
+ submanifolds have an induced symplectic structure (these are
+ called the symplectic leaves).
+
+ \[\begin{pspicture}(0,-.8)(7,3)
+   \psline(2,0)(2,2)(0,2)(0,0)(2,0)(3,1)(3,3)(2,2)
+   \psline(0,2)(1,3)(3,3) \rput(3.5,3){$\RR^4$}
+   \psline{->}(0.3,-.2)(1.3,-.2) \rput(.8,-.6){${}_{\pder{}{q^1}}$}
+   \psline{->}(3.5,1.5)(5.5,1.5)
+   \pspolygon[fillstyle=vlines,hatchangle=0,hatchcolor=gray,hatchsep=2pt](6,0)(7,1)(7,3)(6,2)(6,0)
+   \psline{->}(6.2,0)(7,.8) \rput(6.9,.3){$p_1$}
+   \psline{->}(7.2,1.2)(7.2,2.8) \rput(8,2){$(q^2,p_2)$}
+   \end{pspicture}
+ \]
+
+ We get exactly the same flow as before.  So there are two ways to
+ do this.  Start with a big phase space, then pass to a
+ presymplectic subspace, then take a quotient to get something
+ symplectic.  Or you can first take a quotient to get a poisson
+ structure, then take a subspace to get something symplectic.
+
+ This is an example of symplectic reduction, but we've done the
+ special case where the symmetry group is $\RR$.  This is more or
+ less general.  If $f\in C^\infty(M)$, with $M$ symplectic, and if
+ $(df)(x)\not=0$, then near $x$, there are canonical coordinates
+ $(q^i,p_i)$, in which $f=p_1$.  Thus, locally, this is the
+ general case.  Sometimes more interesting things happen.  For
+ example, the orbits of the flow might close up on themselves,
+ which is exactly what happens in rotational motion.
+
+ \subsection*{Moment(um) Map(ping)s}
+
+ We have a symplectic manifold $(M,\w)$ (though there are versions
+ for the presymplectic and the poisson cases (and dirac as well)),
+ and we have a lie group $G$ acting on $M$ symplectically.  So we
+ have $g\mapsto g_M$ with $(gh)_M-g_m\circ h_M$.  This induces a
+ lie algebra action.  Namely, if you take $v\in \g$, you get a
+ vector field $v_M\in \chi(M)$ given by
+ \[
+    v_M= \der{}{t}{\Big |}_{t=0}(\exp \, tv)_M.
+ \]
+ It turns out that $(v+w)_M=v_M+w_M$, $(av)_M=av_M$, and
+ $[v,w]_M=-[v_M,w_M]$.  If we have
+ \[\xymatrix{
+ G \ar[r]& Diff(M)&  g \ar@{|->}[r] & g_M\\
+ }\]
+ then we get a map $G\to \aut(C^\infty(M))$, $g\mapsto g_M^*$,
+ then $\hat v_M=\der{}{t}{\Big |}_{t=0} ((exp\, tv)_M)^*$ as a
+ derivation of functions, and the bracket of vector fields is just
+ the bracket of operators.  From this point of view, we have a map
+ from one lie group to another, so it should induce a lie algebra
+ homomorphism.  But $g\mapsto g_M$ is a homomorphism and
+ $g_M\mapsto g_M^*$ is an anti-homomorphism, which is why you get
+ a minus sign.
+
+ \[\xymatrix{
+ \g \ar[r]^(.4){antihom} \ar@{.>}[d]_{\J} & \chi(M,\w)\\
+ C^\infty(M)\ar[ur]_{antihom}
+ }\]
+ If $H^2(\g,\RR)\simeq \g/[\g,\g]$ vanishes, you get a lift $\J$,
+ the comomentum map.  It is not unreasonable to require $\J$ to be
+ a lie algebra homomorphism.  Alternatively, since $G$ acts on
+ $\g$ by the adjoint representation and it acts on $C^\infty(M)$
+ by $g_{C^\infty(M)}=(g^{-1}_M)^*$, we could require that $\J$
+ $G$-equivariant.
+
+ \begin{proposition}
+   $\J$ is a lie algebra homomorphism if and only if $\J$ is
+   equivariant for the action of the identity component of $G$ (if
+   and only if $J$ is $Ad^*$-equivariant for the action of the
+   identity component of $G$).
+ \end{proposition}
+ \begin{proof}
+   Look in the book.
+ \end{proof}
+
+ There is another nice way of understanding all this, which was
+ introduced independently by several people.  Kostant, Souriau,
+ and Smale.  Siriau is the most generat.  Kostant only looked at
+ transitive actions. Smale only looked at cotangent bundles.  They
+ all reformulated the comomentum map.  To $\J:\g\to C^\infty(M)$
+ (any linear map, at this point), we associate $J:M\to \g^*$ by
+ $J(x)(v)=\J(v)(x)$ for $x\in M,v\in \g$.  We are really looking
+ at a function of two variables: $M\times\g \to \RR$.  We can
+ think of it as $M\to g^*$ or $\g\to C^\infty(M)$.  $\J$ is
+ equivariant if and only if $J$ is equivariant.  What are the
+ group actions in question?  We have a group acting on $M$, and we
+ have $G$ acting on $\g^*$ given by $g_{\g^*}=(Ad_{g^{-1}})^*$
+ (this is called the coadjoint action).  Some people will write
+ $Ad^*_g$, so you have to watch out.
+
+ A \emph{hamiltonian action} (sometimes called a \emph{poisson
+ action}) of $G$ on $(M,\w)$ is a symplectic action together with
+ an equivariant momentum map $J:M\to \g^*$.  This isn't completely
+ standard.
+
+ Where are we going?  One place is a generalization of reduction
+ from the case of one-parameter groups to more general groups
+
+ \begin{theorem}[Symplectic Redcution Theorem, Marsden-Weinstien,Meyer]
+   Say $(M,\w,G,J)$ a hamiltonian action, and $\mu \in \g^*$
+   quasi-regular [regular] value, then $J^{-1}(\mu)$ is invariant
+   under the action of $G_\mu=\{g\in G|Ad^*_{g^{-1}}\mu=\mu \}$,
+   the coadjoint isotropy, and the orbits of $G_\mu$ on
+   $J^{-1}(\mu)$ form a regular foliation. Let $i_\mu^*\w$ be the
+   pullback of $\w$ to $J^{-1}(\mu)$, where
+   $J^{-1}(\mu)\stackrel{i}{\hookrightarrow} M$. At each $x\in
+   J^{-1}(\mu)$, $\ker_x\widetilde{i_\mu^*\w} = T_x(G_\mu x) = \{
+   v_M(x)|v\in \g_\mu\}$.
+ \end{theorem}
+ Where if $M\xrightarrow{\phi}N$, $\mu\in N$ is
+ \emph{quasi-regular} if $\phi^{-1}(\mu)\subseteq M$ is a
+ submanifold, and for any $x\in \phi^{-1}(\mu)$, the inclusion
+ $T_x\phi^{-1}(\mu)\hookrightarrow \ker(T_x(\phi))$ is an
+ equality.  This simplest example of a non-quasi-regular value is
+ when $\phi:x\to x^2$ on $\RR$, $x=0$ is not quasi-regular.  The
+ implicit function theorem tells you that regular values are
+ quasi-regular.
+
+ This gives us the following picture:
+
+ \[\begin{pspicture}(0,-2.5)(9,3)
+   \psline[linecolor=lightgray](2,0)(2,2)(0,2)(0,0)(2,0)(3,1)(3,3)(2,2)
+   \psline[linecolor=lightgray](0,2)(1,3)(3,3) \rput(3.5,3){$M$}
+   \pspolygon[fillstyle=hlines,hatchangle=0,hatchcolor=gray](.5,.5)(.5,2.5)(2.5,2.5)(2.5,.5)
+        \rput(1.7,2.7){${}_{J^{-1}(\mu)}$}
+   \psline{->}(3.5,1.5)(5.3,1.5) \rput(4.4,1.7){$\pi_\mu$}
+   \psline(6,.5)(6,2.5) \rput(6.5,3){$J^{-1}(\mu)/G_\mu = M_\mu$}
+   \psline{->}(3,.2)(2.2,.8) \rput(3.8,0){$G_\mu\text{ orbits}$}
+   \psline{->}(1.5,-.4)(1.5,-1.5) \rput(1.2,-1){$J$}
+   \psline(1,-2.5)(2,-1.5) \rput(2.3,-1.4){$\g^*$}
+   \psdots(1.5,-2) \rput(1.65,-2.2){$\mu$}
+   \end{pspicture}
+ \]
+
+ If $J^{-1}(\mu)/G_\mu$ is a manifold, with $\pi_\mu$ a
+ submersion, then there is a (unique) symplectic form $\w_\mu$ on
+ $J^{-1}(\mu)/G_\mu$ such that $\pi_\mu^*(\w_\mu)=i_\mu^*(\w)$.
+ Then $(M_\mu,\w_\mu)$ is called the reduction of $M$ at $\mu$.

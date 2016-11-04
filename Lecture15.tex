@@ -1,0 +1,153 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{15}
+ \sektion{Lecture 15 - More Symplectic Reduction, Connections}
+
+ Thursday is the final due date for the term paper topic.  By Thursday, put your final
+ proposal on bspace.
+
+ Recall the basic reduction theorem
+ \begin{theorem}
+   Let $(M,\w,G,J)$ as before, $J$ $Ad^*$-equivariant.  Then for $\mu\in \g^*$,
+   $M_\mu=J^{-1}(\mu)/G_\mu$.  If $J^{-1}(\mu)$ is a manifold (i.e. $\mu$ is
+   quasi-regular), then $T_xJ^{-1}(\mu) = \ker (T_x J)$.  This implies that
+   $(T_xJ^{-1}(\mu))^\perp\cap T_x J^{-1}(\mu) = T_x (G_\mu)$.  We will say that $\mu$
+ is \emph{immaculate} if the $G_\mu$ action on $J^{-1}(\mu)$ has $M_\mu$ as a
+ ``manifold quotient''.  Then $M_\mu$ has a symplectic structure $\w_\mu$ such that
+ $\pi_\mu^* \w_\mu = i_\mu^* \w$.  $(M_\mu,\w_\mu)$ is called the \emph{reduced
+ symplectic manifold}.
+ \end{theorem}
+
+ If $G$ action is free and proper, then every value of $J$ is immaculate (e.g. if $G$
+ is compact).  If the action is not free, then the quotient is called an ``orbifold''.
+
+ \underline{Example}:Let $G=\RR$, so $\g\simeq\g^*\simeq\RR$.  Then the $J$ action
+ is just flow.
+
+ Let $M=T^*X$, and $\xi$ a vector field on $X$. $X$ is configuration space.  Define
+ $J:T^*X\to \RR$ by $J(\alpha) = \langle \alpha, \xi\rangle$, $J(\alpha) =
+ \alpha(\xi(p(\alpha)))$.  In coordinates $x_1,\dots, x_n, p_1,\dots, p_n$, then $\xi
+ = \sum a^i(x) \pder{}{x_i}$ and $J=a^i(x)p_i$.  If we look at Hamilton's equations,
+ we get
+ \begin{align*}
+   \dot{x}^i &= a^i(x)\\
+   \dot{p}_i &= \pder{a^j}{x^i}p_j
+ \end{align*}
+ The flow is linear on fibers, and is following the trajectory on the manifold
+ downstairs.  $\mu\in \RR$.
+
+  If $\mu=0$. $J^{-1}(0)\subseteq T^*X$ a codimension 1 sub-bundle.  If we
+  want the vector field to be non-zero so that these are well-defined.
+
+  We have a map $X\to X/\RR$.  Let's assume that the $\RR$ action on $X$ has a nice
+  quotient $X/\RR$.  This happens in two cases: where the $R$ action is free and
+  proper, and where the flows are all circles.  At any given point in $X/\RR$, the
+  cotangent space is isomorphic to the cotangent vectors which annihilate the
+  direction of flow.  $J^{-1}(0)$ are the annihilators of the orbits.  So
+  $J^{-1}(0)/\RR\simeq T^*(X/\RR)$.  It turns out that the symplectic structure is
+  exactly the canonical symplectic structure.
+
+  A reference for these calculations: Abraham-Marsden(-Ratin) \\ \underline{Foundations
+  of Mechanics} anything after the 1st edition.
+
+ If $\mu\not=0$, then what does $J^{-1}(\mu)$ look like?  At any given point, we have
+ the value of the vector field, and we want all 1-forms with a given value on this
+ vector field.  This means we are taking all the vectors with a given projection onto
+ the vector field (this is a translation of $J^{-1}(0)$.  If we don't have a metric,
+ then there is no natural choice of one of these (we can't just take the shortest). So
+ we can make a global choice of such vectors (a 1-form $\alpha$), which identifies
+ $J^{-1}(\mu)$ with $J^{-1}(0)$.  This identification is compatible with the flow if
+ $\alpha$ is compatible with the flow.
+
+ Note:
+ \begin{itemize}
+ \item[(1)] The identification of $J^{-1}(\mu)$ with $J^{-1}(0)$ is non-canonical.
+ \item[(2)] The form $\w_\mu$ on $X/\RR$ is in general not the canonical one.
+ \end{itemize}
+
+ In some non-canonical way, we've put a new symplectic structure on $T^*(X/\RR)$.
+
+ Figure 1
+
+ Let $G=\RR$ or $S^1$, whichever makes the action free.  Note $G=G_\mu$.  This is a
+ principal bundle.  $\alpha$ is invariant under the flow and $\langle
+ \alpha,\xi\rangle =\mu$.  Assume that $\mu\not=0$.  Let $\beta=\frac{\alpha}{\mu}$,
+ then
+ \begin{align*}
+   \L_\xi \beta &\equiv 0\\
+   i_\xi \beta &\equiv 1
+ \end{align*}
+ Such a $\beta$ is called a \emph{connection form} on the principal bundle $X\to X/G$.
+ You can look at $d\beta$, and notice that $\L_\xi d\beta = d\L_\xi\beta = 0$.  So
+ $d\beta$ is a two-form, which is invariant under the flow of $\xi$.  Also, $ i_\xi
+ d\beta = \underbrace{\L_\xi \beta}_0-d(\underbrace{i_\xi\beta}_1)=0$.  So $d\beta$
+ kills vectors along the fibers.  This exactly tells us that $d\beta$ comes from a
+ two-form downstairs.  Thus, there is a two-form $F$ on $X/G$ such that $\pi^*
+ F=d\beta$.  From this we have that $\pi^*dF=0$, and since $\pi^*$ is injective, we
+ have that $dF=0$.  So $F$ is a closed two-form on $X/\RR$, and it is called the
+ \emph{curvature} of the connection $\beta$.  Note that there is no reason for $F$ to
+ be exact, even though it becomes exact when you pull it up to $X$.
+
+ $J^{-1}(\mu)/G \stackrel{\alpha}{\simeq} T^*(X/G)$.  On $J^{-1}(\mu)/G$, we have the
+ reduced form on $(T^*X)_\mu$, and the corresponding thing on $T^*(X/G)$ is the
+ canonical form plus $\mu(pr^* F_\beta)$, where $\mu F_\beta$ is the 2-form on $X/G$
+ which pulls back to $d\alpha$ on $X$.  Here, $pr:T^*(X/G)\to X/G$.  How does this
+ depend on the choice of $\alpha$.  That is, how does the curvature depend on the
+ choice of the connection?  Say we replace $\alpha$ by $\alpha+\phi$, then we have
+ $\L_\xi \phi=0$ and $i_\xi \phi=0$.  $d(\alpha+\phi)=d\alpha+d\phi$, but these
+ conditions tell us that $\phi$ is $\pi^*\psi$, where $\psi$ is a 1-form on $X/G$.  So
+ we have that $d(\alpha+\phi) = d\alpha + d\phi = \pi^*(\mu F_\beta + d\psi)$.
+
+ Conclusion: If we replace $\alpha$ by $\alpha+\pi^*\psi$, the induced form on $T^*(X/G)$ is
+ modified by the addition of $d\psi$.
+
+ This is consistent with something else we know about cotangent bundles.
+
+ Figure 2
+
+ If we compose the two identifications, we get a fibre-preserving map, which is
+ translation by $\psi$.  It is symplectic exactly when $\pi^*d\psi$ vanishes.
+
+ It also tells us when we can get rid of this $F_\alpha$ if and only if we can find
+ $\psi$ such that $F_\alpha + d\psi=0$, which means that $F_\alpha$ is exact.  The
+ possible values of curvature therefore range over a cohomology class.  That shows
+ that if we do this cotangent reduction $(T^*X)_\mu \leftrightarrow T^*(X/G)$, then we
+ can make the form on the left correspond to the canonical form on the right exactly
+ when some cohomology class is zero.  If there is a section of the projection, then
+ the bundle is just a product.  If the fibers are all copies for the real numbers,
+ then you can always put together local sections by a partition of unity.  So we need
+ the fibers to be circles to get anything interesting.
+
+ Let $X=\RR^2$ and let $J(x^1,x^2,p_1,p_2)=\frac{1}{2}({x^1}^2+{x^2}^2+p_1^2+p_2^2)$.
+ Hamilton's equations say
+ \begin{align*}
+   \dot{x}^j &= p_j\\
+   \dot{p}_j &= -x^j\\
+   \ddot{x}^j&=-\dot{x}^j
+ \end{align*}
+ Lets look at $J^{-1}(1/2)/S^1$.  If we write $z^j=x^j+ip_j$, then we have that
+ $\dot{z}^j=-iz^j$.  The solutions are that $z^j=z^j_0 e^{-it}$.  So we have that
+ $J^{-1}(1/2)/S^1\simeq \CC\PP^1\simeq S^2$.  This is not a cotangent reduction
+ because the $J$ is not linear.  In any case, we get a symplectic structure on $S^2$.
+ It isn't hard to see that the induced form on $S^2$ is the curvature.
+
+ We have a vector field which we can think of as $\eta = p_j\pder{}{x^j} - x^j\pder{}{p_j}$.
+ Look at the 1-form $\alpha = (x^idp_1+x^2dp_2 - p_1dx^1 - p_2dx^2)/2$, whose $d$ is the
+ canonical symplectic structure.  If we take the inner product of our vector filed
+ with $\alpha$, what do we get?  We get $-1/2$ ... we'll deal with it later.  What
+ we've show is that $i_\eta\alpha =-1/2$, and we also know that $\L_\eta \alpha =
+ i_\eta d\alpha = i_\eta \w = dJ=0$ (because we are on a level set of $J$).  So there
+ is some 2-form on $S^2$ whose pullback is blah.  That 2-form really is the curvature
+ of the bundle.
+
+ Moral of the story: $S^1$ acts on $M$ via a hamiltonian action, $J:M\to R$.
+ $J^{-1}(\mu)/S^1$ is a symplectic manifold, and the symplectic structure is the
+ curvature of some connection on the principal bundle $S^1\to J^{-1}(\mu)\to M_\mu$.
+ It is not quite the curvature because we don't have the right normalization, so we
+ really have $\mu$ times the curvature of some connection.
+
+ \begin{corollary}
+   If $J^{-1}(\mu)$ is compact, then the circle bundle $S^1\to J^{-1}(\mu)\to M_\mu$ is
+   \emph{not} trivial.
+ \end{corollary}
+ If it were, then the cohomology class (which is the first chern class) would be zero,
+ so the symplectic structure would be exact, which it can never be.

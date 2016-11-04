@@ -1,0 +1,143 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{19}
+ \sektion{Lecture 19 - Torus Actions}
+
+ Remark on the paper: the main idea of the paper is to cover a subject, not a
+ particular article, or details of proofs.
+
+ There is a book, Toric actions on symplectic manifolds 2nd edition, by Mich\`ele
+ Audin, which is very good for the stuff we're doing.
+
+ The subject of torus actions fits into the more general area of completely integrable
+ systems.  The basic setup is this.  You have $(M,\w)$ $2n$-dimensional symplectic.
+ Following a paper by Duistermaat (1980) in Comm. Pure Appl. Math., we have
+ $M^{2n}\xrightarrow{J} W^n$ with rank $n$ almost everywhere, with lagrangian fibres.
+ \begin{lemma}
+   $J$ has lagrangian fibres if and only if $J$ is a Poisson map, where $M$ has the
+   symplectic poisson bracket, and $W$ has the zero poisson bracket.
+ \end{lemma}
+ That is, $\{f\circ J,g\circ J\}=0$ for all $f,g\in C^\infty(W^n)$.  If $W^n=\RR^n$,
+ and $J=(f_1,\dots, f_n)$.  Then this condition says that $\{f_i,f_j\}=0$.  We say
+ that these functions are in involution.
+
+ Given $H:M\to \RR$, $J$ is a constant of motion for $X_H$ if and only if $H$ is
+ constant on (connected components) of $J$-fibres.  Roughly, $H$ is a function of the
+ $f_i$s.  Then we say that this structure forms a completely integrable system.
+
+ There are two steps to understanding these things: understanding $J$ and
+ understanding $H$ dynamics.
+
+ Figure 1
+
+ Pick some $\mu\in W$ regular value for $J$, we get a map $T_\mu^*W\to
+\chi^1(J^{-1}(\mu))$.  The images of different elements commute.  So the image is a
+commuting subalgebra of vector fields spanning $T(J^{-1}(\mu))$.  Take a function on
+$W$ and pull it back.  The pull back has a hamiltonian flow along the fibres.  This
+map ``integrates'' to an action (perhaps partly defined) of the additive group
+$T_\mu^*W$ on $J^{-1}(\mu)$.
+
+Let's assume completeness of the vector fields involved.  e.g. this is implied by the
+assumption that $J^{-1}(\mu)$ is compact, which is implied by $J$ proper.  Let's
+assume $J$ proper.  Then we get an action of the cotangent space on the fiber (which
+is compact), and this action is transitive, locally free, so the fiber $J^{-1}(\mu)$
+can be identified with $T^*_\mu W/\Lambda_\mu$, where $\Lambda_\mu$ is a lattice, so
+$J^{-1}(\mu)$ must be a torus.
+
+Figure 2
+
+Every fiber of $T^*W$ is a group which acts on the $J^{-1}(\mu)$s, and the isotropy of
+all the fibers gives a lattice of 1-forms.  $\bigcup_\mu \Lambda_\mu\subseteq T^*W$ is
+locally given by graphs of smooth 1-forms.  Not globally!  The fundamental group
+$\pi_1(W,\mu)$ acts on $\Lambda_\mu$.  This action is called ``monodromy''.  Each
+fiber in $M$ is a torus.  There is an identification $\Lambda_\mu \simeq
+\pi_1(J^{-1}(\mu)) = H_1(J^{-1}(\mu),\ZZ)$.
+
+Note that you have to take out singular values, so you might get some non-simply
+connected $W$.  Take the spherical pendulum.  The configuration space is the
+two-sphere.  There are two conserved quantities, so we can map $T^*S^2\to \RR^2$ by
+$(E,L_z)$, where $E$ is energy, and $L_z$ is angular momentum around the $z$ axis. The
+map is proper because the energy levels are compact.  But there are singular values,
+and there is monodromy around the singular values.  Cushman, Duistermaat, Vu have
+written some stuff.
+
+Now let's go back and analyze integrable systems some more.  If you think a little
+bit, any section of $T^*W$ defines a map $M\to M$ by translating the torus fibres by
+it.  This is a symplectic map if and only if the section is a closed 1-form.  We
+showed that translation by a 1-form is symplectic if and only if it is closed.  The
+elements of the lattice act by the identity, so they are smooth closed 1-forms.  I
+claim this gives us a rigid structure on $W$.  Let's look on $W$:
+
+Figure 3
+
+\def\x{{\bf{x}}}
+
+We have a lattice of closed 1-forms spanned by $\w^1,\dots, \w^n$ (which are a local
+basis).  $\w^j=dx^j$, and since the $\w^i$ are independent, the $x^i$ form a
+coordinate system: $\x =(x^1,\dots, x^n):\U\to \RR^n$.  If we choose the $\w^i$, then
+the $x^i$ are determined up to a constant.  So we may change $\x\rightsquigarrow
+\x+{\bf b}$.  We may also replace $\w$ by $\nu$ by saying that $\nu^j=a^j_i \w^i$,
+where $a_i^j\in GL(n,\ZZ)$.  If $\nu^j=dy^j$, then $y^j=a_i^jx^i+b^j$.  We restrict
+ourselves to the case where the $\w^i$ form a basis for the lattice.  We get a ``flat
+$GL(n,\ZZ)$ structure''.  You can do on $W$ any construction you can do on $\RR^n$ so
+long as it is invariant under $GL(n,\ZZ)$.  You can talk about straight lines.  You
+can proof that the torsion of the connection is zero.  There is a distinguished family
+of bases of the tangent space up to $GL(n,\ZZ)$.  In each tangent space of $W$, there
+is a natural integer lattice, and there is a natural identification with nearby
+tangent spaces which identifies these lattices.  If the base is compact, it eliminates
+certain cases.  If the base is compact, it must be parallelizable, so it cannot be the
+2-sphere, for example (in fact, it must be the torus or the klein bottle).  A.T.
+Fomenko has written a bunch of stuff about related things.
+
+Locally, $\Lambda \simeq W\times \ZZ^n$, so $M\simeq W\times \TT^n$ locally (in $W$).
+The local coordinate function on $W$ obtained from one of these bases generate flows
+which rotate the torus.  This is a symplectic isomorphism ... you get coordinates
+$(I^1,\dots, I^n, \theta_1,\dots, \theta_n)$, and $\w=dI^j\wedge d\theta_j$.  Then $H$
+is a function of the $I^j$s, so hamilton's equations give
+\[
+    \der{I^j}{t}= 0 \qquad, \qquad \der{\theta_j}{t} = -\underbrace{\pder{H}{I_j}(I_1,\dots, I_n)}_{\phi_j}.
+\]
+ If $H$ is linear in the $I$s, then it is a very degenerate system ... you get the
+ same flow on each torus.
+
+ The non-degenerate case: If $\left(\frac{\partial^2 H}{\partial I_k \partial I_j}\right)$ is
+ invertible.  The determinant is $\det(\pder{\phi_j}{I_k})$.  Torus actions are the
+ ones for which these lattices are trivial bundles.
+
+ \subsection*{Delzant's Theorem}  $M$ is compact, and $M\xrightarrow{J} {\t^n}^*$ the
+ momentum map for an effective torus action.  We're assuming there is no monodromy around the
+ singular points.  Then we know that $J(M)=conv(J(M^{\TT}))$.  Note that ${\t^n}^*$
+ has a natural $GL(n,\ZZ)$ structure.  The kernel of the exponential map is a natural
+ lattice in $\t^n$.  Delzant's theorem says that $J(M)$ is a Delzant polytope, i.e.
+ has the following properties:
+ \begin{itemize}
+   \item[-] From each vertex, there emanate exactly $n$ edges, containing vectors
+   which form a basis for the natural lattice $\Lambda$, the dual lattice to the
+   kernel of the exponential map.
+ \end{itemize}
+ \begin{theorem}
+   Every Delzant polytope arises as the $J(M)$ for a unique (up to equivariant
+   symplectomorphism) hamiltonian torus action on a compact symplectic manifold.
+ \end{theorem}
+ Notice that the Delzant structure on a polytope doesn't depend on the geometry (you
+ can slide the faces of the polytope parallel to themselves).  Consider the
+ one-dimensional case.  A delzant polytope is an interval:
+
+ Figure 4
+
+ If we slide the polytope up and down, it doesn't change anything.  If we just move
+ one end, it changes the size of the sphere.
+
+ How does the proof go?  To prove that $J(M)$ has these properties is not too bad.
+ The hard part is showing that it arises and then showing uniqueness.  The way we do
+ that is by exhibiting the manifold $M$ for a polytope $\delta$ as a reduced manifold
+ of $\CC^d_\lambda$ for a linear action of $\TT^r$ on $\CC^d$.  How do we get such
+ a linear action out of a polytope?  The simplest example is the one-dimensional case.
+ The 2-sphere is $\CC\PP^1$, which is $\CC^2_\lambda$ for the Hopf circle action.  In
+ general, we have a polytope, so it is the intersection of half-spaces.  $\Delta$ can
+ be defined as $\{\mu \in {\t^n}^*|\langle v_j,\mu\rangle \le \lambda_j\}$, where
+ $v_1,\dots, v_d\in \t^n$, and $\lambda_j\in \RR$.  The $\{v_j\}$ define a map
+ $\RR^d\to \t^n$, which is an integer map (we can choose all the $v_i$ integer).
+ $v_j=(v_j^k)$, for $v_j^k\in \ZZ$.  so we get an $d\times n$ integer matrix.  How do
+ we build an action of some torus on $\CC^d$ so that the reduced manifold will have
+ the right dimension?  We can think of this as a map $\t^n\to \RR^d\simeq \t^d$, so we
+ get a $\t^n$ action on $\CC^d$.  We'll do this next time.

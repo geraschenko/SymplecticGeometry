@@ -1,0 +1,86 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{24}
+ \sektion{Lecture 24}
+
+ Papers distributed for refereeing.
+
+ N. Woodhouse, \emph{Geometric Quantization} (2nd edition), Oxford University Press.
+
+ We have $(M,\w,Q,\phi)$, from which we get $\H_{-1}$, and we choose a polarization
+ $F\subseteq T_\CC M$.  Then we get $\H_{n,F}$, which are $F$-parallel sections of
+ $E^{\otimes-n} = (E^*)^{\otimes n}$.
+
+ Example: $F$ is a K\"ahler structure on $(M,\w)$, then the $\H_{n,F}$ are the
+ holomorphic sections of $E^{\otimes -n}$.
+
+ \begin{theorem}[Riemann-Roch]
+   If $(M,\w)$ is compact K\"ahler, then
+   \[\sum (-1)^k \dim H^k(E^{\otimes n}) = \chi_n\]
+   is a polynomial in $n$ of degree $\frac{1}{2}\dim M$, with leading term $n^{\frac{1}{2}\dim
+   M}\cdot \int_M \frac{\w^{\dim M /2}}{n!} = \int_M \frac{(n\w)^{\dim M/2}}{n!}$.
+ \end{theorem}
+
+ \begin{theorem}[Kodaira Vanishing Theorem]
+   For $n\gg 0$, $H^{>0}(E^{\otimes n})=0$.
+ \end{theorem}
+
+ Let $M=T^*X$, with $F=$ foliation by fibres, $Q= M\times U(1)$, $\phi =
+ d\theta-\alpha$.  Then $\H_{-1,F}$ is the set of functions constant along fibres, so it
+ is just functions on $X$.  Diffeomorphisms act on $\H_{-1}$ by pullback.  If $S\in
+ C^\infty(X)$, then $dS$ acts on $\H_{-1}$ by multiplication by $e^{iS}$.
+
+ If $V$ a finite dimensional vector space over $\RR$, then $\wedge^{top} V^*$ is the
+ set of maps (frames of $V)\xrightarrow{\sigma} \RR$ such that $\sigma((e_1,\dots,
+ e_n)\cdot A) = \sigma(e_1,\dots, e_n)\cdot \det A$.  Look instead at things which
+ transforms as $\sigma((e_1,\dots, e_n)\cdot A) = \sigma(e_1,\dots, e_n)\cdot |\det
+ A|$, which you can integrate without an orientation ... call these things
+ \emph{densities}, denoted $|V|$.  Instead of $|\det A|$, you can use $|\det A
+ |^\alpha$ ... such things are $\alpha$-densities.  Then $|V|^\alpha\otimes
+ |V|^\beta\xrightarrow{\sim} |V|^{\alpha+\beta}$.  In particular, half-densities are
+ the things we should take to form an $L^2$ space.  On a manifold $M$, the compactly
+ supported sections of $|TM|^{\frac{1}{2}}$ form a natural inner product space, where
+ the inner product of $r$ and $s$ is $\langle r,s\rangle = \int_M rs$.  If instead of
+ maps to $\RR$, you take maps to $\CC$, they form a pre-hilbert space, not just an
+ inner product space, with $\langle r, s\rangle = \int_M r\cdot \bar s$.
+
+ In local coordinates, $dx^1\wedge\cdots\wedge dx^n$ basis for $\wedge^{top} TX$, so
+ $|dx^1\wedge \cdots\wedge dx^n|^\alpha$ basis for $|TX|^\alpha$.  So a typical
+ $\alpha$-density is $a(x)|dx^1\cdots dx^n|^\alpha$.  If you like, you can complete
+ our pre-hilbert space to a hilbert space.
+
+ We can relate the spaces attached to different polarizations.  Take $M=\RR^2$ with
+ coordinates $q,p$, $\alpha=pdq$, $\w=dq\wedge dp$.  $M\times U(1)$, with connection
+ $\phi = d\theta-pdq$.  $F_q = \langle \pder{}{p}\rangle$.  $\tilde F_q = \langle
+ \pder{}{p}\rangle$.  $a(q,p)e^{-i\theta}$ is an element of $\H_{-1}$.  If it is in
+ $\H_{-1,F_q}$, it must be of the form $a(q)e^{-i\theta}$.  To make them
+ half-densities, we take things of the form $a(q)e^{-i\theta}\sqrt{|dq|}$.  Now take
+ another polarization $F_p=\langle \pder{}{q}\rangle$, so $\tilde F_p = \langle
+ \pder{}{q}+p\pder{}{\theta}\rangle$.  In order for $b(q,p)e^{-i\theta}\in
+ \H_{-1,F_p}$, we must have that
+ \[
+    0 = b_q(q,p)e^{-i\theta} - ipb(q,p)e^{-i\theta}.
+ \]
+ So $b_q(q,p) = ipb(q,p)$, so $b= b(p)e^{ipq}$.  Thus,
+ $\H_{-1,F_q}=\{b(p)e^{ipq}e^{-i\theta}\sqrt{|dp|}\}$.
+
+ There is a pairing, the Blattner-Kostant-Sternberg (BKS) pairing, which multiplies
+ things in these two spaces: $\H_{F_q}\otimes \H_{F_p}\to \CC$, given by $\langle
+ A,B\rangle  = \int_M A\bar B \sqrt{Liouville} = \int_{\RR^2} a(q)\bar b(p)
+ e^{-ipq}\underbrace{\sqrt{dq}\sqrt{dp}\sqrt{dqdp}}_{dq\, dp}$.  Here the pairing is
+ conjugate linear.  We can rewrite the inner product as $\langle \beta(A) ,
+ B\rangle_{\H_{F_p}}$ since conjugate linear functionals are just inner product with
+ something.  It is clear that $\beta(A) = (\int_{\RR^2} a(q) e^{-ipq} dq)\sqrt{|dp|}$.
+ This is the Fourier transform (there should probably be a $2\pi$ somewhere in there).
+
+ So we have that the Fourier transform comes from this symplectic construction.  It
+ also points out that if you take functions on $V$, you get measures on $V^*$, and
+ vice versa.  If you want to get the same kind of object, you should take
+ half-densities!
+
+ $2\pder{}{\bar z} = \pder{}{q} + i\pder{}{p}$, which we will call $F_z$.  $\phi =
+ d\theta - \frac{1}{2}(pdq - qdp)$.  If you look at a general function
+ $C(q,p)e^{-i\theta}$, it belongs to $\H_{-1,F_z}$ if and only if $C = e^{-\frac{1}{4}
+ z\bar z}c(z) \sqrt{|dz|}$, where $c(z)$ is holomorphic.  Then the inner product is
+ $\int_{\CC=\RR^2}c_1(z)e^{-\frac{1}{4}z\bar z} \cdot \bar c(z)e^{-\frac{1}{4}z\bar z}
+ (Liouville\ measure) = \int_{\RR^2} c_1\bar c_2 e^{-\frac{1}{2} z\bar z} |dq\, dp|$.
+ This is called the Bargmann space or the Fock space.

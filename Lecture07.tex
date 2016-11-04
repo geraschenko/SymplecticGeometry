@@ -1,0 +1,136 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{7}
+ \sektion{Lecture 7 - (Almost) Complex Structures}
+
+ A complex structure on a (real) vector space $V$ is a map $J:V\to
+ V$ such that $J^2=-I$.  $J$ cannot have any (real) eigenvalues.
+ Such an operator induces the structure of a $\CC$-vector space on
+ $V$.  Namely, we define $(a+ib)\cdot v = (a+Jb)v$.  Conversely,
+ if we have a complex structure, then we have a real structure and
+ a map whose square is $-I$ (multiplication by $i$).  This is
+ actually an isomorphism of categories.
+
+ Given a real vector space, $V$, we can look at
+ $V_\CC:=V\otimes_\RR \CC\cong V\oplus $``$iV$''.  We will call
+ this \emph{complexification}.  How can we get back from $V_\CC$
+ to $V$.  In general, we can't, but on $V_\CC$, we have a ``real
+ structure'' given by an operator $V_\CC\to V_\CC$, namely complex
+ conjugation.  It has the properties
+ \begin{itemize}
+ \item[(1)] conjugate linear: $\overline{zw} = \bar z\bar w$
+ \item[(2)] involution: it squares to the identity (so eigenvalues are $\pm
+ 1$)
+ \end{itemize}
+ If $W$ is a complex vector space, then a \emph{real structure} on
+ $W$ is a conjugate linear involution, $c$.  Then we can define
+ $W_\RR$ to be $\{x\in W|c(x)=x\}$.  One may check that
+ $(W_\RR)_\CC\cong W$ and $(V_\CC)_\RR\cong V$.  This yields an
+ equivalence of categories (real vector spaces, and complex vector
+ spaces with a real structure) when you extend it to morphisms in
+ the obvious way.
+
+ We can extend these notions to bundles of vector spaces by saying
+ that $J$ or complex conjugation should vary continuously.
+ Specifically, we can talk about a complex structure on $TM$,
+ where $M$ is some manifold.  A complex structure on $TM$ is
+ called an \emph{almost complex structure} on $M$.  The reason we
+ say ``almost'' is because there is more to be said:
+ integrability.
+
+ Suppose $(M_1,J_1)$ and $(M_2,J_2)$ are almost complex manifolds,
+ and we have a map $M_1\xrightarrow{f}  M_2$, then $f$ is called
+ \emph{pseudo-holomorphic} if $Tf\circ J_1 = J_2\circ Tf$.  In
+ particular, if $M_1=M_2=\CC$, then a pseudo-holomorphic map is
+ just a holomorphic map (the condition is just the Cauchy-Riemann
+ conditions).
+
+ If we have a complex manifold, then we can identify the tangent
+ space at a point with $\CC^n$, and the $J$ from $\CC^n$ induces a
+ complex structure on that tangent space.  The compatibility of
+ the charts ensures that this is well-defined.  Does every almost
+ complex structure come from a complex structure?
+
+ A complex manifold has lots of holomorphic functions (or call
+ them pseudo-holomorphic if you like) on it (just compose the
+ coordinate system with holomorphic functions on $\CC^n$).  To
+ test if a manifold has a complex structure, we can ask if it has
+ enough holomorphic functions.  If we can find $f_1,\dots,
+ f_n:U\to \CC$ pseudo-holomorphic such that the induced map $U\to
+ \CC^n$ is a local diffeomorphism, then we have a complex
+ structure.
+
+ Cauchy-Riemann equations: $(M,J)\supseteq U\xrightarrow{f}
+ \CC$ is pseudo-holomorphic if $i\circ (Tf) = Tf\circ J$.  That
+ is, for every $v\in T_xM$, $(Tf)(Jv) = i(Tf)(v)$.  We can
+ re-write this as $(Jv)f = i(v\cdot f)$, or $(Jv-iv)f=0$.
+
+ If $(x_1,\dots, x_n,y_1,\dots, y_n)$ are coordinates on $M$ such
+ that $J(\pder{}{x_j}) = \pder{}{y_j}$, then this condition is
+ just
+ \[
+   \left(\left(\pder{}{y_j}\right) -
+i\left(\pder{}{x_j}\right)\right)f = \pder{f}{y_j}-i\pder{f}{x_j}
+= 0
+ \]
+
+ On an open subset of $(M,J)$, a function $f:M\to \CC$ is
+ pseudo-holomorphic if and only if $f$ is annihilated by the
+ elements $\{Jv-iv|v\in TM\}\subseteq T_\CC M$.  So in the
+ complexified tangent bundle, $T_\CC M$, of $M$, we have a distinguished
+ subspace consisting of all complex tangent vectors $w$ such that
+ $w=Jv-iv$ for some $v\in TM$.  When is $w=Jv-iv$? Look at the
+ paragraph after next.
+
+ The sections of $T_\CC M$ are called complex vector fields, and
+ they act as derivations on $C^\infty(M,\CC)$, and you can prove
+ that they are all the derivations.
+
+ We can look at $J_\CC(Jv-iv) = J^2-iJv = -v-iJv$, which is equal
+ to $-i(Jv-iv)$.  Thus, the set of $w$ above is the
+ $(-i)$-eigenspace of the operator $J_\CC$.  Similarly,
+ $\{Jv+iv\}$ is the $i$-eigenspace of $J_\CC$. This gives us a
+ decomposition $V=V^{1,0}\oplus V^{0,1}$ with
+ $\overline{V^{0,1}}=V^{1,0}$.
+
+ Figure 2
+
+ Thus, we can give an alternative definition: an almost complex
+ structure on $V$ is a complex subspace $V^{0,1}\subseteq V_\CC$ such
+ that $V_\CC=\overline{V^{0,1}}\oplus V^{0,1}$.  We've shown that an
+ almost complex structure gives you this, and given such a
+ splitting, we can do something.
+
+ We can extend the bracket operation $[\, \cdot ,\cdot\, ]$ on real vector
+ fields to complex vector fields.  As derivations, we have
+ $[X,Y]=XY-YX$.  Or, if you like,
+ \[
+    [A+iB,C+iD] = [A,C] - [B,D] + i([B,C]+[A,D]).
+ \]
+
+ If we have an almost complex manifold $(M,J)$, we can think of it
+ as $(M,T^{0,1}M)$, which is a complex sub-bundle of $T_\CC M$,
+ such that $T^{0,1}M\oplus \overline{T^{0,1}M} = T_\CC M$.  A
+ function is $J$-holomorphic if and only if $v\cdot f=0$ for all
+ sections $v$ of $T^{0,1}M$.\footnote{The book puts the indices $0,1$ downstairs.}
+
+ If $v\cdot f=0$ and $w\cdot f=0$, then $[v,w]\cdot f=0$.  On
+ $\CC^n$, $T^{0,1}\CC^n$ is spanned by all things of the form
+ $\frac{1}{2}\left(\pder{}{x_j}+i\pder{}{y^j}\right) =
+ \pder{}{\bar z_j}$, where $z^j = x^j+iy^j$.  A tangent vector is
+ in $T^{0,1}\CC^n$ if and only if it annihilates all homomorphic
+ functions.  All this shows that if $J$ comes from a complex
+ structure, then the sections of $T^{0,1}M$ are closed under the
+ bracket operation.
+
+ On the other hand, an algebraic calculation (exercise) shows that
+ $\Gamma(T^{0,1}M)$ is closed under bracket if and only if
+ $\mathcal{N}_J\equiv 0$.
+
+ \begin{theorem}[Newlander-Nirenberg]
+   $\Gamma(T^{0,1}M)$ closed under bracket implies that $J$ is
+   integrable (i.e. it comes from a complex structure).
+ \end{theorem}
+
+ This is similar to the Frobenius theorem.  It says that some
+ sub-bundle of the tangent bundle is a foliation if it is closed
+ under bracket.

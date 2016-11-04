@@ -1,0 +1,133 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{17}
+ \sektion{Lecture 17}
+
+ Did everybody get the email saying that you shouldn't use the bspace dropbox? Good.
+
+ We start with $(G,\w,G,J)$, $J:M\to \g^*$ with corresponding $\J:\g\to C^\infty(M)$.
+ Now we define
+ \[
+    \theta(v,w):=\{\J(v),\J(w)\}-\J([v,w]) \in \RR \quad (\text{generally, } H^0(M)).
+ \]
+ This is a bilinear, skew-symmetric map, $\theta: \g\wedge\g\to H^0(M)$.  It satisfies
+ a kind of Jacobi identity:
+ \[
+    \delta\theta(v,w,u)=\theta([v,w],u)+(\text{cyclic permutations})=0.
+ \]
+ This is a piece of a complex which calculates the lie algebra cohomology.
+
+ $C^k(\g)=\wedge^k\g^*=\hom(\wedge^k \g,\RR)$, $\delta: C^k(\g)\to C^{k+1}(\g)$ given
+ by
+ \begin{align*}
+ (\delta\theta)(v_0,\dots,v_k)= - \sum_{i<j}(-1)^{s(i,j)}\theta([v_i,v_j],v_0,\dots, \hat
+ v_i,\dots, \hat v_j,\dots ,v_k).
+ \end{align*}
+ This has a lot to do with the de Rham
+ differential.
+ [[\begin{align*}
+ (\delta\theta)(v_0,\dots,v_k)= - \sum_{i<j}&(-1)^{s(i,j)}\theta([v_i,v_j],v_0,\dots, \hat
+ v_i,\dots, \hat v_j,\dots ,v_k)\\
+ &+v_i\cdot \theta(v_0,\dots, \hat v_i,\dots, v_k).
+ \end{align*}]]
+
+ If $G$ is a compact, connected lie group, then $H^k_{dR}(G,\RR)\simeq H^k(\g,\RR)$.  If
+ $G=\mathbb{T}^n$, then $\g=\RR^n$, and $C^k(\g)=\wedge^k(\RR^n)^*=H^k(\g)$, which has
+ dimension $\binom{n}{k}$.
+ If $G=\RR^n$, then it has the same lie algebra, but the cohomology is different.  So
+ you definitely need compact and connected.
+
+ Recall that we can change $\J$ by locally constant functions.  Say we replace
+ $\J\rightsquigarrow \J+b$, where $b:\g\to H^0(M,\RR)$ (i.e. $b\in \g^*\otimes
+ H^0(M,\RR)$).  Then
+ \begin{align*}
+  \theta_{\J+b}(v,w) &= \{\J(v)+b(w),\J(w)+b(v)\}-\J([v,w])-b([v,w])\\
+  &= \theta_\J (v,w) + \underbrace{\{\J(v),b(w)\} + \{b(v),\J(w)\}}_{0+0}- \underbrace{b([v,w])}_{\pm \delta b(v,w)}.
+ \end{align*}
+ So when we change $\J$ by a locally constant function, the $\theta$ is changed by a
+ coboundary.  Thus, given an action admitting a comomentum map, there is an associated
+ element of $H^2(\g,H^0(M))$ which vanishes if and only if there is a comomentum map
+ which is a lie algebra homomorphism.
+
+ Last time we showed
+ \begin{align*}
+   \J(Ad_g v)-{g^{-1}_M}^*\J(v) &= \langle \overbrace{c(g)}^{\in \g^*},v\rangle
+ \end{align*}
+ for some $c:G\to \g^*$.  Now we're going to differentiate $c$ at the origin.  Let
+$g=\exp(tw)$ for $w\in \g$, then take $\der{}{t}$ at $t=0$.  Then we get
+\begin{align*}
+  \J([w,v])+X_{\J(w)}\cdot \J(v) &= \J([w,v])+\{\J(v),\J(w)\} \\
+  &= \theta(v,w)
+\end{align*}
+on the LHS, and on the RHS, we have $\langle (T_e c)(w),v\rangle$.  So if we think of
+$c$ as a bilinear form on $\g$, it is exactly $\theta$.  It turns out that if
+$\theta=0$, you get that $c=0$ on the connected component of the identity.  So on a
+connected group, $\theta$ and $c$ contain the same information.  Not so on a
+non-connected group:
+
+Consider $O(3)$ acting on $T^*\RR^3$ with coordinates $q^i,p_i$ $i=1,2,3$.  Take the
+one parameter group of rotations given by rotation of the $1$-$2$ plane.
+$q^1\pder{}{p_1} -q^2\pder{}{p_2}$, with hamiltonian $q^1p_2-q^2p_1$.  Then $J=q\times
+p$. $L(q)\times L(p)=L(q\times p)$.  The momentum map is $SO_3$ equivariant, but not
+$O_3$ equivariant because reflection introduces a minus sign.  We've identified
+$\mathfrak{o}_3\cong \mathfrak{so}_3\simeq \RR^3$.
+
+ Another example: let $G$ be a lie group, then $G$ acts on $G$ by right translations.
+ That is, $g\rightsquigarrow r_{g^{-1}}$.  Then we can lift to $T^*G$: $g\cdot \alpha =
+ r_{g}^*\alpha$.  Since any lifted action is symplectic, we can expect a momentum map,
+ and we can expect it to be linear on fibres.  If you look at a one-parameter
+ subgroup, the infinitesimal generator is a left-invariant vector field.  $J:T^*G\to
+ \g^*$ given by left translation back to the identity.  Then $J^{-1}(\mu)$ is all
+ cotangent vectors, which when translated back to the identity become $\mu$, so this
+ is just the image of the left invariant 1-form $\mu$, which is isomorphic to $G$ as a
+ manifold.  So what is $J^{-1}(\mu)/G_\mu$?  It is $G/G_\mu$, which is the coadjoint
+ orbit of $\mu$.  Thus, $G/G_\mu=G\cdot \mu$ inherits a reduced symplectic structure.
+
+ \[\xymatrix{
+ T^*G \ar@{<-^)}[r] \ar[d] & J^{-1}(\mu) \ar[d]\\
+ T^*G/G \ar@{<-^)}[r] & J^{-1}(\mu)/G_\mu
+ }\]
+ Here, $T^*G/G$ is a poisson manifold, with the linear lie-poisson structure on
+ $\g^*$: $\{\mu_i,\mu_j\}=c_{ij}^k\mu_k$.
+
+ \subsection*{Convexity Theorem}
+ Two big theorems in symplectic geometry, the Atiyah-Guilleman/Sternberg convexity
+ theorem (1982), and Gromov pseudoholomorphic curve theorem (1985).  We will talk
+ about the first theorem
+
+ \begin{theorem}
+   $(M,\w)$ connected symplectic, $G=\mathbb{T}^m=(\RR/\ZZ)^m$ acting on $M$ with equivariant
+   $J:M\to \g^*\cong \RR^m$.  [[If $v_1,\dots, v_m$ a basis for the lie algebra
+   $\mathfrak{t}^m$ of $\mathbb{T}^m$, then $\{\J(v_1),\J(v_2)\}=0$.  Then the orbits
+   of $v_{i,M}$ are isotropic.]]  Then the $J$ level submanifolds are connected, and
+   $J(M)\subseteq \mathfrak{t}^{m*}$ is the convex hull of $J(M^G)$ (which is a finite
+   set).
+ \end{theorem}
+ If $m=1$, we have a circle action, $J:M\to \RR$ is just the hamiltonian for the
+ circle action.  Then the theorem says that the image is a closed interval whose
+ endpoints are fixed points.
+
+ \underline{Local version}: Assume we have a fixed point $x\in M$.  Locally, we have a
+ symplectic torus action on $\RR^{2n}$ containing $0$ as a fixed point.
+ \begin{theorem}[Bachner]
+   Any smooth action of a compact group may be linearized around any fixed point.
+   i.e., given $x\in M$ fixed by a compact group action, there is some coordinate
+   system around $x$ such that the action on the coordinate system is linear.
+ \end{theorem}
+ Choose a Riemannian metric on $M$, then use compactness of the group to replace the
+ metric by an invariant metric under the action of the group.  Then use the
+ exponential map to give a coordinate chart.  Then the action sends geodesics to
+ geodesics, so on the tangent space, it is linear.
+
+ So we can say that around a fixed point, the torus action is linear.  We would like
+ to say that it is symplectic, but it is only symplectic with respect to $\exp^*\w$,
+ where $\w$ is the symplectic form on $M$.  We would like: if we choose something
+ other than $\exp$, $\w$ will pull back to a constant symplectic form.  What we really
+ need is a Bochner-Darboux theorem, which says that if we have a compact group acting
+ on a symplectic manifold near a fixed point, we can find a coordinate system where
+ the group action is linear and the symplectic form is constant.  That is not too hard
+ to prove using the Moser method.  First use the Bochner theorem.  Then we have two
+ symplectic structures on our $T_xM$.  Then we need to take one to the other in such a
+ way that it commutes with the action of the group.  But if you look at the proof of
+ the Darboux theorem, the construction commutes with any linear action.  This gives us
+ a linear symplectic action near a fixed point.  Now we need to look at the momentum
+ map.

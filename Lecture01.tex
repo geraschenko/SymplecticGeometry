@@ -1,0 +1,182 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{1}
+ \sektion{Lecture 1}
+
+ \noindent Alan Weinstein\\
+ office 825 Evans\\
+ 642-3518\\
+ alanw@math.berkeley.edu\\
+ OH: T 9:40-11, R 12:40-2\\
+ \texttt{math.berkeley.edu/\~{}alanw}\\
+ \texttt{bspace.berkeley.edu}
+
+ \noindent GSI(sorta):Christian Bloman?
+
+ orbit method in representation theory.
+
+ symplectic geometry and algebraic geometry.  moment maps.
+ Attiya.
+
+ 90s. conformal field theory.  Syberg-Witten theory.
+
+ Poisson bracket ... lie algebra structure.  Leads to Poisson
+ geometry.  Mechanics - Poisson brackets are classical limit of
+ commutators.
+
+ 00s. Generalized complex geometry, which includes complex and
+ symplectic geometry.
+
+ \vspace{5mm}
+
+ Weekly reading assignments - try to look at it before the week
+ starts, and make questions.  Long list of weekly homework; you
+ only have to hand in about three each week, due on the following
+ Thursday.  Term paper - sample papers on website; the idea is to
+ write a survey of the topic of your choice.  In October, we will
+ have a session with librarian to learn how to search for stuff.  There
+ is no final exam (no exams at all, in fact).
+
+ There should be an email list on bspace, where you can send
+ questions.  Until that is set up, send questions directly to Alan
+ (answers sent to whole class unless otherwise specified).
+
+ The book really is required.  There is a website for corrections.
+ The author also has a paper on the arXiv which is kind of a
+ sequel to the book. Please understand everything in the reading.
+
+\vspace{5mm}
+
+ \underline{Symplectic linear algebra:}
+
+ Bilinear forms: $V$ vector space over a field (almost always $\RR$
+ or $\CC$), but you could work over other fields or rings.
+
+   A \emph{bilinear form} $B:V\times V\to k$ (sometimes to
+   $\RR$ if $k=\CC$) is bilinear.  In the case $k=\CC$, we
+   also have \emph{hermitian}\footnote{When some name becomes part
+   of an adjective, you stop capitalizing}, which means $B(ax,by)
+   = a\bar b B(x,y)$ for complex numbers $a$ and $b$, and
+   $B(x,y)=\overline{B(y,x)}$. We can talk about \emph{symmetric}
+   forms ($B(x,y)=B(y,x)$), \emph{skew symmetric}.
+
+  In super algebra, symmetric and skew symmetric things are the
+  same thing.  Hermitian and skew hermitian are closely related.
+
+ Dualization:If $B$ is a bilinear form on $V$, it induces a linear map
+  $\tilde B: V\to V^*$ given by $\tilde B(x)(y)=B(x,y)$.  This is
+  the notion of \emph{dualization}.  We say $B$ is
+  \emph{non-degenerate} if $\tilde B$ is an isomorphism.  Note
+  that this gives a way to get $B$ from $\tilde B$, as well as the
+  other way.
+
+  Orthogonality: (symmetric, skew-symmetric, hermitian).  Two
+  vectors are orthogonal if $B(x,y)=0$.  If $W\subseteq V$, we
+  define $W^{\perp} = \{x\in V|B(x,y)=0\ \forall y\in W\}$.  In
+  particular, $V^{\perp}=\ker \tilde B$, which is zero if $B$ is
+  non-degenerate.  In the finite-dimensional case, the converse is
+  true.  In the infinite-dimensional case, it turns out that many
+  of the symplectic structures are \emph{weakly non-degenerate}
+  (i.e. $\tilde B$ injective, but not surjective).  In the
+  finite-dimensional case, non-degeneracy ensures
+  $(W^{\perp})^{\perp}=W$
+
+  Assume finite dimensional, non-degenerate.  Then $\dim W + \dim
+  W^{\perp}=\dim V$.  In particular, if $W=W^{\perp}$, then $\dim
+  W=\frac{1}{2} \dim V$ (and so $\dim V$ must be even).  Such $W$
+  are called \emph{lagrangian} in the skew-symmetric non-degenerate case
+  (which is exactly \emph{symplectic}).
+
+  $W\subseteq V$ is \emph{isotropic} is $W\subseteq W^{\perp}$.
+  In the skew-symmetric case, if $\dim W=1$, then $W$ is isotropic
+  because $B(v,v)=-B(v,v)$, so $B(v,v)=0$.  Isotropy implies that
+  $\dim W\le \frac{1}{2} \dim V$.  Any isotropic space is
+  contained in a maximal isotropic space (which are lagrangians!).
+  $W$ is \emph{coisotropic} if $W^{\perp}\subseteq W$.  That is,
+  if $W^{\perp}$ is isotropic.
+
+ By the way, symplectic implies even dimension!
+
+  \underline{Examples:}
+  \begin{itemize}
+  \item[(a)] Let $E$ be any vector space, and let $V=E\oplus E^*$
+  (this is even-dimensional).  Define $\W_{\pm}: V\times V\to k$
+  by $\W_{\pm}((x,p),(x',p')) = \langle x,p'\rangle \pm \langle
+  x',p\rangle$ (\footnote{Here, $\langle x,p\rangle = p(x)$.}).
+  When is this non-degenerate?  $\tilde \W_{\pm}:V\to V^*$,
+  sending $E\oplus E^*$ to $E^*\oplus E^{**}$ given by
+  \[
+    \W_{\pm}(x,p)(x',p') = p'(x)\pm p(x')
+  \]
+  so $\tilde \W_{\pm}(x,p) = (\pm p, i(x))$, where $i:E\to E^{**}$
+  is the natural map.  In the finite-dimensional case, we can
+  identify $i(x)$ with $x$ because $i$ is an isomorphism.  $E$ is
+  called \emph{reflexive} if $i$ is an isomorphism, in which case
+  $\W_{\pm}$ is non-degenerate.  When $E$ is finite-dimensional,
+  note that $\W_-$ is symplectic!  This is in some sense
+  \emph{the} example.
+
+  In general, if you assume choice, $i$ is always injective, so
+  $\W_{\pm}$ is always weakly non-degenerate.
+
+  In many infinite-dimensional cases, we often require that maps
+  be continuous (in some sense or another).  Then this gives some
+  sort of topological dualization.
+
+  \item[(b)] Let $E$ be a vector space.  $B$ any bilinear form on
+  $E$, giving $\tilde B:E\to E^*$.  Look at the graph of $\tilde
+  B$, which is a (linear!) subspace of $E\oplus E^*$.  We can ask,
+  ``when is this graph lagrangian (w.r.t $\W_{\pm}$)?''  It has a chance because it
+  is half dimensional.
+  \begin{align*}
+    \tilde \W_{\pm}((x,\tilde B(x)),(y,\tilde B(y))) &= \tilde
+    B(y)(x) \pm \tilde B(x)(y)\\
+    & = B(y,x)\pm B(x,y)
+  \end{align*}
+  So the graph is lagrangian for $\W_+\ [\W_-]$ if and only if $B$
+  is skew-symmetric [symmetric].
+
+  We think of lagrangian subspaces of $(E\oplus E^*,\W_{+[-]})$ as
+  ``generalized'' skew-symmetric [symmetric] forms on $E$.
+
+  From the graph of $\tilde B$, you can read off properties of
+  $B$.  For example, $B$ is non-degenerate (in the finite
+  dimensional case) if the graph doesn't intersect $E$.  A graph
+  never intersects $E^*$.
+
+  A lagrangian subspace of $(E\oplus E^*,\W_+)$ is called a
+  \emph{Dirac structure} on $E$.  Special case is a skew-symmetric
+  form.  And a special case of that is a symplectic structure.
+  Note that $E$ and $E^*$ are themselves lagrangian.
+
+  \item[(c)]  Operations on spaces with bilinear forms.
+  $(V,B)\rightsquigarrow (V,-B)$ preserves type ... we often write
+  this $V\to \bar V$, called the \emph{opposite symplectic
+  structure}.
+
+  Structure on $(V_1,B_1)\oplus (V_2,B_2)$ defined by
+  $((x_1,x_2),(y_1,y_2))\mapsto B_1(x_1,x_2)+B_2(y_1,y_2)$.  We
+  can add spaces with the same kind of structure.
+
+  In $\bar V_1\oplus V_2$, given a linear map $L:V_1\to V_2$, when
+  is its graph lagrangian?
+ \[
+    ((x,L(x)),(y,L(y)))\mapsto -B_1(x,y)+B_2(L(x),L(y)) = 0.
+ \]
+ The graph of $L$ is isotropic if and only if $L$ ``preserves
+ `inner' product''.  It is lagrangian if and only if $L$ is an
+ isomorphism of B-spaces (spaces with non-degenerate bilinear
+ form).
+
+ Lagrangian subspaces of $\bar V_1\oplus V_2$ as ``generalized''
+ B-space isomorphisms of $V_1$ to $V_2$.
+
+ In the symmetric case, these are isometries.  If the space is of
+ the form $E\oplus E^*$ (which it always is), then we get a
+ correspondence between isometries and skew-symmetric forms.  If
+ $V_1=V_2$, isometries form the orthogonal group, and
+ skew-symmetric forms form the lie group of that group!
+
+ In the symplectic case, we will get a correspondence between some
+ other things.
+
+  \end{itemize}

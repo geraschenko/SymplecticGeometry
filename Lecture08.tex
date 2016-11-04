@@ -1,0 +1,125 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{8}
+ \sektion{Lecture 8 - More}
+
+ It's never too soon to start thinking about the term paper.
+
+ In addition to $T_\CC M$, we have $T_\CC^* M$, the sections of
+ which are complex 1-forms.  We will write $dz^j=dx^j+idy^j$.  For
+ a (complex) basis for $T_\CC^*(\RR^{2n}$ (at a point), we may
+ take either $d_x^j,dy^j$, or $dz^j,d\bar z^j$.
+
+ Note that we have two notions of dual for a complexified vector
+ space, but they are naturally isomorphic:
+ \[\hom_\CC(V_\CC,\CC)=(V_\CC)^* \cong (V^*)_\CC = \hom_\RR
+ (V,\RR)\otimes_\RR \CC.\]
+
+ We can now consider \[\wedge^k T^*_\CC M =
+ \wedge^k(\underbrace{T^{*1,0}_M}_{dz^j}\oplus
+ \underbrace{T^{*0,1}_M}_{d\bar z^j}) = \bigoplus_{p+q=k} \wedge^p
+ T^{*1,0}_M \otimes \wedge^q T^{*0,1}_M\]
+
+ This splitting is naturally attached to the almost complex
+ structure.  On the level of sections, we have $\W^k_\CC(M)$.  By
+ the way, $(\wedge_\RR^k V)_\CC \simeq \wedge_\CC^k(V_\CC)$, and
+ there is a $d_\CC$ taking $k$-forms to $(k+1)$-forms.  In fact,
+ the complex de Rham cohomology is the regular de Rham cohomology
+ tensored with $\CC$.
+
+ When we have an almost complex manifold, we can write
+ \[
+    \W^k_\CC(M) = \bigoplus_{p+q=k} \W^{p,q}(M)
+ \]
+ where $\W^{p,q}(M)$ are forms with $p$ $dz^j$'s and $q$ $d\bar
+ z^j$'s (this is cheating, since we don't actually have $z$'s and
+ $\bar z$'s).  We can always choose a basis of vector fields
+ $(\xi_1,\dots, \xi_n,\eta_1,\dots, \eta_n)$ such that
+ $J(\xi_j)=\eta_j$.  Then we get a new basis $\bar\alpha_j =
+ \frac{1}{2}(\xi_j+i\eta_j)$ and $\alpha_j =
+ \frac{1}{2}(\xi_j-i\eta_j)$.  Then the corresponding basis in the
+ dual space are $\bar \theta^j$ and $\theta^j$.  Then a typical
+ element $\w\in \W^{p,q}(M)$ is of the form
+ \[
+    \w = \sum (function) \theta^{i_1}\wedge\cdots\wedge
+    \theta^{i_p}\wedge \bar \theta^{i_p}\wedge\cdots\wedge
+    \bar\theta^{i_q}
+ \]
+ Then we have that $d\w$ will, in each term, have either an extra
+ $\theta$ or an extra $\bar\theta$.  So $d\w\in
+ \W^{p+1,q}(M)\oplus \W^{p,q+1}(M)$, and this decomposition is
+ unique, so we may write $d\w = d^{1,0}\w+d^{0,1}\w$.  Thus, we
+ have that $d=d^{1,0}+d^{0,1}$.  We often write $d^{1,0}=\delta$
+ or $\partial$, and $d^{0,1} = \bar\delta$ or $\bar\partial$.
+
+ \begin{lemma}
+   $f$ is [pseudo-]holomorphic if and only if $\bar\partial f=0$.
+ \end{lemma}
+
+ We know that $d^2=(\partial+\bar\partial)^2 =
+ \partial^2+\partial\bar\partial + \bar\partial\partial
+ +\bar\partial^2 =0$.
+
+ \begin{proposition}
+   $\partial^2=0$ if and only if $J$ is integrable if and only if
+   $\bar\partial^2=0$ if and only if
+   $\bar\partial\partial=\partial\bar\partial$.
+ \end{proposition}
+
+ In this case, we can just look at the complex
+ \[
+   0\to \W^{0,0}\xrightarrow{\bar\partial}
+    \W^{0,1}\xrightarrow{\bar\partial} \W^{0,2}\xrightarrow{\bar\partial}
+ \]
+ and the cohomology is called the Dolboex [[sp?]] cohomology.
+
+ Moving from linear algebra to geometry, the statement
+ $(V_\CC)^*\simeq (V^*)_\CC$ becomes the following.  Think of
+ $\RR^m\subseteq \CC^m$, and consider $C^\w(\RR^m)$, the real
+ analytic functions on $\RR^m$, and tensor with $\CC$.  We can
+ also consider $C^\w_\CC(\CC^m)$.  If we restrict an analytic
+ function to $\RR^m$, you get a complex-valued real analytic
+ function.  If you start with a real analytic function on $\RR^m$,
+ you can extend it to a neighborhood $U$ of $\RR^m$.
+ \[\xymatrix  {
+  C^\w(\RR^m)\otimes \CC \ar@/^3mm/[rr]^{\text{\tiny{locally}}} & & \C^\w_\CC(\CC^m) \ar[ll]
+ }\]
+ figure 1
+
+ If you start with $(\RR^{2n},J)$, with coordinates $x^1,\dots,
+ x^{2n}$, you get coordinates
+ \begin{align*}
+   \eta_j &= \pder{}{x^j} + iJ_j^k(x)\pder{}{x^k}\\
+   \xi_j &= \pder{}{x^j} - iJ_j^k(x)\pder{}{x^k}
+ \end{align*}
+ where $J_j^k(x)$ is the matrix $J:T_x\RR^{2n}\to T_x\RR^{2n}$.
+ Then the $\eta_j$ (but only $n$ of them, not
+ $2n$\marginpar{hmmmm}) form a basis for the $0,1$ part and the
+ $\xi$ for the $1,0$ part.
+
+ $T_{x+i0}\CC^{2n} \simeq T_x\RR^{2n} \oplus iT_x\RR^{2n} \simeq
+ T_{\CC,x}\RR^{2n}$.  So we have these complexified vector fields
+ on our real manifold.
+
+ If you assume that your almost complex structure is real
+ analytic, you can analytically extend all the $J_j^k$ to some
+ neighborhood of $\RR^{2n}\subseteq \CC^{2n}$.  So you get some
+ sub-bundle $E\subseteq T\CC^{2n}$ (the extension of the $0,1$
+ part) of dimension $n$, which is holomorphic (the $\eta_j$ are
+ the typical sections of $E$).
+
+ Now let's assume that $J$ is integrable.  This tells is that $E$
+ is closed under bracket (it is an \emph{involution}).  Now we
+ invoke the holomorphic Frobenius theorem, so we get a foliation
+ of some neighborhood of $\RR^{2n}\subseteq\CC^{2n}$.  So near any
+ point, we can find $\phi^1,\dots, \phi^n$ independent functions
+ which are constant on the leaves of the foliation.  When
+ restricted to $\RR^{2n}$, they are still independent (the leaves
+ intersection $\RR^{2n}$ transversely) and $J$-holomorphic.
+
+ Since every $0,1$ leaf intersects (at least locally) each $1,0$
+ leaf exactly once, you get a map from the leaf to the original
+ $\RR^{2n}$.  Since the leaf is complex, this induces a
+ holomorphic complex chart on the $\RR^{2n}$.
+
+ In fact, you can start of with something $C^\infty$ and get
+ complex coordinates (but this is hard).

@@ -1,0 +1,141 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{21}
+ \sektion{Lecture 21 - Prequantization}
+
+ $C^\infty(M)$.  We are looking for a principal bundle $\RR/2\pi\ZZ \cong U(1)\to
+ Q\xrightarrow{p} M$.  Let $\xi\in \chi(Q)$ generate the $U(1)$ action.  Then the
+ connection is a form $\phi\in \W^1(Q)$ such that $\phi(\xi)=1$, $\L_\xi \phi =
+ \xi\lrcorner d\phi = 0$.  Then $\ker \phi$ is a horizontal distribution.  $d\phi =
+ p^*\w$.  That is, we want $\w$ to be the curvature of this connection.  Every $X\in
+ \chi(M)$ has a unique horizontal lift $\hat X\in \Gamma(\ker \phi)$.  This lifting is
+ not a lie algebra homomorphism.  In fact, $[\hat X,\hat Y] =
+ \widehat{[X,Y]}+\phi([\hat X,\hat Y])\xi$.  Recall that \[d\phi (\hat X,\hat Y) =
+ \hat X(\phi(\hat Y)) - \hat Y(\phi(\hat X)) - \phi([\hat X,\hat Y]).\]  Since these
+ are horizontal, the first two terms are 0.  so $\phi([\hat X,\hat Y]) = -d\phi(X,Y)
+ = -p^*\w([X,Y])$.  This gives you the vertical component of the bracket of two
+ horizontal vectors.
+
+ Given $f\in C^\infty(M)$, we attach to it $X_f$ (an anti-homomorphism), then we take
+$Y_f := - \hat X_f + f\xi \in \chi(Q)$.  This vector field has the property that it is
+the unique vector field whose horizontal component is $-\hat X_f$, and is a contact
+vector field.  Let's check that
+\begin{align*}
+  \L(-\hat X_f + g\xi)\phi &= d(-X_f +g\xi)\lrcorner \phi + (-\hat X_f + g\xi)
+  \lrcorner d\phi\\
+  &= dg - \hat X_f\lrcorner d\phi\\
+  &= dg - p^*(X_f\lrcorner \w)\\
+  &= dg - p^*df
+\end{align*}
+which implies that $g = p^*f +const$.  Let's choose the constant to be zero.
+
+ Now we compute
+ \begin{align*}
+   [Y_f,y_g] &= [-\hat X_f + f\xi, -\hat X_g + g\xi]\\
+   &= [\hat X_f,\hat X_g] - [\hat X_f, g\xi] + [\hat X_g,f\xi]\\
+   &= \widehat{[X_f,X_g]} - \w(X_f,X_g)\xi - (X_f\cdot g)\xi + (X_g\cdot f)\xi\\
+   &= -\widehat{X_{\{f,g\}}} + (-\{f,g\} - \{g,f\} + \{f,g\})\xi\\
+   &= Y_{\{f,g\}}.
+ \end{align*}
+ This correspondence ($f\rightsquigarrow Y_f$) is faithful ($Y_f=0 \Rightarrow f=0$).
+ If we think of $f$ as a function of $q,p,\theta$.  We can write $\phi = d\theta -
+ pdq$ in local coordinates.  Then $X_f = f_q\pder{}{p} - f_p\pder{}{q}$, so $\hat X_f
+ = f_q\pder{}{p} - f_p\pder{}{q} + pf_p \pder{}{\theta}$, so
+ \[
+    Y_f = -f_q\pder{}{p} + f_p\pder{}{q} - pf_p \pder{}{\theta} + f\xi.
+ \]
+ So in particular, $Y_q = -\pder{}{p} + q\pder{}{\theta}$ and $Y_p = \pder{}{q}$.
+ There is a geometric interpretation for this coordinate stuff.  Consider the case
+ where $M=T^*X$, and then $Q= T^*X \times U(1)$ with $\phi = d\theta - \alpha$.  In
+ this case, we find that for any $f\in C^\infty(X)$ (not $M$),
+ $Y_f=-vert(df)+f\pder{}{\theta}$.  On the other hand, if we have a vector field,
+ $\zeta$, which is linear on the fibers, then we can talk about $Y_\zeta =
+ \pder{}{q}$, which is the cotangent lift of $\zeta$.
+
+ Remember we are acting on functions of $q,p,\theta$, which is too many variables.  If
+ we look at function independent of $p$, then $Y_p$ acts by differentiation, which is
+ good, and $Y_q$ acts trivially.  If we add a $\theta$ dependence, then we get
+ multiplication by $q$, which is what we want. What is the right kind of $\theta$
+ dependence?
+
+ $U(1)$ acts on $C^\infty(Q)$.  When you have a group acting on a vector space, you
+ can break it up into irreducible representations.  The representations of $U(1)$ are
+ classified by the eigenvalues of the generator $\xi$.  Typically, we have
+ $f(e^{i\theta})$, and $\xi = \pder{}{\theta}$.  The eigenvalues are $n\in \ZZ$.  We
+ can decompose $C^\infty(Q)$ into eigenspaces $\H_n$ of $\xi$.  In particular,
+ $\H_0=p^*C^\infty(M)$.  On $\H_n$, we find that ``$\pder{}{\theta}=in$''.  Let
+ $n=-1$.  Then $Y_q = -\pder{}{p} - iq$, $Y_p = \pder{}{q}$.  These are vector fields
+ on a manifold, which have unitary flows, whose derivatives are skew.  To get
+ hermitian operators, look at $iY_q = -\pder{}{p} + q$, $iY_p = i\pder{}{q}$.  If we
+ now let these act on functions independent of $p$, then the operator corresponding to
+ $q$ is multiplication by $q$ and that of $p$ is $i\pder{}{q}$, just like we wanted.
+ This works whenever we have a circle bundle.
+
+ In the special case where $Q=M\times U(1)$, then $u\in C^\infty(Q)$ can be written as
+ $\sum a_n(x) e^{in\theta}$, where the $a_n$ are the fourier coefficients.  Then
+ $\xi(u) = \sum in a_n(x)e^{in\theta}$.  For $u\in \H_n$, we have
+ $u=a_n(x)e^{in\theta}$.  For $n=-1$, $u=a_{-1}e^{-i\theta}$, which is just a function
+ of $x$.  This is in the case of the trivial bundle.  In general, we don't have a
+ trivial bundle.  $\H_n$ is some vector space, but there is more structure.  Locally,
+ an element is just a complex function on the base.  If we use pointwise
+ multiplication, $\H_n\H_m\subseteq \H_{n+m}$ because $\xi$ is a derivation.  In
+ particular, $C^\infty(M)\cong \H_0$, and $\H_n$ is a module over it ... it is a
+ locally free module of rank 1.  So $\H_n$ is a line bundle.  We can identify the
+ fibres.  We have $Q\xrightarrow{p} M$.  For $x\in M$, we define
+ $\H^n_x$\footnote{$\H^n=\H_n$.} to be $\{u\in C^\infty(p^{-1}\{x\}) | \xi u =inu\}$.
+ This is a complex line, so $E^n:=\bigcup H^n_x$ is a complex line bundle, so
+ $\H_n=\Gamma(E^n)$.  We can also say that $E^n\cong (E^1)^{\otimes n}$, where a
+ negative tensor power is a tensor power of the dual bundle.  The conclusion is that
+ if we have a circle bundle over $Q$ whose curvature is $\w$, we can construct an
+ action of $C^\infty(M)$ such that poisson brackets go to commutator brackets.  If we
+ think of them as sections of a complex line bundle, what are these operators?  We
+ have vector fields on the base, and a connection gives us a covariant derivative.
+ You can read Kostant's article in Lec.~Notes in Math.~170.
+
+ How do we know there is such a $Q$?  We know that we can take the trivial bundle in
+ the case of a cotangent bundle (or whenever $\w$ exact).  What if $\w$ is not $d$ of
+ some 1-form, as in the case of a compact symplectic manifold.
+ \begin{theorem}[A. Weil]
+   $\w\in \W^2(M)$ is the curvature of a $U(1)$-bundle over $M$ if and only if $[\w]\in
+   Im(H^2(M,\ZZ)\to H^2(M,\RR))$ (where this is the map corresponding to coefficient
+   homomorphism $\ZZ\xrightarrow{2\pi} \RR$) if and only if $\int_\sigma \w \in 2\pi
+   \ZZ$ for every 2-cycle $\sigma$ on $M$.
+ \end{theorem}
+ This is often called the integrality condition.  In this context, it is also called
+ the prequantization condition.  If we take the standard 2-sphere in $\RR^3$, with the
+ usual area element, it is prequantizable.  In $\g^* = \mathfrak{su}(2)^*$, we have
+ $\{x,y\}=z, \{y,z\}=x, \{z,x\}=y$, and the levels of $x^2+y^2+z^2$ are the symplectic
+ leaves  ... coadjoint orbits.  Then the symplectic area of the sphere is equal to
+ $4\pi r$.  The quantizable ones are those for which $r\in \frac{1}{2}\ZZ$ (including
+ $r=0$).  This corresponds to spin.  The representations of $SU(2)$ are indexed by
+ this spin.  But $\mathfrak{su}(2)=\mathfrak{so}(3)$, but the reps of $SO(3)$ require
+ spin to be a whole integer.  In general, for complact simply-connected groups, there
+ is one to one correspondence between irreducible representations and quantizable
+ coadjoint orbits (Borel-Weil Theorem).  This is also true for nilpotent groups
+ (Kirillov).
+
+ $0\to \ZZ\xrightarrow{2\pi[i]} [i]\RR \to [i]\RR/2\pi[i]\ZZ \to 0$.  Some people put
+ the $i$ because then the quotient is more directly isomorphic to $U(1)$.  There is a
+ corresponding long exact sequence in cohomology (in the same direction (these are the
+ coefficients))
+ \[
+    \cdots\to H^1(M,U(1)) \to \underbrace{H^2(M,\ZZ) \xrightarrow{2\pi} H^2(M,\RR)} \to H^2(M,U(1))
+\to H^3(M,\ZZ)\to \cdots
+ \]
+ The condition for prequantizability is that $[\w]$ lies in the image of $H^2(M,\ZZ)$.
+ It turns out that $H^2(M,\ZZ)$ classifies [hermitian, unitary] complex line bundles
+ up to isomorphism.  The element of $H^2(M,\ZZ)$ corresponding to the bundle is called
+ the chern class $c_1$.  The kernel of the underbraced map are the complex line
+ bundles whose churn classes go to the symplectic class.  There is a lack of
+ uniqueness if the previous map is non-trivial.  If there is a connection whose
+ cohomology is zero, then there is a connection which is flat (curvature is
+ identically zero).  Remember that there is a group structure on complex
+ line bundles (given by tensor product), which makes the map to $H^2(M,\ZZ)$ a group
+ homomorphism.  The point is that if you have two line bundles with connections
+ $curv((E_1,\ phi_1)\otimes (E_2,\ phi_2)) = curv(E_1,\phi_1) + curv(E_2,\phi_2)$.  So
+ there is another group here, the one of hermitian line bundles with connection.
+
+ \[\xymatrix @!0 @C=12mm @R=15mm {
+  & & & \tiny\txt{bundles with\\ connection} \ar[dl]_{\tiny\txt{forget\\ connection}} \ar[dr]^{\tiny\txt{curvature}} \\
+  & & \tiny\txt{line\\ bundles} \ar[d]_{\tiny\txt{chern\\ class}} & & Z^2(M) \ar[d]^{[\ ]}\\
+   \cdots \ar[rr] & & H^2(M,\ZZ)\ar[rr]^{2\pi} & & H^2(M,\RR)\ar[rr] & & \cdots
+ }\]

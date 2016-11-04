@@ -1,0 +1,159 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{11}
+ \sektion{Lecture 11}
+
+ The Lagrangian $L:TM\to \RR$ is written as $L(x,v)$, where $x$
+ are local coordinates on $M$ and $v=\der{x}{t}$.  Then given a
+ path $\gamma:[a,b]\to M$, we define
+ \[
+    A(\gamma) = \int_a^b L(\dot\gamma(t))\, dt
+ \]
+ Classically, we have $L=\frac{1}{2}\dot{x}^2 - V(x)$.
+
+ Consider paths from $r$ to $s$.  This forms a big space, and we
+ look for paths which extremize (minimize or maximize) $L$.  How
+ do you find such a thing?  Look at tangent vectors in path space.
+ A path in path space is just a function of two variables.
+ \begin{align*}
+    A(\gamma_s) &=  \int_a^b L(\pder{}{t}\gamma_s(t)) \\
+    \der{}{s}A(\gamma_s) &= \int_a^b
+    (stuff)\pder{\gamma_s}{t}(t)\, dt
+ \end{align*}
+ The second thing must be zero for all variations, which implies
+ that $stuff$ must be zero.  When you write it out,
+ \[
+    stuff = \pder{L}{x}-\der{}{t}\pder{L}{\dot{x}}=0
+ \]
+ This gives a system of partial differential equations called the
+ \emph{Euler-Lagrange} equations.  In the classical case, we
+ get
+ \[
+    0 = -\pder{V}{x} - \der{}{t}(m\dot{x}) = -\pder{V}{x}-m\ddot{x}
+ \]
+
+ What do these look like for more general Lagrangians?  Well we
+ could have written these last equations as
+ \begin{align*}
+   \der{x}{t} &= \dot{x}\\
+   \der{\dot{x}}{t} &= -\pder{V}{x}
+ \end{align*}
+ which is a vector field on $TQ$, given by
+ \[
+    \pder{}{t} = \dot{x}\pder{}{x} -\pder{V}{x}\pder{}{\dot{x}}.
+ \]
+
+ In general, we get
+ \[
+    \pder{L}{x^i} = \der{}{t}\pder{L}{\dot{x}^i} =
+    \frac{\partial^2L}{\partial x^j\partial \dot{x}^i} \dot{x}^j +
+    \frac{\partial^2L}{\partial \dot{x}^j\partial \dot{x}^i} \ddot{x}^j
+ \]
+ It would be handy to be able to invert the matrix $\left(\frac{\partial^2L}{\partial \dot{x}^j\partial
+ \dot{x}^i}\right)$.  This is the \emph{Legendre condition}.  If the
+ condition holds, then (E-L) are 2nd order ODEs (i.e., a vector
+ field on $TQ$).
+
+
+
+ If $L = \sqrt{\sum (\dot{x}^i)^2}$, you find that the E-L equations
+ are degenerate, so the solution is not unique.  This is because
+ changing the speed of a length-minimizing path leaves it
+ length-minimizing.
+
+ If you do the calculation for something of the form
+ $L(x,\dot{x})=g_{ij}(x)\dot{x}^i\dot{x}^j$, it turns out that the critical
+ points of this are geodesics, parameterized by arc length.
+
+ If you let $p_i = \pder{L}{\dot{x}^i}$, then you can define $\E =
+ p_i\dot{x}^i - L$, which we call ``energy''.
+ \begin{theorem}
+   The Legendre condition holds if and only if $\L:(x,\dot{x})\mapsto
+   (x,p)$ is a local diffeomorphism if and only if
+   $\L^*(\underbrace{\sum dx^i\wedge dp_i}_\w)$ is nondegenerate.
+   Moreover, Lagrange's equations give hamiltonian vector field of
+   $\E$ with respect to $\L^*\w$, i.e.
+   $\widetilde{(\L^*\w)}^{-1}(d\E)$.
+ \end{theorem}
+   If the Legendre condition holds, then
+   $\left(\pder{p_i}{\dot{x}^j}\right)$ is invertible, so $\dot{x}\to p$
+   locally a diffeomorphism, so $(x,\dot{x})\mapsto (x,p)$ is a local
+   diffeomorphism, given by
+   \[\left(\begin{array}{cc}
+   I & \ast\\
+   0 & \frac{\partial^2L}{\partial \dot{x}^j \partial \dot{x}^i}
+   \end{array}\right)\]
+
+ Figure 1
+
+ $dL_{(x,v)}:T_{(x,v)}TQ\to \RR$, but we can restrict it to
+ $T_{(x,v)}T_xQ$, so $dL_{(x,v)}|_{T_{(x,v)}T_xQ} \in
+ T_{(x,v)}(T_xQ)^* \cong (T_xQ)^*$, which is $T^*_xQ$.
+
+ Thus, if $\pi:TQ\to Q$,
+ \[\xymatrix{
+ dL|_{\ker T\pi}:& TQ\ar[r]^{\L}\ar[dr]_\pi & T^*Q\ar[d]\\
+ & & Q
+ }\]
+
+ The Legendre condition says that $T\L$ is invertible, which is
+ equivalent to $\L$ being a local diffeomorphism, which is
+ equivalent to $\L^*\w$ being symplectic.
+
+ $\E(x,v)=\L(x,v)(v)-L(x,v)$, which is sometimes written $\E =
+ \langle p,v\rangle - L$.  Thus, from any Lagrangian, you get a
+ pullback 2-form.  When the Legendre condition fails, this 2-form
+ is degenerate, so you cannot get a hamiltonian vector field from
+ a function.
+
+ There is another way of looking at this.  If we impose the
+ \emph{strong Legendre condition}, that $\L$ is globally a
+ diffeomorphism, then we define $H=\E\circ \L^{-1}:T^*Q\to \RR$.
+ This is called the hamiltonian associated to this lagrangian.
+ Then Lagrange's equations on $TQ$ are transfromed by $\L$ into
+ Hamilton's equations on $T^*Q$ with canonical symplectic
+ structure, and $H(x,p)=\langle p,\L^{-1}(x,p)\rangle -
+ L(\L^{-1}(x,p))$.
+
+ In the case $L=\frac{1}{2}m(\dot{x}^i)^2 - V(x)$, with $i=1,2,3$. Then
+ $p_i=m\dot{x}^i$\footnote{If we write $\delta_{ij}\dot{x}^i\dot{x}^j$ instead of
+ $(\dot{x}^i)^2$, we would get the right upper/lower indices.}  Then we
+ get
+ \begin{align*}
+    \E &= \sum m(\dot{x}^i)^2 - \frac{1}{2}\sum m(\dot{x}^i)^2 + V(x) \\
+     &= \frac{1}{2}\sum m(\dot{x}^i)^2 + V(x)\\
+    H &= \frac{1}{2}\sum \frac{p_i^2}{m} + V(x)
+ \end{align*}
+
+ If you strengthen the Legendre condition by requiring that the
+ matrix is positive definite, then you know that you have an
+ extreme point (not just a critical point)[is this right?].  If
+ you follow the solution to the E-L equations too far, you may
+ reach a point where the path is not even locally minimizing (e.g.
+ consider shortest length paths on a sphere).
+
+ If we start with $H;T^*Q\to \RR$, consider $dH|_{\text{\tiny
+ fibres of }T^*Q}:T^*Q\xleftarrow{\mathcal{M}=weird} TQ$.  So
+ we're setting $v^i = \pder{H}{p^i}$, then define
+ $L=(p^i\pder{H}{p^i}-H)\circ \mathcal{M}^{-1}:TQ\to \RR$.  If we
+ take the Legendre transform of this $L$, we get $H$.
+
+ \underline{Hamilton's principle}: Given some $H(x,p)$, define
+ $L(x,p,\dot{x},\dot{p})= p\dot{x}-H$.  If we have a path in $T^*Q$, we can
+ evaluate $L(\dot\gamma)=\alpha(\dot\gamma)-H\circ (projection)$.  Then
+ Lagrange's equations say
+ \begin{align*}
+   \pder{L}{x} &= \der{}{t} \pder{L}{\dot{x}}\\
+   \pder{L}{p} &= \der{}{t} \pder{L}{\dot{p}}
+ \end{align*}
+ so
+ \begin{align*}
+   -\pder{H}{x^i} &= \der{}{t} p_i\\
+   \dot{x}^i-\pder{H}{p^i} &= \der{}{t}(0)=0.
+ \end{align*}
+ Notice that the Legendre condition fails miserably, so Lagrange's
+ equations are first order equations. The solutions to this set of
+ equations are just the extrema for our variational problem.
+ Consider things that solve the second equation, so $\dot{x}^i=\der{x^i}{t}
+ = \pder{H}{p^i}$.  Then Hamilton's lagrangian is $p_i\dot{x}^i-H$.  We
+ identify solutions to this second half with paths in $Q$, not in
+ $T^*Q$.

@@ -1,0 +1,137 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{12}
+ \sektion{Lecture 12 - Momentum maps}
+
+ Today's lecture was given by Christian.
+
+ Momentum maps are supposed to associate conserved quantities to
+ symmetries.  The symmetries are the basic assumptions on
+ space-time and interactions, from which we get the conserved
+ quantities of momentum and charge.  If two quantities are
+ conserved, so is their Poisson bracket, so the conserved
+ quantities form a Lie algebra.
+
+ Lets start with an action, $\rho$, of a group $G$ on a set $S$.
+ An action is \emph{transitive} if there is only one orbit.  The
+ action is \emph{free} if $g\cdot s=s \Rightarrow g=e$.  The
+ action is \emph{effective} if $g\cdot s=s$ for all $s$ implies
+ that $g=e$.  If $S_1$ and $S_2$ are $G$-sets and $\phi:S_1\to
+ S_2$ respects the action, then it is called
+ \emph{$G$-equivariant}.
+
+ Now we can add a manifold structure.
+ \begin{definition}
+   A \emph{Lie group} is a group-manifold such that multiplication
+   and inverse are smooth maps.  We also require it to be closed
+   and connected.
+ \end{definition}
+ This is equivalent to $L$ (left multiplication) being a smooth
+ action of $G$ on itself (this implies that $L_g$ is a
+ diffeomorphism for each $g$, but the converse is not true).  If
+ $f\in C^\infty (G)$ is $L$-invariant, then we have that
+ $f(g)=f(hg)$ for all $g,h$, so $f$ is constant.
+
+ Invariant vector fields are more interesting.  Say $L^*_gv=v$,
+ that is, $(T_gL_h)v(g)=v(hg)$.  Then we can define
+ \[
+    \g = \{v\in \chi^1(G)|v\text{ is } L\text{-invariant} \}
+ \]
+ the lie algebra of $G$.
+
+ Note that we can get a left invariant vector field by simply
+ taking some $v_e\in T_eG$ and defining $v(g)=(T_eL_g)v_e$.  Thus,
+ as a vector space, $\g\cong T_eG$.
+
+ The vector field being invariant corresponds to the flow being
+ $L$-equivariant.  For any vector field, we have
+ \[
+    \check \phi (\phi(g,t_1),t_2) = \check \phi(g,t_1+t_2)
+ \]
+ and $L$-equivariant means
+ \begin{align*}
+    \check \phi(\phi(g,t_1)h,t_2)&=\check \phi(g,t_1)\check
+    \phi(h,t_2)\\
+    \check \phi(gh,t)&= g\cdot \check\phi(h,t)
+ \end{align*}
+ So we get an exponential map:
+\[
+    \check \phi(e,t_1+t_2) = \check\phi(\check\phi(e,t_1)e,t_2) =
+    \check\phi(e,t_1)\cdot \check\phi(e,t_2)
+\]
+So we can define $\exp:T_eG\to \g\to G$ given by $v_e\mapsto
+v\mapsto \check\phi(e,1)$.  We have that $\RR\to G$ given by
+$t\mapsto \exp(vt)$ is a group homomorphism.  These things are
+called one-parameter subgroups.  If they close up, they are
+isomorphic to $S^1$, and if they do not, they are isomorphic to
+$\RR$.
+
+ $Ad:G\times G\to G$ is defined by $Ad_g h=ghg^{-1}$.  You can look
+ at the derivative in the second argument to get $Ad:G\times \g\to
+ \g$.  If you like, you can define $Ad_g\exp(tv)=g\exp(vt)g^{-1}$,
+ in which case $Ad_g v:= \der{}{t} g\exp(vt)g^{-1}$.  You can take
+ the dual of the action to get $Ad^*:G\times \g^*\to \g^*$ given
+ by $\langle (Ad^*)(g)\alpha,v\rangle = \langle \alpha,(Ad\,
+ g^{-1})v\rangle$.  Taking the derivative, we get
+ \[
+    ad:\g\times\g \to \g
+ \]
+ given by $ad(v)w=[v,w]$.
+
+ Now we can add some symplectic structure.  Say $(M,\w)$ is
+ symplectic.  We require our actions to satisfy $\rho(g)^*\w=\w$.
+ That is, $\rho:G\to Sym(M,\w)$.  Such actions are called
+ symplectic.  The infinitesimal version of this says that $(\exp
+ vt)^*\w=\w$.  The Lie derivative version is that $\L_{\tilde
+ \rho(v)} \w=0$, where $\tilde\rho:\g\to \chi^1_{sym}(M,\w)$.  If
+ the vector fields $\tilde\rho(\g)$ are hamiltonian, then the
+ action is called \emph{hamiltonian}.
+
+ Figure 1
+
+ In this case, we can get a generating function for each element
+ of the lie algebra.  Let $\tilde{\mathfrak{J}}:\g\to C^\infty
+ (M)$ send a vector field $v$ to its generating function $f_v$
+ (this is not unique!). This map is called the (co)momentum map.
+ We define the momentum map $\mathfrak{J}:M\to \g^*$ by $\langle
+ \mathfrak{J}(m),v\rangle = \tilde{\mathfrak{J}}(v)|_m$.
+
+ \begin{proposition}
+   $\tilde{\mathfrak{J}}$ exists ($\tilde \rho$ is hamiltonian) if
+   and only if $\g/[\g,\g]\to H^1_{dR}(M)$, $[v]\to
+   [\tilde\w^{-1}\tilde\rho(v)]$, is the zero map.  By the way,
+   $\g/[\g,\g]\cong H^1_{CE}(\g,\RR)$.
+ \end{proposition}
+ \begin{proof}
+   We just have to show that the map is well defined (because
+   hamiltonian vector fields correspond exactly to exact forms).
+   Let $X,Y\in \chi_{sym}(M)$.  Then we have to show that
+   $i_{[X,Y]}\w$ is the derivative of something.
+   \begin{align*}
+     i_{[X,Y]}\w &= (\L_Xi_Y-\overbrace{i_Y\L_X}^0)\w &(\L_X\w=0)\\
+        &= (i_x\circ d\circ i_y + d\circ i_x)\w &\text{(by magic
+        formula)}\\
+        &= (i_X(\underbrace{\L_Y-i_Yd}_0) + di_Xi_Y)\w &\text{(magic formula)}\\
+        &= d\w(Y,X)
+   \end{align*}
+ \end{proof}
+
+ \begin{corollary}
+   \begin{itemize}
+   \item[(i)] If $H^1_{dR}(M)=0$, then the action is hamiltonian.
+   \item[(ii)] If $\g$ is semi-simple\footnote{Which implies
+   $\g=[\g,\g]$.}, then the action is hamiltonian.
+   \end{itemize}
+ \end{corollary}
+
+ An action on the hamiltonian system $(M,\w,H)$ is called
+ invariant if $H$ is $G$-invariant, i.e. $H(g\cdot m)=H(m)
+ \Longrightarrow \tilde\rho(v)H=0$.  The punchline of the lecture
+ is
+ \begin{proposition}
+   If $\tilde \rho$ preserves dynamical system, then
+   $\tilde{\mathfrak{J}}(v)$ is a conserved quantity for any $v$.
+ \end{proposition}
+ \begin{proof}
+   $X_H\tilde{\mathfrak{J}}(v) = \{\tilde{\mathfrak{J}}(v),H\} =
+   -X_{\tilde{\mathfrak{J}}(v)}H = -\tilde\rho(v)H=0$.
+ \end{proof}

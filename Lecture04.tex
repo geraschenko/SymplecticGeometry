@@ -1,0 +1,171 @@
+
+ \stepcounter{lecture}
+ \setcounter{lecture}{4}
+ \sektion{Lecture 4}
+
+ Today's lecture was given by Christian.
+
+ \section*{Generating Functions}
+
+ So far we have $Sym(M_1,M_2)\hookrightarrow\lag(\bar M_1\times
+ M_2)$.  The idea of generating functions is this.  You start with
+ a function on $M_1\times M_2$, and by some differentiation
+ process, you get a lagrangian manifold, and then you check if it
+ corresponds to a symplectomorphism.  Starting with a function and
+ getting a morphism is easy (because it is differentiation), and
+ the other way is hard.
+
+ Let's say that $M=T^*X$ and $\mu\in \W^1(X)$.  Then we have seen
+ that $\im \mu\in \lag(M)$ if and only if $d\mu=0$.  Thus, we can
+ just start with a zero form (a function), and differentiate it to
+ get a lagrangian manifold.
+
+ Now consider the case where $M_1=T^*X_1$ and $M_2=T^*X_2$.  Then
+ we have $\overline{T^*X_1}\times T^*X_2\xleftarrow{\sigma}
+ T^*(X_1\times X_2)$ given by $\sigma((x_1,x_2),(\xi_1,\xi_2)) =
+ ((x_1,-\xi_1),(x_2,\xi_2))$.  This is called the Schwartz
+ transform.  Now we can consider $f\in C^\infty(X_1\times X_2)$,
+ then $\im df \in \lag(\bar M_1\times M_2)$.  How do we check if
+ this is the graph of some symplectomorphism, $\phi$?  We must
+ have that $\phi(x_1,-\xi_1)=(x_2,\xi_2)$, which happens if and
+ only if $\xi_1=-d_1f, \xi_2=d_2f$\footnote{These are the natural
+ projections of $df$.}  That is,
+ \begin{align*}
+   \xi_{1i} &= -\frac{\partial f}{\partial x_1^i}(x_1,x_2)\\
+   \xi_{2i} &= \frac{\partial f}{\partial x_2^i}(x_1,x_2)
+ \end{align*}
+ By the implicit function theorem, this is locally solvable for
+ $x_2$ when $\det \left| \frac{\partial^2 f}{\partial x_1^i \partial x_2^i}
+ \right|\not=0$.  It is hard to tell when we can solve this
+ globally ... you have to check it separately.
+
+ \underline{Fibre-preserving diffeomorphisms}: A symplectomorphism
+ \[\xymatrix{
+  T^*X\ar[r]^\phi \ar[d]^\pi & T^*X\ar[d]^\pi\\
+  X\ar[r]^\psi & X
+  }\]
+  is fibre-preserving if this diagram commutes for some $\psi$.
+
+  Examples:
+  \begin{itemize}
+  \item[(1)] Take $\psi:X\to X$ diffeomorphism, and let
+  $\phi=T^*\psi$.  How do we see this is a symplectomorphism?  The
+  canonical 1-form does not depend on coordinates.
+
+  \item[(2)] \emph{Fibre translation.} Take $\psi=\id_X$, and let
+  $\phi:(x,\xi)\mapsto (x,\xi+\mu(x))$, where $\mu\in \W^1(X)$.
+  Then you can check that $\phi^*\alpha = \alpha + \pi^*\mu$ (you
+  can see this using the local description of $\alpha$):
+
+  $\xi_i(\alpha) = \frac{\partial}{\partial x} \lrcorner\alpha$.
+  \[
+    \w = -d\alpha \buildrel{!}\over{=} \phi^*\w = \phi^*(-d(\alpha
+    + \pi^*\mu)) = \w+\pi^*d\mu \Leftrightarrow d\mu =0 \ (\mu=df)
+  \]
+
+  \item[(3)] Take $\phi:T^*X\to T^*X$ a symplectomorphism which is
+  fibre-preserving.  Then this induces $\psi:X\to X$.  We can
+  check that
+  \[
+    \phi = \underbrace{(\phi\circ T^*\psi)}_{\text{of type 1}}\circ
+    \underbrace{T^*\psi^{-1}}_{\text{of type 2}}
+  \]
+
+  \item[(4)] Consider $M_1 = (T^*X,\w=-d\alpha)$ and $M_2 =
+  (T^*X,\w_B = \w+\pi^* B$ where $B\in \W^2(X)$.  Then $\w_B$ is
+  symplectic if and only if $B$ is closed.  To check that this is
+  non-degenerate, check
+  \[
+    \w_{Bij} = {{\frac{\partial}{\partial x^i}\ \frac{\partial}{\partial
+    p_i}}\atop{\matrix{B_ij}{I}{-I}{0}}}
+  \]
+
+  \begin{itemize}
+  \item[(1)] $\w\mapsto \phi^* = \w$
+  \item[(2)] $\w \mapsto \phi^*\w = \w + \pi^*d\mu$ is a
+  symplectomorphism if and only if there is a $\mu\in \W^1(X)$
+  such that $B=d\mu$.  This is not always possible when
+  $H^2(X,\RR)\not=0$.  (This $\mu$ is often called $A$)
+  \end{itemize}
+
+ \item[(5)] If the manifolds are the same, then $\aut
+ (M,\w)\hookrightarrow \lag(\bar M\times M)$.  The first is a Lie
+ group, so we can study the Lie algebra.  The Lie algebra of a lie
+ group $G$ is $T_eG$ as a vector space.  Take $t\mapsto \phi_t$ to be a
+ smooth curve in $\aut(M,\w)$ such that $\phi_0=\id_M$.  By smooth
+ we mean that $\phi:M\times \RR\to M$ is smooth.
+ $\frac{d}{dt}\phi_t(x)|_{t=0} = \sqrt{x}$, then
+ \[
+    0 = \frac{d}{dt}(\phi^*_t\w - w)|_0 = \L_v \w = 0.
+ \]
+ A vector field with $\L_v\w=0$ is called \emph{symplectic}.  The
+ collection of symplectic vector fields is the lie algebra of
+ $\aut(\bar M\times M)$.
+
+ Is $\L_{[v,w]}\w=0$?  $\L_v = d\circ i_v + i_v\circ d$ and
+ $i_{[v,w]} = \L_v i_w - i_w\L_v$.  Thus we compute
+ \begin{align*}
+   \L_{[v,w]}\w &= (d\circ i_{[v,w]} + i_{[v,w]}\circ d)\w \\
+    &= d(\L_v i_w - i_w\L_v\lrcorner)\w\\
+    &= d(\L_vi_w \w) \\
+    &= \L_v (d i_w \w)& (\L_v d = d\L_v) \\
+    &= \L_v(\L_w - i_v\circ d)\w = 0
+ \end{align*}
+ so this really is a lie algebra.  Note that $\L_v\w = 0$ if and
+ only if $d(i_v\w) = 0$ (e.g., for $i_v\w = df$ for a function
+ $f$).  Recall that we have $\tilde \w:TX\to T^*X$ ... note that
+ $\tilde \w(v) = i_v\w$.  Thus, we can solve $\tilde \w(v) =df$,
+ so $X_{f} = v = \tilde \w^{-1}(df)$.  This is called \emph{the
+ hamiltonian vector field generated by $f$}.
+
+ Locally, you can always find $f\in C^\infty(U_X)$, so symplectic
+ vector fields are often called \emph{locally hamiltonian}.
+
+ So we have the following picture:
+ \[\xymatrix{
+  f\ar[r]^{\text{``differ''}} & X_f\ar[r]^{\text{\tiny integrate}} &
+  flow\, \phi_t \ar[r] & graph\, \phi_t\in \lag(\bar M\times M)
+ }\]
+
+ \[
+  \begin{pspicture}(-.3,0)(3.5,3.1)
+  \psline(0,0)(0,3) \rput(-.3,2.8){$\bar M$}
+  \psline(0,0)(3,0) \rput(3.3,0){$M$}
+  \psline(0,0)(3,3) \rput(2.1,2.8){$\id_M$}
+  \pscurve(-.1,.1)(.5,1)(2,1.5)(2.7,2.6)(3,2.9) \rput(3.1,2.6){$\phi_t$}
+  \psline[linecolor=darkgray]{->}(.75,.75)(.5,1)
+  \psline[linecolor=darkgray]{->}(.45,.45)(.21,.69)
+  \psline[linecolor=darkgray]{->}(1.9,1.9)(2.15,1.65)
+  \psline[linecolor=darkgray]{->}(1.6,1.6)(1.8,1.4)
+  \psline[linecolor=darkgray]{->}(2.2,2.2)(2.37,2.03)
+  \pscurve{->}(1.8,.8)(1,1)(.7,.9) \rput(2.1,.7){$X_f$}
+  \end{pspicture}
+ \]
+
+ What are the generators of these lagrangian submanifolds?
+
+ \end{itemize}
+
+ \underline{A glimpse of Hamilton-Jacobi theory}:  From mechanics:
+ Call the base manifold $Q$, with coordiantes $q^i$, called the
+ configuration space.  Then $T^*Q$ is phase space, with
+ coordinates $q^i, p_i(\alpha) = \frac{\partial}{\partial
+ q^i}\lrcorner \alpha$ (the second is \emph{momentum}).  Then we
+ have $H\in C^\infty(T^*Q)$, which we usually think of as energy.
+ Then the flow, $\phi_t$, generated by $X_H$ is given by
+ $\phi_t:(q^i,p_i)\mapsto (\bar q^i,\bar p_i)$.  Then we can think
+ about the generating functions of the lagrangian submanifolds
+ given by the $\phi_t$s.  Call them $S:Q\times Q\times \RR\to
+ \RR$, $S=S(q,\bar q,t) = \int_q^{\bar q} \L\, dt$ (this is
+ integrating the Lagrangian) ... more or less $H=qp-\L$.  Then
+ conservation of energy says what?  $X_H H=0$
+ (follows from $\w$ being skew-symmetric). Thus, $E=H(q,p) = H(\bar q^i,\bar
+ p_i) = [[H(d_2S)=E]]$ since
+ \begin{align*}
+   p_i &= -\frac{\partial S}{\partial q^i}\\
+   \bar p^i &= \frac{\partial S}{\partial \bar q^i}
+ \end{align*}
+ The boxed equation is what you have to solve to get at $S$.  If
+ you are lucky, then it will be some partial differential
+ equation.  If you're not lucky, then you'll have some arbitrary
+ function of derivatives.

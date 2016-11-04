@@ -1,0 +1,211 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{3}
+ \sektion{Lecture 3}
+
+ Questions from last time:
+ \begin{itemize}
+ \item[-] Foliations
+ \item[-] de Rham cohomology
+ \item[-] Lagragian subspaces as morphisms. If $V$ and $W$ are
+ of the same type, and the signatures are the same, then there is
+ an injection $Iso(V,W)\hookrightarrow \lag(\bar V\times W) = \hom(V,W)$.  If
+ $V=W$, then $\aut V\hookrightarrow \lag(\bar V\times V)$.  This
+ is a semigroup with identity, which contains $\aut V$ as a
+ subgroup.  In fact, these are just the invertible elements.  What
+ can we say about this semigroup? e.g., say $V=\RR^3$ Euclidean,
+ which gives $O(3)$ as automorphisms, which is an open subset of
+ $\lag(\bar V\times V)$, and it is closed since it is compact.
+ I think $O(3)$ is all of $\lag(\bar V\times V)$.  To show this,
+ we need to show that no lagrangian subspace intersects the $V$
+ axis.\marginpar{really?}
+
+ If $V=\RR^2$ symplectic, then the automorphisms are $SL_2(\RR)$ (non-compact),
+ and $\lag(\RR^4)$ look like $2\times 2$ symmetric matrices.  The
+ automorphism group sits in $lag(\RR^4)$ as an open dense subset.
+
+ \underline{Warning:} The product on $\lag(\bar V\times V)$ is
+ not, in general continuous!
+
+ \marginpar{Optional: analyze this multiplication}
+
+ C. Sabot: somehow related lagrange grassmanian to probability,
+ and modified this so that the multiplication is continuous.
+
+ \item[-] The non-symplectic example $(\CC P^2)^{\# 3}$ ... more?
+ I dunno.
+ \end{itemize}
+
+ Important things from the reading:
+
+ On the cotangent bundle $T^*X$ of any manifold, there is
+ a natural structure ... coordinates $(x^i,\xi_i)$.  $\alpha=\xi_i
+ dx^i$ and $\w=-d\alpha = dx^i\wedge d\xi_i$.  If $\phi$ is any
+ 1-form (section of cotangent bundle), $\phi^*\alpha=\phi$, and
+ this characterizes $\alpha$.  This $\alpha$ is called the
+ \emph{canonical 1-form} or the \emph{Liouville form}.  You can
+ see from local coordinates that $\w$ gives a symplectic
+ structure.
+
+ $T_{(x,0)}T^*X \cong T_xX\oplus (T_xX)^*$, which will always have
+ a natural symplectic structure $\W_-$.  This works along the zero
+ section, but elsewhere, you don't have a canonical
+ identification with a space and its dual, so you have to go
+ through the canonical 1-form.  There are some nice ways to
+ characterize the canonical 1-form, but it is not so easy to see
+ the 2-form.
+
+ In Chapter 3, we talk about symplectic maps, and
+ lagrangian submanifolds of symplectic manifolds.  Let $(M,\w)$ be
+ symplectic. Then say $N \stackrel{i}{\looparrowright} M$ is \emph{an
+ immersion} if $Ti$ injects into $T_{pt}M$.  We say $i$ is
+ [co]isotropic [lagrangian] if $(T_xi)(T_xN)\subseteq T_{i(x)}M$
+ is.  That is, $i$ isotropic if $i^*\w=0$, etc.
+
+ What we called $\bar V\times V$ before is now $\bar M\times M$,
+ where $\bar M$ is the same manifold, but with the sign of the
+ symplectic structure changed.  Then $(\bar M\times
+ M,-\pi^*_1\w+\pi^*_2\w)$, where the $\pi_i$ are the natural
+ projections.  We can also look at $\bar M_1\times M_2$, where
+ $M_1$ and $M_2$ are different.  Remember that the graphs of
+ morphisms $V_1\to V_2$ were lagrangians in $\bar V_1\times V_2$.
+ The same is true here.  If $f:M_1\to M_2$, then the graph of $f$
+ is lagrangian in $\bar M_1\times M_2$ if and only if
+ $f^*\w_2=\w_1$ and $\dim M_1=\dim M_2$, which implies that $f$ is
+ an immersion (otherwise, $f^*\w_2$ would be degenerate).  All of
+ this implies that $f$ is a local diffeomorphism.  We call such a
+ map a local symplectomorphism, and if it is a global
+ difeomorphism, then it is called a symplectomorphism.  The
+ conclusion is that the graph of $f$ is lagrangian if and only if
+ $f$ is a local symplectomorphism.  Now we can look at $\lag(\bar
+ M_1\times M_2)$, the set of lagrangian submanifolds.  Inside of
+ it are the local symplectomorphisms $Locsymp(M_1,M_2$ (in
+ particular, the symplectomorphisms).  We have that $\aut (M,\w)
+ \hookrightarrow \lag(\bar M_1\times M_2$.  Ok, can we compose
+ lagrangian submanifolds?  Well, you don't always get a manifold
+ (this relates to the non-continuity problem we talked about
+ earlier).  It still makes sense to think of the elements of
+ $\lag(\bar M_1\times M_2)$ as generalized morphisms, and call it
+ ``$\hom$''$(M_1,M_2)$ in some category.  Note that even if the
+ dimensions don't match, we can have some lagrangian submanifolds.
+ In particular, if $M_1=pt$, then ``$\hom$''$(pt,M)=\lag(M)$.  So in
+ this category, the role of points is played by lagrangian
+ submanifolds.
+
+ pictures
+
+ The other interesting case in the vector space case was $E\oplus
+ E^*$.  This corresponds to asking about the lagrangian
+ submanifolds of $T^*X$.  Well, there are two kinds of
+ submanifolds of $T^*X$. There are the fibers, along which the
+ canonical 1-form vanishes, an therefore so does the 2-form.  The
+ other kind of submanifold is the graph of a 1-form.  When is it
+ lagrangian?  Let's call the 1-form $\phi$.
+ \[
+   \phi \text{ a lagrangian immersion} \Leftrightarrow
+   0=\phi^*(-d\alpha) = -d(\phi^*\alpha) = -d\phi
+ \]
+ So $\phi$ must be closed.  Locally, we must have $\phi = dS$
+ where $S\in C^{\infty}(X)$.  We can change $S$ by any locally
+ constant function.  Thus, lagrangian sections of $T^*X$ are more
+ or less $C^{\infty}(X)/$consts.  Of course, if $X$ is not simply
+ connected, then there should be some correction (since not all
+ closed 1-forms are of the form $dS$).
+
+ Thus, we should think of $\lag(T^*X)$ as ``generalized
+ functions''.  We also see these in probability ... e.g. the Dirac
+ delta distribution should correspond to a fiber of the bundle.
+ What about as lagrangian section?  Some references: Bates -W. -
+ Lectures on the geometry of quantization.; Guillemin-Sternberg -
+ Geometric asymptotics.
+
+ Take the example $X=\RR$.  Take a lagrangian subspace of $T^*X$,
+ then this has the form $\xi = ax$ for some $a$, which corresponds
+ to the closed 1-form $a\,dx = d(\frac{1}{2} ax^2)$
+ \marginpar{something is funny here.}.  In the case
+ $f=\frac{\partial s}{\partial x}$, we have the corresponding
+ something $e^{\frac{i}{2} ax^2}$.  As $x\to \infty$, this
+ oscillates faster and faster, and as $a\to \infty$, the smooth
+ part gets scrunched in to the origin.
+
+ More on generalized functions.  Identify the function $u(x)$ with
+ the linear functional
+ \[
+    \psi\mapsto \int u(x)\psi(x)\, dx
+ \]
+ where $\psi$ (the ``test function'') ranges over
+ $C^{\infty}_c(\RR)$.  Thus, when we talk about $e^{\frac{i}{2}
+ ax^2}$ we should think about how it acts on test functions.  Well
+ if $\psi$ is supported away from the origin, $e^{\frac{i}{2}
+ ax^2} \psi$ integrates to something very small.  You can check
+ that if $\supp \psi$ doesn't contain the origin, then $\int e^{\frac{i}{2}
+ ax^2}\psi = o(\frac{1}{a^N}$ for $N>0$.  If the origin is in the
+ support of $\psi$, then we can check that
+ \[
+    \sqrt{a} \int e^{\frac{i}{2} ax^2}\psi(x)\, dx \to \sqrt\pi (sign\
+    a)\psi (0)
+ \]
+
+ ``Geometric WKB prescription''  Identify the graph of
+ $\im(dS)\in \lag(T^*X)$ with the generalized function(s)
+ $const\cdot e^{iS}$.  This const also eliminates the problem that
+ we can change $S$ by a constant.  Then this correspondence
+ extends in a reasonable way, associating to more general
+ lagrangian submanifolds on $T^*X$ distributions on $X$.
+
+ We think of the lagrangian submanifold as a state.  This is the
+ beginning of the association of classical states and quantum
+ mechanics (or in general, analysis on $X$ with geometry on
+ $T^*X$).
+
+ Another remark:  in linear algebra, if you had $V\oplus \bar V$,
+ you could sometimes identify it with an $E\oplus E^*$.  In this
+ way, you get some identification of $\aut V$ with $Symm(E)$.  Now
+ let's try it on manifolds.  Suppose you could identify $\bar
+ M\times M$, as a symplectic manifold, with $T^*X$.  Then we get
+ some identification between $\aut M$ and generalized functions on
+ $X$, $C^{\infty}(X)$.  The function associated to an automorphism
+ is called the \emph{generating function} of the morphism.  In
+ fact, there are different ways to pick $T^*X$, or the
+ identification.  This gives different flavors of generating
+ functions.
+
+ \[
+  \begin{pspicture}(-.6,-.6)(8,2)
+  \psline(-.3,0)(-.3,2)\rput(-1,1){$M$}
+  \psline(0,-.3)(2,-.3)\rput(1,-.6){$\bar M$}
+  \pspolygon(0,0)(0,2)(2,2)(2,0)
+  \psline(0,0)(2,2)\rput(1.2,1.5){$\Delta$}
+  \pscurve(0,0)(.5,.7)(1.5,1.2)(1.8,1.9)(2,2) \rput(1.5,.9){$f$}
+  \pscurve{->}(2.2,2)(2.5,1.9)(3,1)(3.8,1)
+  \pspolygon[linecolor=white,fillstyle=vlines,hatchangle=0,hatchcolor=gray](4,0)(4,2)(6,2)(6,0)
+  \rput(6.5,2){$T^*X$}
+  \psline(4,-.3)(6,-.3)\rput(5,-.6){$X$}
+  \psline(4,1)(6,1)
+  \rput(7.2,1.1){zero section}
+  \pscurve(4,1)(4.5,1.2)(5.4,.8)(5.8,1.1)(6,1)
+  \rput(5.5,.5){$dS$}
+  \end{pspicture}
+ \]
+
+ If you identify the diagonal on $\bar M\times M$ with the zero
+ section on $T^*X$, then you get an identification of $X$ with
+ $M$.  And then a symplectomorphism close to the identity gives a
+ closed 1-form.  The points on the diagonal (fixed points of $f$)
+ go to points on the zero section (critical points of $S$).
+
+ Take the example where $M=S^2$ with the usual symplectic
+ structure.  There is a theorem like the Lefshetz fixed point
+ theorem that an automorphism close to the identity, then there
+ are two fixed points (with multiplicity).  Now suppose you have
+ an area-preserving map on $M$ (i.e. a symplectic map).  Then this
+ would correspond to some $dS$, where $S$ is a function on $S^2$.
+ The section $S$ must have two distinct critical points (a max and
+ a min).  Thus, an area-preserving map close to the identity has
+ at least two (geometric) fixed points.  This is the simplest case
+ of the \emph{Arnol'd conjecture}: if you have a symplectomorphism
+ close to the identity, then the number of fixed points is the
+ same as the number of critical points of some function.
+
+ The technology for solving the Arnol'd conjecture developes into
+ ways of analyzing intersections of lagrangian submanifolds, which
+ is what lead to \emph{Floer homology}.

@@ -1,0 +1,131 @@
+ \stepcounter{lecture}
+ \setcounter{lecture}{16}
+ \sektion{Lecture 16 - About the Momentum Map}
+
+ From last time:
+
+ General reduction: $(M,\w,G,J)$, with $M_\mu=J^{-1}(\mu)/G_\mu$.
+
+ Cotangent reduction: $M=T^*X$, $G$ acts on $X$.  $J:M\to \g^*$ linear on fibres.
+ Then $J^{-1}(0)/G\simeq T^*(X/G)$, and $J^{-1}(a)/G$ could be identified with
+ $T^*(X/G)$, but not canonically.
+
+ Then we did an example where $M=\RR^4$, and we found that $J^{-1}(\mu)\simeq S^3$ and
+ $M_\mu\simeq S^2$.  We had the Hopf fibration.
+
+ Now for a real cotangent reduction example:  Let
+ \[\xymatrix @C=3mm {
+ S^1 \ar@{}[r]|{=} & U(1)\\
+ S^3 \ar@{}[r]|{\subseteq} & \CC^2\\
+ S^2 \ar@{}[r]|{\simeq} & \CC\PP^1
+ }\]
+ $T^*S^2\xrightarrow{H}\RR$ given by
+ $H(x,\xi)=\frac{1}{2}||\xi||^2$.  Hamilton's equations for such a hamiltonian are
+ exactly the equations for geodesics.  Then look at $H^{-1}(1/2)$.
+
+ [[If $M\xrightarrow{J} \g^*$ and $H:M\to \RR$ is $G$-invariant, then $H|_{J^{-1}(\mu)}$
+ induces $H_\mu$ on $M_\mu$.  $M\supseteq J^{-1}(\mu) \to M_\mu$.]]
+
+ We have a momentum map $T^*S^3\xrightarrow{J} \RR$ given by $J(v)=\langle
+ v,X_H\rangle$.  [[In the case of a surface of revolution, we have Clariout's Theorem,
+ which tells us that the angle of a geodesic with the direction of rotation is
+ fixed.]]  $J^{-1}(0)=$ vectors perpendicular to the Hopf vector field.
+
+ Figure 1
+
+ Notice that the sub-bundle of spaces perpendicular to the hopf vector field is not
+ integrable.  What is the induced hamiltonian downstairs?  $H_0:T^*S^2\to \RR$ is also
+ $\frac{1}{2}||\ ||^2$.   What if we replace 0 by $\mu$?  Because we have a metric, we
+ may as well lift a vector to $\mu$ times the hopf vector field plus stuff.  Then we
+ get the hamiltonian $H_\mu(v)=\frac{1}{2}||v ||^2+\mu^2$.  What about the flow?
+
+ Consider the case where we have the hopf field itself, then it will project to the
+ trivial flow on $S^2$.  If it is close to the hopf field, then it must project to
+ small circles for the trajectories.  This suggests that if something is moving on the
+ two sphere, it feels some force perpendicular to its direction of motion.  How do we
+ see that?  The symplectic form on $T^*S^2$ has been modified ... it turns out to be
+ modified by $\mu$ times the area form.
+
+ Say $X$ is a Riemannian manifold with a free circle action, so $X\to X/S^1$.  Suppose
+ the action preserves the metric.  If we pick a $\mu$, we get induced motion on
+ $T^*(X/S^1)$.  We have $B\in \W^2(X/S^1)$ closed, which takes velocities to forces
+ ... it behaves like a magnetic field.  In many cases, you can turn this around.  Say
+ $X/S=Y$, and you want to describe motion in a magnetic field on $Y$.  Then we can
+ describe it as motion on something one dimension higher so long as we can realize $B$
+ as the curvature of some connection.  That is the case if and only if the cohomology
+ class of $B$ is ``integral'' (i.e., if you integrate $B$ over any circle in $Y$, you
+ get an integer).  One can also lift the potential, if there is one.  This is called
+ Kaluza-Klien theory.  This stuff came up when people were trying to unite magnetic
+ and gravitational forces ... the idea was to work in a 5-dimensional space rather
+ than a 4-dimensional space-time.  This was the beginning of gauge theory.
+
+ Now say we have $(M,\w,G)$, and say we have a momentum map which is not equivariant.
+ So
+ \[\xymatrix{
+ v\in \g\ar[d]^\J \ar[r] & v_M \ar@{}[d]|{\parallel}\\
+ \J(v) \ar[r] & x_{\J(v)}
+ }\]
+ We can ask that $\J:\g\to C^\infty(M)$ be $G$-equivariant, which would be a regular momentum map.
+ \begin{align*}
+   [Ad_g v]_M &= \der{}{t}{\Big |}_{t=0} (\exp(Ad_g v))\\
+    &= \der{}{t}{\Big |}_{t=0} (g_M \exp(tv)_M g_M^{-1})\\
+    &= (Tg_M) v_M g_M^{-1}
+ \end{align*}
+
+ \begin{align*}
+   d\J(Ad_g v) &= (Ad_gv)_M\lrcorner \w\\
+    &= \underbrace{g_M^{-1*}v_M} \lrcorner \w\\
+    &= (g_M^{-1})^*(v_M\lrcorner \w)\\
+    &= (g_M^{-1})^* (d\J(v))
+ \end{align*}
+
+ \[
+    d(d(Ad_{g} v) - g_M^{-1*}\J(v))=0
+ \]
+ Assume $M$ connected, then $Ad_{g} v) - g_M^{-1*}\J(v)$ is some constant $\langle
+ c(g),v\rangle$.  So $c(g)\in \g^*$.  So $c:G\to \g^*$.  This $c$ is zero if and only
+ if $\J$ is equivariant if and only if $J:M\to \g^*$ is equivariant.
+
+ This $c$ is a 1-cocycle on $G$ with values in $\g^*$ with the Adjoint representation:
+ \[
+    c(gh) \text{ ``='' } c(g)+Ad^*_{g^{-1}}c(h)
+ \]
+ Why are these called cocycles?  Because we have a whole complex
+ \[
+    C^0(G,\g^*) \xrightarrow{\delta} C^1(G,\g^*) \xrightarrow{\delta} C^2(G,\g^*)
+    \xrightarrow{\delta} \cdots
+ \]
+ such that $\delta^2=0$, where $\delta(c)(g,h)= c(gh)-c(g)-Ad^*_{g^{-1}}c(h)$, and
+ $C^i(G,\g^*)$ are maps from $G^i$ to $\g^*$.  And for $\alpha \in C^0$, we have
+ $\delta(\alpha)= Ad_{g^{-1}}^*\alpha - \alpha$.
+
+ Recall that the condition on the momentum map is $d\J(v)=v_M\lrcorner \w$, so we can
+ change $\J$ by a constant, and when we do so, the $c$ varies over the cohomology
+ class.
+
+ If $p(g,h)$ is a 2-cochain, then we define
+ \[
+    \delta p(g_0,g_1,g_2) = - p(g_0g_1,g_2) + p(g_0,g_1g_2) +
+    Ad^*_{g_0^{-1}}p(g_1,g_2) - p(g_0,g_1)
+ \]
+
+
+ There is another kind of equivariance.  Given $c\in Z^1(G,\g^*)$, we can define a new
+ affine action of $G$ on $\g^*$ by the rule $g\cdot \alpha = Ad^{-1}_{g^*}\alpha +
+ c(g)$.  This it is easy to see that $J$ is now equivariant with respect to this
+ action.
+
+ \underline{Example}: $M=\RR^2$ with coordinates $(q,p)$, $\w=dq\wedge dp$.  Let $G=\RR^2$ with
+ coordinates $(a,b)$, then $\g\cong \RR^2$ with coordinates $(x,y)$.  Then we have the
+ action $(a,b)_M(p,q)=(p+a,q+b)$.  What is $(x,y)_M$?  It is
+ $x\pder{}{q}+y\pder{}{p}$.  Then $(x,y)_M\lrcorner \w = xdp-ydq = d(xp-yq)$ where $d$
+ is the differential in $(q,p)$ space.  This is equal to $d\langle
+ (p,-q),(x,y)\rangle$.  So we can say $\J(x,y)=xp=yq$.  Then $J(q,p)=(p,-q)$.  This is
+ not equivariant because the coadjoint action is trivial.  The cocycle is
+ $c(a,b,q,p)(x,y)=\J(x,y)(q,p)-\J(x,y)(q+a,p+b) = xb-ya$.  Then $c(a,b)=(b,-a)$.
+
+ Instead of just the lie algebra generators $e_x$ and $e_y$, we add $e_t$ such that $[e_x,e_y]=e_t$
+ and $[e_t,e_x]=[e_t,e_y]=0$.  The dual of this lie algebra has $\xi,\eta$ dual to
+ $e_x,e_y$, and $\tau$ dual to $t$.  Define the lie algebra action by letting $e_t$
+ act trivially: $(x,y,t)_M = x\pder{}{q}+y\pder{}{p}$.  If we take $J(q,p)=(p,-q,1)$,
+ then it turns out that this action is equivariant.
